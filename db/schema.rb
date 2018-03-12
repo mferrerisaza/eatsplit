@@ -10,10 +10,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312134516) do
+ActiveRecord::Schema.define(version: 20180312140711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.bigint "table_id"
+    t.string "status"
+    t.integer "balance_cents", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["table_id"], name: "index_bills_on_table_id"
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.string "category"
+    t.bigint "restaurant_id"
+    t.string "name"
+    t.text "description"
+    t.string "photo"
+    t.integer "price_cents", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "dish_id"
+    t.bigint "bill_id"
+    t.bigint "user_id"
+    t.integer "quantity"
+    t.string "status"
+    t.integer "amount_cents", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_id"], name: "index_orders_on_bill_id"
+    t.index ["dish_id"], name: "index_orders_on_dish_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "logo"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tables", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_tables_on_restaurant_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +96,11 @@ ActiveRecord::Schema.define(version: 20180312134516) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bills", "tables"
+  add_foreign_key "dishes", "restaurants"
+  add_foreign_key "orders", "bills"
+  add_foreign_key "orders", "dishes"
+  add_foreign_key "orders", "users"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "tables", "restaurants"
 end
