@@ -13,6 +13,14 @@ class Bill < ApplicationRecord
       return false
     end
   end
+
+  def update_balance
+    sum = 0
+    self.orders.each do |oder|
+      sum += order.amount
+    end
+    self.balance = sum
+  end
   #
 
 
