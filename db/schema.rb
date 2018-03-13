@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20180312140711) do
 
   create_table "bills", force: :cascade do |t|
     t.bigint "table_id"
-    t.string "status"
+    t.string "status", default: "unpaid"
     t.integer "balance_cents", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20180312140711) do
     t.bigint "bill_id"
     t.bigint "user_id"
     t.integer "quantity"
-    t.string "status"
+    t.string "status", default: "pending"
     t.integer "amount_cents", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,12 +67,15 @@ ActiveRecord::Schema.define(version: 20180312140711) do
     t.float "longitude"
     t.string "logo"
     t.string "photo"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
 
   create_table "tables", force: :cascade do |t|
     t.bigint "restaurant_id"
+    t.string "status", default: "available"
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -102,5 +105,6 @@ ActiveRecord::Schema.define(version: 20180312140711) do
   add_foreign_key "orders", "dishes"
   add_foreign_key "orders", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "restaurants", "users"
   add_foreign_key "tables", "restaurants"
 end
