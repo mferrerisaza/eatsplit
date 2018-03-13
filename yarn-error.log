@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js check --integrity
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js check --integrity
 
 PATH: 
-  /home/mferreri/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/home/mferreri/.rbenv/versions/2.4.3/bin:/home/mferreri/.rbenv/libexec:/home/mferreri/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/mferreri/.rbenv/shims:/home/mferreri/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+  /Users/erichaagensen/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/Users/erichaagensen/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:./bin:./node_modules/.bin:/Users/erichaagensen/.rbenv/shims:/Users/erichaagensen/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 
 Yarn version: 
   1.5.1
@@ -11,14 +11,16 @@ Node version:
   8.9.4
 
 Platform: 
-  linux x64
+  darwin x64
 
 npm manifest: 
   {
     "name": "eatsplit",
     "private": true,
     "dependencies": {
-      "@rails/webpacker": "^3.3.0"
+      "@rails/webpacker": "^3.3.0",
+      "bootstrap": "3",
+      "jquery": "^3.3.1"
     },
     "devDependencies": {
       "webpack-dev-server": "^3.1.1"
@@ -927,6 +929,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/boom/-/boom-5.2.0.tgz#5dd9da6ee3a5f302077436290cb717d3f4a54e02"
     dependencies:
       hoek "4.x.x"
+  
+  bootstrap@3:
+    version "3.3.7"
+    resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
   
   brace-expansion@^1.1.7:
     version "1.1.11"
@@ -3056,6 +3062,10 @@ Lockfile:
   isstream@~0.1.2:
     version "0.1.2"
     resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
+  
+  jquery@^3.3.1:
+    version "3.3.1"
+    resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   
   js-base64@^2.1.8, js-base64@^2.1.9:
     version "2.4.3"
@@ -6090,9 +6100,9 @@ Lockfile:
 
 Trace: 
   Error: Found 1 errors.
-      at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
-      at /usr/share/yarn/lib/cli.js:59470:13
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:186:110)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:59470:13
       at Generator.next (<anonymous>)
-      at step (/usr/share/yarn/lib/cli.js:98:30)
-      at /usr/share/yarn/lib/cli.js:109:13
+      at step (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:109:13
       at <anonymous>
