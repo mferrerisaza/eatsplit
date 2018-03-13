@@ -1,0 +1,13 @@
+<p>@table.restaurant</p>
+<p>Your order is being processed</p>
+<div class="top-dashboard-container">
+  <div class="dashboard-controller people">
+    <% @bill.users.each do |user| %>
+    <%= cl_image_tag "<%= user.profile.photo %>", class: "table-dashboard-avatar"  %>
+  </div>
+  <div class="dashboard-controller user"></div>
+</div>
+<div class="bottom-dashboard-container">
+  <div class="dashboard-menu"></div>
+  <div class="btn-pay"></div>
+</div>
