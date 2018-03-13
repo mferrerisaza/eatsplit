@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @dishes = @restaurant.dishes
+    @dishes = policy_scope(@restaurant.dishes)
   end
 end
