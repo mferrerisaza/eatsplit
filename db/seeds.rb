@@ -40,6 +40,42 @@ restaurant_1.user = User.find(1)
 
 restaurant_1.save!
 
+restaurant_2 = Restaurant.new(
+  name: "Pizza barça",
+  category: "Italian",
+  address: "Travessera de Gràcia 441"
+)
+
+restaurant_2.remote_logo_url = "https://i.pinimg.com/originals/88/2d/88/882d883fcf289d704c064da27ed4fa60.png"
+restaurant_2.remote_photo_url = "https://www.cnet.com/i/bto/20091214/mario-pizza_610x457.jpg"
+restaurant_2.user = User.find(1)
+
+restaurant_2.save!
+
+restaurant_3 = Restaurant.new(
+  name: "Burger castellano",
+  category: "Spanish",
+  address: "Carrer Lepant 277"
+)
+
+restaurant_3.remote_logo_url = "https://i.pinimg.com/originals/88/2d/88/882d883fcf289d704c064da27ed4fa60.png"
+restaurant_3.remote_photo_url = "https://www.cnet.com/i/bto/20091214/mario-pizza_610x457.jpg"
+restaurant_3.user = User.find(1)
+
+restaurant_3.save!
+
+restaurant_4 = Restaurant.new(
+  name: "Syri",
+  category: "Syrian",
+  address: "Carrer de València 334"
+)
+
+restaurant_4.remote_logo_url = "https://i.pinimg.com/originals/88/2d/88/882d883fcf289d704c064da27ed4fa60.png"
+restaurant_4.remote_photo_url = "https://www.cnet.com/i/bto/20091214/mario-pizza_610x457.jpg"
+restaurant_4.user = User.find(1)
+
+restaurant_4.save!
+
 puts "Seeding Restaurants done"
 
 
