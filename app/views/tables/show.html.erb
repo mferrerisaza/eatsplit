@@ -1,13 +1,28 @@
-<p>@table.restaurant</p>
-<p>Your order is being processed</p>
-<div class="top-dashboard-container">
-  <div class="dashboard-controller people">
-    <% @bill.users.each do |user| %>
-    <%= cl_image_tag "<%= user.profile.photo %>", class: "table-dashboard-avatar"  %>
-  </div>
-  <div class="dashboard-controller user"></div>
-</div>
-<div class="bottom-dashboard-container">
-  <div class="dashboard-menu"></div>
-  <div class="btn-pay"></div>
+<p>Your order at <%= @table.restaurant.name %> is being processed</p>
+<div class="maincontainer">
+    <div class="top-dashboard-container">
+      <div class="party-container">
+        <p>Your party</p>
+        <div class="dashboard-controller-avatars">
+          <% @bill.users.each do |user| %>
+          <%= card_photo_or_generic(user) %>
+          <% end %>
+        </div>
+      </div>
+      <div class="dashboard-controller-user">
+        <div class="user-info">
+          <%= user_name_or_generic(current_user) %>
+          <%= card_photo_or_generic(current_user) %>
+        </div>
+        <div class="bill-info">
+          <p class="balance"><%= "$ #{@bill.balance}" %></p>
+          <button>Get the check</button>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-dashboard-container">
+      <div class="dashboard-menu">
+      </div>
+      <div class="btn-pay"></div>
+    </div>
 </div>
