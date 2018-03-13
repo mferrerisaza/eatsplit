@@ -1,0 +1,10 @@
+<div class="dish-card" data-dish-id="<%= dish.id %>">
+    <div class="dish-card-image-container"><%= dish_picture(dish)%></div>
+    <div class="dish-card-details">
+      <h4><%= dish.name %></h4>
+      <p><%= dish.description %></p>
+      <p class="price"><%= humanized_money_with_symbol(dish.price) %></p>
+      <%= link_to "Add", root_path, class: "btn btn-primary dish-card-btn", remote: true %>
+    </div>
+
+</div>
