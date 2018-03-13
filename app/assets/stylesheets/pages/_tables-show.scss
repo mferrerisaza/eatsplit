@@ -1,0 +1,43 @@
+
+.top-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.party-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5%;
+  background-color: white;
+}
+
+.balance {
+  margin-bottom: 5px;
+}
+
+.dashboard-controller-user {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  padding: 5%;
+  margin-top: 5px;
+}
+
+.bill-info {
+  text-align: center;
+}
+.dashboard-controller-avatars {
+  img {
+    display: inline-block;
+  }
+}
+
