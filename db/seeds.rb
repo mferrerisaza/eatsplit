@@ -88,7 +88,7 @@ dish_4.remote_photo_url = "https://www.cucchiaio.it/content/cucchiaio/it/ricette
 dish_4.save!
 
 dish_5 = Dish.new(
-  category: "Desert",
+  category: "Dessert",
   name: "Tiramisu",
   description: "Coffee chocolate Italian dessert",
   price: 7

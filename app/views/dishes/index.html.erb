@@ -3,7 +3,7 @@
 </div>
 
 <ul>
-  <% @things.each do |thing| %>
-    <li></li>
+  <% Dish::Category.each do |category| %>
+    <li><%= category %></li>
   <% end %>
 </ul>
