@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.references :bill, foreign_key: true
       t.references :user, foreign_key: true
       t.integer :quantity
-      t.string :status
+      t.string :status, default: "pending"
       t.monetize :amount, currency: { present: false }
 
       t.timestamps
