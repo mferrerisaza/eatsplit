@@ -14,10 +14,26 @@ module ApplicationHelper
         height: 150,
         width: 150
     else
-      cl_image_path @restaurant.logo,
+      cl_image_path restaurant.logo,
         crop: :fill,
         height: 150,
         width: 150
+    end
+  end
+
+  def dish_picture(dish)
+    if dish.photo.nil?
+      cl_image_tag "restaurant-placeholder.jpg",
+        crop: :fill,
+        height: 600,
+        width: 600,
+        class: "dish-card-image"
+    else
+      cl_image_tag dish.photo,
+        crop: :fill,
+        height: 600,
+        width: 600,
+        class: "dish-card-image"
     end
   end
 end
