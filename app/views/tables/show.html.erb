@@ -1,38 +1,53 @@
 <div class="maincontainer">
-    <div class="top-dashboad-container">
       <div class="top-dashboard-container-top">
         <div class="dashboard-controller-user">
           <div class="user-info">
-            <p><%= user_name_or_generic(current_user) %></p>
             <%= card_photo_or_generic(current_user) %>
+            <p><%= user_name_or_generic(current_user) %></p>
           </div>
         </div>
         <div class="party-container">
-          <p>Your party</p>
           <div class="dashboard-controller-avatars">
-            <% if @bill.users.size < 3 %>
-              <% @bill.users.each do |user| %>
+            <% if @bill.users.uniq.size < 3 %>
+              <% @bill.users.uniq.each do |user| %>
               <%= card_photo_or_generic(user) %>
               <% end %>
             <% else %>
-              <% @bill.users[0..2].each do |user| %>
+              <% @bill.users.uniq[0..2].each do |user| %>
                 <%= card_photo_or_generic(user) %>
               <% end %>
-              <span>+<%= @bill.users.size - 3 %></span>
+              <span>+<%= @bill.users.uniq.size - 3 %></span>
             <% end %>
           </div>
+          <p>Your party</p>
         </div>
       </div>
-    </div>
-    <div class="bottom-dashboard-container">
       <div class="dashboard-menu">
+        <h3 id="still-hungry">Still hungry?</h3>
+        <h3>Starters</h3>
+        <div class="starters">
+        <% @starters.each do |dish| %>
+          <%= render 'shared/dish-card', dish: dish %>
+        <% end %>
+        </div>
+        <h3>Mains</h3>
+        <div class="mains">
+        <% @mains.each do |dish| %>
+          <%= render 'shared/dish-card', dish: dish %>
+        <% end %>
+        </div>
+        <h3>Desserts</h3>
+        <div class="desserts">
+          <% @desserts.each do |dish| %>
+            <%= render 'shared/dish-card', dish: dish %>
+          <% end %>
+        </div>
       </div>
       <div class="btn-pay"></div>
-    </div>
   <div class="dashboard-container-footer">
     <div class="bill-info">
-      <p class="balance"><%= "Table total: $#{@bill.balance}" %></p>
-      <a href="">Get the check</a>
+      <p class="balance"> Table total: <u><%="$#{@bill.balance}" %></u></p>
+      <a href="">Bill summary</a>
     </div>
   </div>
 </div>
