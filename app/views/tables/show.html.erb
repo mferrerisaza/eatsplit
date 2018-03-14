@@ -1,22 +1,26 @@
-<p>Your order at <%= @table.restaurant.name %> is being processed</p>
 <div class="maincontainer">
-    <div class="top-dashboard-container">
-      <div class="party-container">
-        <p>Your party</p>
-        <div class="dashboard-controller-avatars">
-          <% @bill.users.each do |user| %>
-          <%= card_photo_or_generic(user) %>
-          <% end %>
+    <div class="top-dashboad-container">
+      <div class="top-dashboard-container-top">
+        <div class="dashboard-controller-user">
+          <div class="user-info">
+            <p><%= user_name_or_generic(current_user) %></p>
+            <%= card_photo_or_generic(current_user) %>
+          </div>
         </div>
-      </div>
-      <div class="dashboard-controller-user">
-        <div class="user-info">
-          <%= user_name_or_generic(current_user) %>
-          <%= card_photo_or_generic(current_user) %>
-        </div>
-        <div class="bill-info">
-          <p class="balance"><%= "$ #{@bill.balance}" %></p>
-          <button>Get the check</button>
+        <div class="party-container">
+          <p>Your party</p>
+          <div class="dashboard-controller-avatars">
+            <% if @bill.users.size < 3 %>
+              <% @bill.users.each do |user| %>
+              <%= card_photo_or_generic(user) %>
+              <% end %>
+            <% else %>
+              <% @bill.users[0..2].each do |user| %>
+                <%= card_photo_or_generic(user) %>
+              <% end %>
+              <span>+<%= @bill.users.size - 3 %></span>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
@@ -25,4 +29,10 @@
       </div>
       <div class="btn-pay"></div>
     </div>
+  <div class="dashboard-container-footer">
+    <div class="bill-info">
+      <p class="balance"><%= "Table total: $#{@bill.balance}" %></p>
+      <a href="">Get the check</a>
+    </div>
+  </div>
 </div>
