@@ -1,7 +1,12 @@
 class RestaurantsController < ApplicationController
   def index
-    @restaurants = filter_by_name
-    @restaurants = policy_scope(@restaurants).near("carrer d'en grassot 101", 2)
+    if !params[:query].present? && params[:query].nil?
+      @restaurants = policy_scope(Restaurant).near("carrer d'en grassot 101", 100)
+    elsif !params[:query].present? && params[:query].blank?
+      @restaurants = policy_scope(Restaurant)
+    else
+      @restaurants = policy_scope(filter_by_name)
+    end
   end
 
   def show
@@ -12,10 +17,6 @@ class RestaurantsController < ApplicationController
   private
 
   def filter_by_name
-    if params[:query].present?
-      Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      Restaurant.all
-    end
+    Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
   end
 end
