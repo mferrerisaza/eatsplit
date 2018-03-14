@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <div>
+    <%= image_tag "logo_eatsplit.svg",class: "logo center" %>
+  </div>
+  <div class="container">
+    <div class="row">
+      <%= form_tag root_path, method: :get do %>
+        <div class="col-xs-8">
+          <%= text_field_tag :query,
+            params[:query], placeholder: "Search by name", id: "search-form"
+          %>
+        </div>
+        <div class="col-xs-4">
+          <%= submit_tag "Search", class: "small-button search-form-btn" %>
+        </div>
+      <% end %>
+      <% @restaurants.each do |resto| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= link_to restaurant_dishes_path(resto) do %>
+            <%= render 'shared/restaurant-card', resto: resto %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+  <script>
+    search = document.getElementById('search_form');
+
+    window.addEventListener('load', function () {
+      search.value = "";
+    })
+  </script>
+
+
+
+
+

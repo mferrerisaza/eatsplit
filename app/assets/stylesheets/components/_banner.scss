@@ -1,0 +1,20 @@
+.banner {
+  color: white;
+  text-align: center;
+  height: 40vw;
+  max-height: 30vh;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.banner-logo-avatar{
+  border: 1px solid gray;
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  float: right;
+  margin-right: 8px;
+}

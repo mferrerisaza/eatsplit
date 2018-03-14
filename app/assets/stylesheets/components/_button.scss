@@ -1,0 +1,32 @@
+.button {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #E9585A;
+  opacity: 0.9;
+}
+
+.button:hover {
+  opacity: 1;
+  background: #E9585A;
+  text-decoration: none;
+  color: white;
+}
+
+.small-button {
+  border: none;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 4px;
+  font-weight: light;
+  background: #E9585A;
+  opacity: 0.95;
+}
+
+.small-button:hover {
+  opacity: 1;
+  background: #E9585A;
+  text-decoration: none;
+  color: white;
+}

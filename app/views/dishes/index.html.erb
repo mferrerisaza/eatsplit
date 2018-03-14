@@ -1,0 +1,53 @@
+<div class="menu-container">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= banner_restaurant_photo(@restaurant) %>');">
+
+    <div class="mobile-headers">
+      <%= link_to :back do%>
+        <i class="fas fa-arrow-left"></i>
+      <% end %>
+      <%= link_to checkout_path, class: "hidden", id: "checkout-basket" do  %>
+        <div class="checkout-link">
+          <div class="checkout-basket-counter">0</div>
+          <i class="fas fa-shopping-basket"></i>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="banner-logo-avatar" style="background-image: url('<%= logo_restaurant_photo(@restaurant) %>');">
+  </div>
+
+  <h1><%= @restaurant.name %></h1>
+
+  <div class="categories-list">
+    <div class="active-category"><p>All</p></div>
+    <% Dish::CATEGORY.each do |category| %>
+      <div><p><%= category %></p></div>
+    <% end %>
+  </div>
+
+  <div class="dishes-card-container">
+    <h3>Starters</h3>
+    <div class="starters">
+      <% @starters.each do |dish| %>
+        <%= render 'shared/dish-card', dish: dish %>
+      <% end %>
+    </div>
+    <h3>Mains</h3>
+    <div class="mains">
+      <% @mains.each do |dish| %>
+        <%= render 'shared/dish-card', dish: dish %>
+      <% end %>
+    </div>
+    <h3>Desserts</h3>
+    <div class="desserts">
+      <% @desserts.each do |dish| %>
+        <%= render 'shared/dish-card', dish: dish %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="checkout-page-container hidden">
+
+  </div>
+</div>

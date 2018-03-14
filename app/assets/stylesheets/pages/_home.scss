@@ -1,1 +1,41 @@
-// Specific CSS for your home-page
+//IMPORTANT
+
+// ----------------------------
+.wrapper {
+  background-color: white;
+  height: 100vh;
+}
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.input {
+  border: none;
+  border-radius: none;
+  background: lightgray;
+}
+
+#search-form {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.search-form-btn{
+  padding: 0px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  height: 35px;
+  width: 100%;
+  margin-bottom: 8px ;
+}

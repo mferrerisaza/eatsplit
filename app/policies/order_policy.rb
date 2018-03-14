@@ -12,6 +12,9 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
+  def checkout?
+    true
+  end
 
   class Scope < Scope
     def resolve
