@@ -3,14 +3,12 @@
       <%= image_tag "logo_eatsplit.svg",class: "logo center" %>
     </div>
     <div class="container">
-     <div class="search_form">
-      <%= form_tag root_path, method: :get do %>
-
-        <%= text_field_tag :query,
-          params[:query], placeholder: "Search by name", id: "search_form"
-        %>
-        <%= submit_tag "Search", class: "small-button" %>
-       <% end %>
+      <div class="top_search">
+        <div class="top_search_input">
+          <%= form_tag root_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], placeholder: "Search", id: "searchInput", value: "" %>
+          <% end %>
+        </div>
       </div>
       <div class="row">
         <% @restaurants.each do |resto| %>
@@ -36,8 +34,5 @@
       search.value = "";
     })
   </script>
-
-
-
 
 
