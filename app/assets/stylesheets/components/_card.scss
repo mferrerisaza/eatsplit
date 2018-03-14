@@ -1,5 +1,5 @@
 .card {
-  height: 200px;
+  height: 150px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -28,7 +28,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 12px;
+  font-size: 15px;
   text-transform: uppercase;
 }
 
@@ -39,11 +39,11 @@
 }
 
 .card-description h2 {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .card-description p {
-  font-size: 10px;
+  font-size: 12px;
   opacity: 0.8;
   font-weight: lighter;
 }
