@@ -1,25 +1,31 @@
+<div class="wrapper">
 
-
-  <div>
-    <%= image_tag "logo_eatsplit.svg",class: "logo" %>
-  </div>
-
-  <div class="container">
-    <div class="row">
-    <% @restaurants.each do |resto| %>
-      <% image = cl_image_tag resto.photo %>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path resto.photo %>');">
-          <div class="card-category">Nearby</div>
-          <div class="card-description">
-            <h2><%= resto.name %></h2>
-            <p><%= resto.address %></p>
+    <div>
+      <%= image_tag "logo_eatsplit.svg",class: "logo center" %>
+    </div>
+    <div class="container">
+      <div class="row">
+      <% @restaurants.each do |resto| %>
+        <% image = cl_image_tag resto.photo %>
+        <div class="col-xs-12 col-sm-4">
+          <!-- insert <div class="card"> -->
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path resto.photo %>');">
+            <div class="card-category">Nearby</div>
+            <div class="card-description">
+              <h2><%= resto.name %></h2>
+              <p><%= resto.address %></p>
+            </div>
           </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
+      <br>
+      <form>
+        <div>
+          <input type="search" id="search_bar" placeholder="restaurant's name">
+          <button class="small-button">Get menu</button>
+        </div>
+      </form>
     </div>
+
   </div>
-
-
