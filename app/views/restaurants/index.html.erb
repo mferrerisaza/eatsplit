@@ -1,33 +1,33 @@
 <div class="wrapper">
-    <div>
-      <%= image_tag "logo_eatsplit.svg",class: "logo center" %>
-    </div>
-    <div class="container">
-     <div class="search_form">
+  <div>
+    <%= image_tag "logo_eatsplit.svg",class: "logo center" %>
+  </div>
+  <div class="container">
+    <div class="row">
       <%= form_tag root_path, method: :get do %>
-
-        <%= text_field_tag :query,
-          params[:query], placeholder: "Search by name", id: "search_form"
-        %>
-        <%= submit_tag "Search", class: "small-button" %>
-       <% end %>
-      </div>
-      <div class="row">
-        <% @restaurants.each do |resto| %>
-          <% image = cl_image_tag resto.photo %>
-          <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path resto.photo %>');">
-              <div class="card-category">Nearby</div>
-              <div class="card-description">
-                <h2><%= resto.name %></h2>
-                <p><%= resto.address %></p>
-              </div>
+        <div class="col-xs-8">
+          <%= text_field_tag :query,
+            params[:query], placeholder: "Search by name", id: "search-form"
+          %>
+        </div>
+        <div class="col-xs-4">
+          <%= submit_tag "Search", class: "small-button search-form-btn" %>
+        </div>
+      <% end %>
+      <% @restaurants.each do |resto| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path resto.photo %>');">
+            <div class="card-category">Nearby</div>
+            <div class="card-description">
+              <h2><%= resto.name %></h2>
+              <p><%= resto.address %></p>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
 
   <script>
     search = document.getElementById('search_form');
