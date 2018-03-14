@@ -1,16 +1,7 @@
 <div class="wrapper">
-  <div>
-    <%= image_tag "logo_eatsplit.svg",class: "logo center" %>
-  </div>
+  <%= render 'shared/navbar' %>
   <div class="container">
-    <div class="row">
-      <div class="top_search">
-        <div class="top_search_input">
-          <%= form_tag root_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], placeholder: "Search", id: "searchInput", value: "" %>
-          <% end %>
-        </div>
-      </div>
+    <div class="row margin-top">
       <% @restaurants.each do |resto| %>
         <div class="col-xs-12 col-sm-4">
           <%= link_to restaurant_dishes_path(resto) do %>
