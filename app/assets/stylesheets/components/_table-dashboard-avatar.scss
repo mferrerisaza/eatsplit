@@ -1,8 +1,18 @@
 
 .table-dashboard-avatar {
-  height: 50px;
-  width: 50px;
-  margin-left: -25px;
+  height: 40px;
+  width: 40px;
+  margin-left: -15px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+
+}
+
+.table-dashboard-user-avatar {
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   border-style: solid;
   border-color: gray;
