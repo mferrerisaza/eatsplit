@@ -44,3 +44,22 @@ h3 {
 .hidden {
   display:  none;
 }
+.checkout-link {
+  position: relative;
+}
+.checkout-basket-counter {
+  z-index: 1;
+  position: absolute;
+  padding: 8px;
+  top: 8px;
+  right: 18px;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $our-red;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  }
