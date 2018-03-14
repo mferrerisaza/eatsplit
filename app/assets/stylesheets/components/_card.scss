@@ -34,18 +34,23 @@
 
 .card-description {
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   left: 10px;
 }
 
 .card-description h2 {
+  margin: 0px;
   font-size: 24px;
 }
 
-.card-description p {
+.card-bottom {
+  p {
   font-size: 12px;
-  opacity: 0.8;
-  font-weight: lighter;
+  color: white;
+  }
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
 .card-link {
