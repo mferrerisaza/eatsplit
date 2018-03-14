@@ -8,4 +8,5 @@ Rails.application.routes.draw do
       resources :orders, only: [:create, :update]
     end
   end
+  resources :tables, only: :show
 end

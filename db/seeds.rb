@@ -22,6 +22,22 @@ u = User.new( email: "ollie@test.com", password:"123456", password_confirmation:
 u.profile = Profile.create(name: "Ollie")
 u.save!
 
+u = User.new( email: "eduardo@test.com", password:"123456", password_confirmation:"123456")
+u.profile = Profile.create(name: "Eduardo")
+u.save!
+
+u = User.new( email: "victor@test.com", password:"123456", password_confirmation:"123456")
+u.profile = Profile.create(name: "Victor")
+u.save!
+
+u = User.new( email: "johann@test.com", password:"123456", password_confirmation:"123456")
+u.profile = Profile.create(name: "Johann")
+u.save!
+
+u = User.new( email: "tanja@test.com", password:"123456", password_confirmation:"123456")
+u.profile = Profile.create(name: "Tanja")
+u.save!
+
 puts "Seeding users done"
 
 #Restaurants
@@ -126,7 +142,7 @@ puts "fishised seeding your tables"
 
 puts "seeding your bills"
 
-bill_1 = Bill.new(
+bill_1 = Bill.create(
   table: table_1
 )
 
@@ -149,7 +165,7 @@ order_1.save!
 order_2 = Order.new(
   quantity: 1
 )
-order_2.user = User.find(1)
+order_2.user = User.find(2)
 order_2.dish = dish_2
 order_2.bill = bill_1
 order_2.amount = order_2.quantity * order_2.dish.price
@@ -158,11 +174,38 @@ order_2.save!
 order_3 = Order.new(
   quantity: 1
 )
-order_3.user = User.find(1)
+order_3.user = User.find(3)
 order_3.dish = dish_3
 order_3.bill = bill_1
 order_3.amount = order_3.quantity * order_3.dish.price
 order_3.save!
+
+order_4 = Order.new(
+  quantity: 1
+)
+order_4.user = User.find(4)
+order_4.dish = dish_3
+order_4.bill = bill_1
+order_4.amount = order_4.quantity * order_4.dish.price
+order_4.save!
+
+order_5 = Order.new(
+  quantity: 1
+)
+order_5.user = User.find(5)
+order_5.dish = dish_3
+order_5.bill = bill_1
+order_5.amount = order_5.quantity * order_5.dish.price
+order_5.save!
+
+order_6 = Order.new(
+  quantity: 1
+)
+order_6.user = User.find(6)
+order_6.dish = dish_3
+order_6.bill = bill_1
+order_6.amount = order_6.quantity * order_6.dish.price
+order_6.save!
 
 puts "finished seeding your orders"
 
@@ -173,7 +216,6 @@ bill_1.orders.each do |order|
   bill_1.balance += order.amount
 end
 
-bill_1.save!
 
 puts "Finished Seeding!"
 
