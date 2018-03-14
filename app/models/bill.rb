@@ -11,6 +11,8 @@ class Bill < ApplicationRecord
     if self.table.active_bill?
       errors.messages[:bill] << "Just one active bill per table"
       return false
+    else
+      true
     end
   end
 
