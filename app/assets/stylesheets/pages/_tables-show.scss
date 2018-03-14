@@ -1,0 +1,83 @@
+
+.top-dashboad-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+
+  p {
+    color: gray;
+  }
+}
+
+.top-dashboard-container-top {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 100%
+
+}
+
+.dashboard-container-footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.party-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+  width: 50%
+}
+
+.balance {
+  margin-bottom: 5px;
+}
+
+.dashboard-controller-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+  width: 50%;
+}
+
+.bill-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0px;
+
+  a {
+    color: lightgray;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #E9585A;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: lighter;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+.dashboard-controller-avatars {
+  img {
+    display: inline-block;
+  }
+
+  span {
+    margin-left: -10px;
+  }
+}
+
