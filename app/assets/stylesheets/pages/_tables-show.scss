@@ -1,23 +1,42 @@
 
-.top-dashboard-container {
+.top-dashboad-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  background-color: white;
 
+  p {
+    color: gray;
+  }
+}
+
+.top-dashboard-container-top {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 100%
+
+}
+
+.dashboard-container-footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
 }
 
 .user-info {
   display: flex;
   flex-direction: column;
-  text-align: center;
 }
 
 .party-container {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   padding: 5%;
-  background-color: white;
+  width: 50%
 }
 
 .balance {
@@ -26,18 +45,39 @@
 
 .dashboard-controller-user {
   display: flex;
-  justify-content: space-around;
-  background-color: white;
+  flex-direction: column;
+  justify-content: center;
   padding: 5%;
-  margin-top: 5px;
+  width: 50%;
 }
 
 .bill-info {
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0px;
+
+  a {
+    color: lightgray;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #E9585A;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: lighter;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
 }
 .dashboard-controller-avatars {
   img {
     display: inline-block;
+  }
+
+  span {
+    margin-left: -10px;
   }
 }
 
