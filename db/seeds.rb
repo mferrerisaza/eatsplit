@@ -51,7 +51,7 @@ restaurant_1 = Restaurant.new(
 )
 
 restaurant_1.remote_logo_url = "https://i.pinimg.com/originals/88/2d/88/882d883fcf289d704c064da27ed4fa60.png"
-restaurant_1.remote_photo_url = "https://www.cnet.com/i/bto/20091214/mario-pizza_610x457.jpg"
+restaurant_1.remote_photo_url = "https://media-cdn.tripadvisor.com/media/photo-s/0b/50/62/2c/the-restaurant-at-the.jpg"
 restaurant_1.user = User.find(1)
 
 restaurant_1.save!
@@ -63,7 +63,7 @@ restaurant_2 = Restaurant.new(
 )
 
 restaurant_2.remote_logo_url = "https://i.pinimg.com/originals/88/2d/88/882d883fcf289d704c064da27ed4fa60.png"
-restaurant_2.remote_photo_url = "https://www.cnet.com/i/bto/20091214/mario-pizza_610x457.jpg"
+restaurant_2.remote_photo_url = "https://kintamaniid-a903.kxcdn.com/wp-content/uploads/Hotel-The-One-Legian-4-1024x683.jpg"
 restaurant_2.user = User.find(1)
 
 restaurant_2.save!
@@ -75,7 +75,7 @@ restaurant_3 = Restaurant.new(
 )
 
 restaurant_3.remote_logo_url = "https://i.pinimg.com/originals/88/2d/88/882d883fcf289d704c064da27ed4fa60.png"
-restaurant_3.remote_photo_url = "https://www.cnet.com/i/bto/20091214/mario-pizza_610x457.jpg"
+restaurant_3.remote_photo_url = "http://www.lestresoms.com/_cache/resize/1920-744.crop/d2eb0d9965833944c5f8e3e9fe7c535a.jpg"
 restaurant_3.user = User.find(1)
 
 restaurant_3.save!
@@ -87,7 +87,7 @@ restaurant_4 = Restaurant.new(
 )
 
 restaurant_4.remote_logo_url = "https://i.pinimg.com/originals/88/2d/88/882d883fcf289d704c064da27ed4fa60.png"
-restaurant_4.remote_photo_url = "https://www.cnet.com/i/bto/20091214/mario-pizza_610x457.jpg"
+restaurant_4.remote_photo_url = "https://ugc.zenchef.com/3/4/8/6/5/8/1/5/0/0/4/8/8/1500558718_293/b824a46e829f055b4ad94da613c66316.website.jpg"
 restaurant_4.user = User.find(1)
 
 restaurant_4.save!
