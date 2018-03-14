@@ -1,17 +1,17 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js check --integrity
+  /usr/bin/node /usr/share/yarn/bin/yarn.js check --integrity
 
 PATH: 
-  /Users/erichaagensen/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/Users/erichaagensen/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:./bin:./node_modules/.bin:/Users/erichaagensen/.rbenv/shims:/Users/erichaagensen/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+  /home/mferreri/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/home/mferreri/.rbenv/versions/2.4.3/bin:/home/mferreri/.rbenv/libexec:/home/mferreri/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/mferreri/.rbenv/shims:/home/mferreri/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.9.4
+  8.10.0
 
 Platform: 
-  darwin x64
+  linux x64
 
 npm manifest: 
   {
@@ -6100,9 +6100,9 @@ Lockfile:
 
 Trace: 
   Error: Found 1 errors.
-      at new MessageError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:186:110)
-      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:59470:13
+      at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
+      at /usr/share/yarn/lib/cli.js:59470:13
       at Generator.next (<anonymous>)
-      at step (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:98:30)
-      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:109:13
+      at step (/usr/share/yarn/lib/cli.js:98:30)
+      at /usr/share/yarn/lib/cli.js:109:13
       at <anonymous>
