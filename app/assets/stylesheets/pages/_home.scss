@@ -14,8 +14,8 @@
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   margin-bottom: 20px;
 }
 
@@ -24,16 +24,18 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    justify-content: center;
+    flex-direction: row;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 180px;
     margin: 0 10px;
 }
 
 
 
 .top_search_input {
+    border: 1px solid #E9585A;
     margin-bottom: 18px;
     cursor: pointer;
     display: -webkit-box;
@@ -46,15 +48,15 @@
     -ms-flex-align: center;
     align-items: center;
     border-radius: 20px;
-    background-color: #E9585A;
-    color: #fff;
-    width: 100%;
-    height: 40px;
+    background-color: white;
+    color: #E9585A;
+    width: 50%;
+    height: 50px;
     transition: width 2s,height .2s,border-radius .6s,margin .6s;
 }
 
-.top_search:hover {
-  width: 95%;
+.top_search_input:hover {
+  width: 90%;
 
 }
 
@@ -81,8 +83,9 @@ input {
 }
 
 ::placeholder {
-  color: white;
+  color: $our-red;
   opacity: 0.9;
   font-size: 15px;
+  text-align: center;
 }
 
