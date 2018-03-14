@@ -13,7 +13,6 @@ class RestaurantsController < ApplicationController
 
   def filter_by_name
     if params[:query].present?
-
       Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
     else
       Restaurant.all

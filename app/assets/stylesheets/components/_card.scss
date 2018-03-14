@@ -16,7 +16,6 @@
     }
 }
 
-
 .card-user {
   position: absolute;
   right: 10px;
@@ -24,6 +23,7 @@
   width: 40px;
   border-radius: 50%;
 }
+
 .card-category {
   position: absolute;
   top: 10px;
@@ -31,19 +31,23 @@
   font-size: 12px;
   text-transform: uppercase;
 }
+
 .card-description {
   position: absolute;
   bottom: 10px;
   left: 10px;
 }
+
 .card-description h2 {
   font-size: 20px;
 }
+
 .card-description p {
   font-size: 10px;
   opacity: 0.8;
   font-weight: lighter;
 }
+
 .card-link {
   position: absolute;
   top: 0;
@@ -54,6 +58,7 @@
   background: black;
   opacity: 0;
 }
+
 .card-link:hover {
   opacity: 0.1;
 }
