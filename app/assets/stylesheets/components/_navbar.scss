@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: row-reverse;
   position: sticky !important;
   top: 0 !important;
   z-index: 1;
