@@ -13,11 +13,7 @@
   width: 50%;
 }
 
-.logo {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 20px;
-}
+
 
 .top_search {
     transition: width .6s,height 4s,margin .6s;
@@ -51,14 +47,22 @@
     border-radius: 20px;
     background-color: white;
     color: #E9585A;
-    width: 50%;
+    width: 65%;
     height: 50px;
     transition: width .7s,height .1s,border-radius .3s,margin .3s;
 }
 
-.top_search_input:hover {
-  width: 90%;
 
+.loop-icon {
+  margin-left: 5px;
+}
+
+.top_search_input:hover {
+  width: 110%;
+}
+
+.top_search:hover ~ .logo-nav-container {
+  display: none;
 }
 
 .top_search_input input {
