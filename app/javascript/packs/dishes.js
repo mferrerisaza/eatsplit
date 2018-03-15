@@ -20,7 +20,6 @@ function addButtonListener() {
   const buttons = document.querySelectorAll(".dish-card-btn");
   buttons.forEach(function(button) {
     button.addEventListener("click", (event) => {
-      event.preventDefault();
       changeDishStatus(event.currentTarget);
       checkBasket(buttons);
     })
