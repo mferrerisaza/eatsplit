@@ -7,4 +7,5 @@ class DishesController < ApplicationController
     @mains = @dishes.select { |dish| dish.category == "Main"}
     @desserts = @dishes.select { |dish| dish.category == "Dessert"}
   end
+
 end
