@@ -99,3 +99,43 @@
   background-color: red;
 }
 
+.panel {
+  margin: 8px;
+}
+
+.panel-default > .panel-heading {
+  height: 15vh;
+}
+
+.panel-default {
+  h4 {
+    font-size: 16px;
+    padding: 10px 5px;
+  }
+}
+
+.drinks-panel> .panel-heading {
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0)), url('drinks.jpg');
+  background-size: cover;
+
+}
+
+.starters-panel> .panel-heading {
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0)), url('starters.jpg');
+  background-size: cover;
+
+}
+
+.main-panel> .panel-heading {
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0)), url('main.jpg');
+  background-size: cover;
+
+}
+
+.desserts-panel> .panel-heading {
+  background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0)), url('dessert.jpg');
+  background-size: cover;
+
+}
+
+
