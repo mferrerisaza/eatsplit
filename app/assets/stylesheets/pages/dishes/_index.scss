@@ -4,7 +4,7 @@ h1 {
   margin: 0px;
   padding: 8px;
   border-bottom: 1px solid rgba(0,0,0,0.2);
-  box-shadow: 1px 0px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 0 0.1em lightgray;
 }
 
 h3 {
@@ -12,6 +12,7 @@ h3 {
 }
 
 .categories-list {
+  background-color: whitesmoke;
   display: flex;
   padding: 16px;
   padding-bottom: 0px;
@@ -45,11 +46,23 @@ h3 {
   display:  none;
 }
 .checkout-link {
-  position: relative;
+  height: 11vh;
+  background-color: white;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top: 1px solid $our-red;
+  border-left: 1px solid $our-red;
+  border-right: 1px solid $our-red;
+  position: sticky;
+  bottom: 0px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: lighter;
 }
 .checkout-basket-counter {
   z-index: 1;
-  position: absolute;
   padding: 8px;
   top: 8px;
   right: 18px;
@@ -58,7 +71,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $our-red;
+  background-color: limegreen;
   color: white;
   font-size: 12px;
   border-radius: 50%;
