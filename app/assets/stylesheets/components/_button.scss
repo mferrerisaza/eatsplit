@@ -71,3 +71,19 @@
   align-items: center;
   font-size: 14px;
 }
+.small-button2 {
+  border: 1px solid #E9585A;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: white;
+  color: #E9585A;
+  width: 32px;
+  height: 20px;
+  padding: 0px;
+  transition: width .7s,height .1s,border-radius .3s,margin .3s;
+  align-items: center;
+  font-size: 14px;
+}
