@@ -1,4 +1,3 @@
-<%= render "shared/navbar" %>
   <div class="top-dashboard-container-top">
     <div class="dashboard-controller-user">
       <div class="user-info">
@@ -23,17 +22,23 @@
     </div>
   </div>
       <div class="dashboard-menu">
-        <h3 id="still-hungry">Still hungry?</h3>
+        <div class="dashboard-banner">
+          <h3 id="still-hungry">Still hungry?</h3>
+        </div>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          <% if !@drinks.blank? %>
-          <div class="panel panel-default drinks-panel">
+          <% if @drinks.blank? %>
+          <div class="panel panel-default drinks-panel" role="button" data-toggle="collapse" data-parent="#accordion" href="#drinks-container" aria-expanded="false" aria-controls="drinks-container">
             <div class="panel-heading" role="tab" id="headingOne">
             </div>
-            <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#drinks-container" aria-expanded="false" aria-controls="drinks-container">
+            <div class="toggle-text-container">
+              <h4 class="panel-title">
                 Drinks
-                </a>
               </h4>
+              <div class="toggle-switch">
+                <input class="tgl tgl-flat" id="cb1" type="checkbox"/>
+                <label class="tgl-btn" for="cb1"></label>
+              </div>
+            </div>
             <div id="drinks-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <div class="drinks">
@@ -46,14 +51,18 @@
         </div>
         <% end %>
         <% if !@starters.blank? %>
-        <div class="panel panel-default starters-panel">
+        <div class="panel panel-default starters-panel" role="button" data-toggle="collapse" data-parent="#accordion" href="#starters-container" aria-expanded="false" aria-controls="starters-container">
             <div class="panel-heading" role="tab" id="headingOne">
             </div>
-            <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#starters-container" aria-expanded="false" aria-controls="starters-container">
-                Starters
-                </a>
-              </h4>
+            <div class="toggle-text-container">
+              <h4 class="panel-title">
+                  Starters
+                </h4>
+            <div class="toggle-switch">
+              <input class="tgl tgl-flat" id="cb2" type="checkbox"/>
+              <label class="tgl-btn" for="cb2"></label>
+            </div>
+            </div>
             <div id="starters-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <div class="starters">
@@ -66,14 +75,18 @@
         </div>
         <% end %>
         <% if !@mains.blank? %>
-        <div class="panel panel-default main-panel">
+        <div class="panel panel-default main-panel" role="button" data-toggle="collapse" data-parent="#accordion" href="#main-dish-container" aria-expanded="false" aria-controls="main-dish-container">
             <div class="panel-heading" role="tab" id="headingOne">
             </div>
-            <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#main-dish-container" aria-expanded="false" aria-controls="main-dish-container">
+            <div class="toggle-text-container">
+              <h4 class="panel-title">
                  Main
-                </a>
               </h4>
+              <div class="toggle-switch">
+                <input class="tgl tgl-flat" id="cb3" type="checkbox"/>
+                <label class="tgl-btn" for="cb3"></label>
+              </div>
+            </div>
             <div id="main-dish-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <div class="mains">
@@ -86,14 +99,18 @@
         </div>
         <% end %>
         <% if !@desserts.blank? %>
-        <div class="panel panel-default desserts-panel">
+        <div class="panel panel-default desserts-panel" role="button" data-toggle="collapse" data-parent="#accordion" href="#desserts-container" aria-expanded="false" aria-controls="desserts-container">
             <div class="panel-heading" role="tab" id="headingOne">
             </div>
-            <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#desserts-container" aria-expanded="false" aria-controls="desserts-container">
-                Desserts
-                </a>
+            <div class="toggle-text-container">
+              <h4 class="panel-title">
+                  Desserts
               </h4>
+              <div class="toggle-switch">
+                <input class="tgl tgl-flat" id="cb4" type="checkbox"/>
+                <label class="tgl-btn" for="cb4"></label>
+              </div>
+            </div>
             <div id="desserts-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <div class="desserts">
@@ -110,8 +127,9 @@
   <div class="dashboard-container-footer">
     <div class="bill-info">
       <p class="balance"> Table total: <u><%="$#{@bill.balance}" %></u></p>
-      <a href="">Bill summary</a>
+      <a class="button btn-bill" href=""><p>Bill summary</p></a>
     </div>
   </div>
+
 
 
