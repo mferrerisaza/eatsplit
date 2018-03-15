@@ -25,14 +25,15 @@
       <div class="dashboard-menu">
         <h3 id="still-hungry">Still hungry?</h3>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          <div class="panel panel-default">
+          <% if !@drinks.blank? %>
+          <div class="panel panel-default drinks-panel">
             <div class="panel-heading" role="tab" id="headingOne">
-              <h4 class="panel-title">
+            </div>
+            <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#drinks-container" aria-expanded="false" aria-controls="drinks-container">
-                + Drinks
+                Drinks
                 </a>
               </h4>
-            </div>
             <div id="drinks-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <div class="drinks">
@@ -43,14 +44,16 @@
               </div>
             </div>
         </div>
-        <div class="panel panel-default">
+        <% end %>
+        <% if !@starters.blank? %>
+        <div class="panel panel-default starters-panel">
             <div class="panel-heading" role="tab" id="headingOne">
-              <h4 class="panel-title">
+            </div>
+            <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#starters-container" aria-expanded="false" aria-controls="starters-container">
-                + Starters
+                Starters
                 </a>
               </h4>
-            </div>
             <div id="starters-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <div class="starters">
@@ -61,14 +64,16 @@
               </div>
             </div>
         </div>
-        <div class="panel panel-default">
+        <% end %>
+        <% if !@mains.blank? %>
+        <div class="panel panel-default main-panel">
             <div class="panel-heading" role="tab" id="headingOne">
-              <h4 class="panel-title">
+            </div>
+            <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#main-dish-container" aria-expanded="false" aria-controls="main-dish-container">
-                + Main
+                 Main
                 </a>
               </h4>
-            </div>
             <div id="main-dish-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <div class="mains">
@@ -79,14 +84,16 @@
               </div>
             </div>
         </div>
-        <div class="panel panel-default">
+        <% end %>
+        <% if !@desserts.blank? %>
+        <div class="panel panel-default desserts-panel">
             <div class="panel-heading" role="tab" id="headingOne">
-              <h4 class="panel-title">
+            </div>
+            <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#desserts-container" aria-expanded="false" aria-controls="desserts-container">
-                + Desserts
+                Desserts
                 </a>
               </h4>
-            </div>
             <div id="desserts-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <div class="desserts">
@@ -97,6 +104,7 @@
               </div>
             </div>
         </div>
+        <% end %>
       </div>
     </div>
   <div class="dashboard-container-footer">
