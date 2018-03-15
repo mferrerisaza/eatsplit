@@ -20,27 +20,27 @@
   <h1><%= @restaurant.name %></h1>
 
   <div class="categories-list">
-    <div class="active-category"><p>All</p></div>
+    <div id="all" class="active-category menu-category-link"><p><%= link_to "All", "\#all", class: "no-style"%></p></div>
     <% Dish::CATEGORY.each do |category| %>
-      <div><p><%= category %></p></div>
+      <div class="menu-category-link"><p> <%= link_to category, "\##{category.downcase}", class: "no-style"%></p></div>
     <% end %>
   </div>
 
   <div class="dishes-card-container">
-    <h3>Starters</h3>
-    <div class="starters">
+    <h3 id="starter">Starters</h3>
+    <div class="starters" >
       <% @starters.each do |dish| %>
         <%= render 'shared/dish-card', dish: dish %>
       <% end %>
     </div>
-    <h3>Mains</h3>
+    <h3 id="main">Mains</h3>
     <div class="mains">
       <% @mains.each do |dish| %>
         <%= render 'shared/dish-card', dish: dish %>
       <% end %>
     </div>
-    <h3>Desserts</h3>
-    <div class="desserts">
+    <h3 id="dessert">Desserts</h3>
+    <div class="desserts" >
       <% @desserts.each do |dish| %>
         <%= render 'shared/dish-card', dish: dish %>
       <% end %>
