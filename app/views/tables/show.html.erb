@@ -1,27 +1,28 @@
+<%= render "shared/navbar" %>
 <div class="maincontainer">
-      <div class="top-dashboard-container-top">
-        <div class="dashboard-controller-user">
-          <div class="user-info">
-            <%= card_photo_or_generic(current_user) %>
-            <p><%= user_name_or_generic(current_user) %></p>
-          </div>
-        </div>
-        <div class="party-container">
-          <div class="dashboard-controller-avatars">
-            <% if @bill.users.uniq.size < 3 %>
-              <% @bill.users.uniq.each do |user| %>
-              <%= card_photo_or_generic(user) %>
-              <% end %>
-            <% else %>
-              <% @bill.users.uniq[0..2].each do |user| %>
-                <%= card_photo_or_generic(user) %>
-              <% end %>
-              <span>+<%= @bill.users.uniq.size - 3 %></span>
-            <% end %>
-          </div>
-          <p>Your party</p>
-        </div>
+  <div class="top-dashboard-container-top">
+    <div class="dashboard-controller-user">
+      <div class="user-info">
+        <%= card_photo_or_generic(current_user) %>
+        <p><%= user_name_or_generic(current_user) %></p>
       </div>
+    </div>
+    <div class="party-container">
+      <div class="dashboard-controller-avatars">
+        <% if @bill.users.uniq.size < 3 %>
+          <% @bill.users.uniq.each do |user| %>
+          <%= card_photo_or_generic(user) %>
+          <% end %>
+        <% else %>
+          <% @bill.users.uniq[0..2].each do |user| %>
+            <%= card_photo_or_generic(user) %>
+          <% end %>
+          <span>+<%= @bill.users.uniq.size - 3 %></span>
+        <% end %>
+      </div>
+      <p>Your party</p>
+    </div>
+  </div>
       <div class="dashboard-menu">
         <h3 id="still-hungry">Still hungry?</h3>
         <h3>Starters</h3>
