@@ -3,8 +3,13 @@
   width: 100%;
   height: 100%;
   border-top: 1px solid rgba(0,0,0,0.2);
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  box-shadow: 0 0 0.1em lightgray;
 
+}
+.dish-card-category{
+  box-shadow: 0 0 .3em lightgray;
+  margin: 0px 8px;
+  border-radius: 3px;
 }
 .no-style{
     color: gray;
@@ -12,8 +17,7 @@
   }
 .dish-card{
   background-color: white;
-  margin: 0px 8px;
-  // border-radius: 3px;
+
   border-bottom: 1px solid rgba(0,0,0,0.1);
   // padding: 8px 8px;
   display: flex;
@@ -22,6 +26,7 @@
 
   .dish-card-details{
     padding: 0px;
+    padding-top: 8px;
     width: 100%;
     height: 100%;
     .dish-card-details-bottom{
@@ -50,7 +55,7 @@
     width:80px;
     height: 80px;
     border-radius: 25%;
-    border: 1px solid rgba(0,0,0,0.2)
+    // border: 1px solid rgba(0,0,0,0.2)
   }
 }
 .dish-card:first-child {
@@ -72,4 +77,8 @@
   margin-right: 8px;
   margin-bottom: 8px;
   margin-top: -16px;
+  .fa-plus-circle{
+    color: $our-red;
+    font-size: 24px;
+  }
 }
