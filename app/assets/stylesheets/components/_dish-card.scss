@@ -69,6 +69,7 @@
 }
 
 .dish-card-btn {
+  text-decoration: none;
   text-align: center;
   padding: 0;
   width: 50px;
@@ -77,8 +78,7 @@
   margin-right: 8px;
   margin-bottom: 8px;
   margin-top: -16px;
-  .fa-plus-circle{
-    color: $our-red;
-    font-size: 24px;
-  }
+}
+.dish-added {
+  border: 0.5px solid $our-red;
 }
