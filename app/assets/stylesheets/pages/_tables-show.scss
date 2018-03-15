@@ -15,7 +15,7 @@
 
 
 .dashboard-container-footer{
-  position: sticky;
+  position: fixed;
   bottom: 0px;
   width: 100%;
   background-color: white;
@@ -41,8 +41,24 @@
 .dashboard-menu{
   h3{
     margin-left: 8px;
+    font-family: "Quicksand", sans-serif;
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+
   }
+
+  a{
+    font-family: "Quicksand", sans-serif;
+  }
+  padding-bottom: 100px;
 }
+
+.dashboard-banner {
+    margin: 8px 0px;
+    padding: 8px 0%;
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1)
+  }
 
 .balance {
   margin-bottom: 5px;
@@ -63,17 +79,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px 0px;
 
-  a {
-    color: lightgray;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #E9585A;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: lighter;
-  }
+ p {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Quicksand", sans-serif;
+    color: black;
+   }
 
   a:hover {
     text-decoration: none;
@@ -136,6 +148,28 @@
   background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0)), url('dessert.jpg');
   background-size: cover;
 
+}
+
+
+.toggle-text-container {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-switch {
+  margin-right: 8px;
+}
+
+.btn-bill {
+  justify-content: center;
+   width: 40%;
+   p {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Quicksand", sans-serif;
+    color: black;
+   }
 }
 
 
