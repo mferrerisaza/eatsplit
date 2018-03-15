@@ -1,16 +1,17 @@
 <div class="navbar-eatsplit">
 
-  <%= link_to root_path, class: "navbar-eatsplit-brand" do %>
-    <%= image_tag "logo_eatsplit.svg", height: 50 %>
-  <% end %>
-
   <div class="top_search">
     <div class="top_search_input">
+      <%= image_tag "loop.svg", height: 10, class: "loop-icon" %>
       <%= form_tag root_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], placeholder: "Search", id: "searchInput", value: "" %>
+        <%= text_field_tag :query, params[:query], placeholder: "Not listed?", id: "searchInput", value: "" %>
       <% end %>
     </div>
   </div>
-
+  <div class="logo-nav-container">
+  <%= link_to root_path, class: "navbar-eatsplit-brand" do %>
+    <%= image_tag "logo_eatsplit.svg", height: 50, class: "logo" %>
+  <% end %>
+  </div>
 </div>
 
