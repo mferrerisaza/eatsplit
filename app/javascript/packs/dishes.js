@@ -27,6 +27,27 @@ function addButtonListener() {
   })
 }
 
+function removeActiveClass(links){
+  links.forEach(function(link){
+    link.classList.remove("active-category");
+  })
+}
+
+function addActiveClass(link){
+  link.classList.add("active-category")
+}
+
+function addLinkListener() {
+  const links = document.querySelectorAll(".menu-category-link");
+  links.forEach(function(link) {
+    link.addEventListener("click", (event) => {
+      removeActiveClass(links);
+      addActiveClass(event.currentTarget);
+    })
+  })
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   addButtonListener();
+  addLinkListener();
 })
