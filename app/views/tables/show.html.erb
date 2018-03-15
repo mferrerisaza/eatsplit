@@ -1,5 +1,4 @@
 <%= render "shared/navbar" %>
-<div class="maincontainer">
   <div class="top-dashboard-container-top">
     <div class="dashboard-controller-user">
       <div class="user-info">
@@ -25,30 +24,86 @@
   </div>
       <div class="dashboard-menu">
         <h3 id="still-hungry">Still hungry?</h3>
-        <h3>Starters</h3>
-        <div class="starters">
-        <% @starters.each do |dish| %>
-          <%= render 'shared/dish-card', dish: dish %>
-        <% end %>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#drinks-container" aria-expanded="false" aria-controls="drinks-container">
+                + Drinks
+                </a>
+              </h4>
+            </div>
+            <div id="drinks-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <div class="drinks">
+                  <% @drinks.each do |dish| %>
+                    <%= render 'shared/dish-card', dish: dish %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
         </div>
-        <h3>Mains</h3>
-        <div class="mains">
-        <% @mains.each do |dish| %>
-          <%= render 'shared/dish-card', dish: dish %>
-        <% end %>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#starters-container" aria-expanded="false" aria-controls="starters-container">
+                + Starters
+                </a>
+              </h4>
+            </div>
+            <div id="starters-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <div class="starters">
+                  <% @starters.each do |dish| %>
+                    <%= render 'shared/dish-card', dish: dish %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
         </div>
-        <h3>Desserts</h3>
-        <div class="desserts">
-          <% @desserts.each do |dish| %>
-            <%= render 'shared/dish-card', dish: dish %>
-          <% end %>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#main-dish-container" aria-expanded="false" aria-controls="main-dish-container">
+                + Main
+                </a>
+              </h4>
+            </div>
+            <div id="main-dish-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <div class="mains">
+                  <% @mains.each do |dish| %>
+                    <%= render 'shared/dish-card', dish: dish %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#desserts-container" aria-expanded="false" aria-controls="desserts-container">
+                + Desserts
+                </a>
+              </h4>
+            </div>
+            <div id="desserts-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+              <div class="panel-body">
+                <div class="desserts">
+                  <% @desserts.each do |dish| %>
+                    <%= render 'shared/dish-card', dish: dish %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
-      <div class="btn-pay"></div>
+    </div>
   <div class="dashboard-container-footer">
     <div class="bill-info">
       <p class="balance"> Table total: <u><%="$#{@bill.balance}" %></u></p>
       <a href="">Bill summary</a>
     </div>
   </div>
-</div>
+
+
