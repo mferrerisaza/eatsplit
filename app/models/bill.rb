@@ -4,7 +4,7 @@ class Bill < ApplicationRecord
   has_many :dishes, through: :orders
   has_many :users, through: :orders
   monetize :balance_cents
-  validate :check_if_unique_status
+  validate :check_if_unique_status, on: :create
 
 
   def check_if_unique_status
@@ -22,6 +22,7 @@ class Bill < ApplicationRecord
       sum += order.amount
     end
     self.balance = sum
+    self.save
   end
 
 
