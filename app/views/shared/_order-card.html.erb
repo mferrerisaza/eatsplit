@@ -1,0 +1,16 @@
+<div class="order-card">
+  <div class="order-card-top">
+    <p class="price"><%= money_without_cents_and_with_symbol(order.dish.price) %></p>
+    <div class="order-card-image-container"><%= order_picture(order.dish)%></div>
+    <div class="order-card-details">
+      <h4><%= order.dish.name %></h4>
+    </div>
+    <div class=order-card-buttons>
+      <a href= /restaurants/<%=order.dish.restaurant.id%>/dishes/<%=order.dish.id%>/orders/<%=order.id%>?update=minus data-method="put" class="small-button2" data-remote="true" rel="nofollow">-</a>
+      <div class="order-quantity" data-order-id="<%= order.id %>"><%= order.quantity %></div>
+      <a href= /restaurants/<%=order.dish.restaurant.id%>/dishes/<%=order.dish.id%>/orders/<%=order.id%>?update=plus data-method="put" class="small-button2" data-remote="true" rel="nofollow">+</a>
+    </div>
+  </div>
+
+</div>
+

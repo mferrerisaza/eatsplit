@@ -5,12 +5,6 @@
       <%= link_to :back do%>
         <i class="fas fa-arrow-left"></i>
       <% end %>
-      <%= link_to checkout_path, class: "hidden", id: "checkout-basket" do  %>
-        <div class="checkout-link">
-          <div class="checkout-basket-counter">0</div>
-          <i class="fas fa-shopping-basket"></i>
-        </div>
-      <% end %>
     </div>
   </div>
 
@@ -20,34 +14,38 @@
   <h1><%= @restaurant.name %></h1>
 
   <div class="categories-list">
-    <div class="active-category"><p>All</p></div>
     <% Dish::CATEGORY.each do |category| %>
-      <div><p><%= category %></p></div>
+      <div class="menu-category-link"><p> <%= link_to category, "\##{category.downcase}", class: "no-style"%></p></div>
     <% end %>
   </div>
-
-  <div class="dishes-card-container">
-    <h3>Starters</h3>
-    <div class="starters">
-      <% @starters.each do |dish| %>
-        <%= render 'shared/dish-card', dish: dish %>
+    <div class="dishes-card-container">
+      <% Dish::CATEGORY.each do |category| %>
+          <h3 id= <%= category.downcase %>><%= category.capitalize %></h3>
+          <div class="dish-card-category">
+            <% selected_dishes = @dishes.select { |dish| dish.category == category} %>
+            <%  selected_dishes.each do |dish| %>
+              <%= render 'shared/dish-card', dish: dish %>
+            <% end %>
+          </div>
       <% end %>
     </div>
-    <h3>Mains</h3>
-    <div class="mains">
-      <% @mains.each do |dish| %>
-        <%= render 'shared/dish-card', dish: dish %>
-      <% end %>
-    </div>
-    <h3>Desserts</h3>
-    <div class="desserts">
-      <% @desserts.each do |dish| %>
-        <%= render 'shared/dish-card', dish: dish %>
-      <% end %>
-    </div>
-  </div>
-
   <div class="checkout-page-container hidden">
+    <%= link_to "#", id: "checkout-closing", class: "close-checkout" do%>
+      <i class="fas fa-times"></i>
+    <% end %>
+    <div class="checkout-page-list">
+      <h3> Your order</h3>
+      <div class="orders-card-container">
+      </div>
+    </div>
 
   </div>
+  <%= link_to checkout_path, class: "hidden", id: "checkout-basket", remote: true do  %>
+    <div class="checkout-link">
+      <div class="checkout-notification-group">
+        <div class="checkout-basket-counter">0</div>
+        <i class="fas fa-shopping-basket"></i>
+      </div>
+    </div>
+  <% end %>
 </div>

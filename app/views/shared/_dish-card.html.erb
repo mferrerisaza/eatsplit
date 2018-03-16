@@ -4,7 +4,9 @@
       <h4><%= dish.name %></h4>
       <p><%= dish.description %></p>
       <p class="price"><%= humanized_money_with_symbol(dish.price) %></p>
-      <%= link_to "Add", restaurant_dish_orders_path(dish.restaurant, dish), method: :post, class: "btn btn-primary dish-card-btn", remote: :true, data: { dish_id: dish.id, add_to_cart: false }%>
+      <%= link_to "+",restaurant_dish_orders_path(dish.restaurant, dish), method: :post, class: "dish-card-btn small-button2", remote: :true, data: { dish_id: dish.id, add_to_cart: false }%>
+        <!-- <i class="fas fa-plus-circle"></i> -->
+
     </div>
 
 </div>
