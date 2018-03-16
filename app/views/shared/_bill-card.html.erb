@@ -1,0 +1,29 @@
+<div class="billy3">
+  <div class="billy5">
+    <div class="avatar-container">
+      <img class="table-dashboard-user-avatar billy2" src="http://res.cloudinary.com/dnf96fubu/image/upload/facebook-profile-picture-no-pic-avatar.jpg" alt="Facebook profile picture no pic avatar">
+    </div>
+    <div style>
+      <p class="price"><%= locals[ :order ].user.email.split("@").first %></p>
+    </div>
+  </div>
+  <div class="billy">
+    <div class="within-billy">
+      <h4><%= locals[ :order ].dish.name %></h4>
+      <div class="price-ordered-by">
+        <p class="price">€<%= locals[ :order ].dish.price %> x <%= locals[ :order ].quantity %></p>
+      </div>
+    </div>
+  </div>
+  <div class="avatar-checkbox-container">
+    <div class="avatar-checkbox">
+      <div class="total-price" id="price-<%= locals[:i] %>">
+        €<%= (locals[ :order ].dish.price) * (locals[ :order ].quantity) %>
+      </div>
+      <label class="check-container">
+        <input type="checkbox" checked="checked" class="checker" id="check">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </div>
+</div>

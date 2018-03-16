@@ -1,4 +1,4 @@
-.dishes-card-container{
+.orders-card-container{
   margin-top: 0px;
   width: 100%;
   height: 100%;
@@ -6,7 +6,14 @@
   box-shadow: 0 0 0.1em lightgray;
 
 }
-.dish-card-category{
+.price{
+  font-weight: normal;
+  margin: 0px;
+  padding: 4px;
+  font-size: 13px;
+  font-weight: lighter;
+}
+.order-card-category{
   box-shadow: 0 0 .3em lightgray;
   margin: 0px 8px;
   border-radius: 3px;
@@ -15,26 +22,22 @@
     color: gray;
     text-decoration: none !important;
   }
-.dish-card{
-  background-color: white;
-
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  // padding: 8px 8px;
+.order-card{
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: column;
+  padding: 8px;
+  background-color: white;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 
-  .dish-card-details{
+
+  .order-card-details{
     padding: 0px;
-    padding-top: 8px;
     width: 100%;
     height: 100%;
-    .dish-card-details-bottom{
+    .order-card-details-bottom{
       width: 100%;
     }
-    .price{
-        font-weight: normal;
-      }
+
     p{
       margin: 0px;
       padding: 4px;
@@ -49,36 +52,39 @@
     }
   }
 }
-.dish-card-image-container{
+.order-card-image-container{
   padding: 8px;
-  .dish-card-image {
-    width:80px;
-    height: 80px;
-    border-radius: 25%;
+  .order-card-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     // border: 1px solid rgba(0,0,0,0.2)
   }
 }
-.dish-card:first-child {
-  margin-top: 8px;
+.order-card:first-child {
   border-radius: 3px;
 }
-.dish-card:last-child {
+.order-card:last-child {
   margin-bottom: 8px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
 
-.dish-card-btn {
-  text-decoration: none;
-  text-align: center;
-  padding: 0;
-  width: 50px;
-  font-size: 16px;
-  float: right;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  margin-top: -16px;
-}
 .dish-added {
-  border: 0.5px solid $our-red;
+  border: 0.5px solid rgba(#7FC6A6,0.5);
+}
+.order-card-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order-card-buttons{
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.order-quantity{
+  padding: 0px 4px;
+  font-size: 14px;
 }
