@@ -1,4 +1,10 @@
 class OrdersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:create, :update, :checkout]
+
+  # def show
+  #   @order = Order.where(status: 'paid').find(params[:id])
+  # end
+
   def create
     dish = Dish.find(params[:dish_id])
     amount = dish.price
@@ -11,7 +17,6 @@ class OrdersController < ApplicationController
       format.html {}
       format.js
     end
-
   end
 
   def update
@@ -45,5 +50,6 @@ class OrdersController < ApplicationController
     @orders.each do |order|
       authorize order
     end
+    authorize Order.first if @orders.empty?
   end
 end
