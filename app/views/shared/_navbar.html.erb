@@ -1,8 +1,13 @@
 <div class="navbar-eatsplit">
   <% if current_user.nil? %>
-  <div class="log_in">
-    <%= link_to "Log in", new_user_session_path, class: "log_in_link" %>
-  </div>
+    <div class="log_in">
+      <%= link_to "Log in", new_user_session_path, class: "log_in_link" %>
+    </div>
+  <% else %>
+    <div class="log_out">
+      <%= link_to "Log out", destroy_user_session_path, :method => 'delete', class: "log_in_link"
+       %>
+    </div>
   <% end %>
   <div class="top_search">
     <div class="top_search_input">
