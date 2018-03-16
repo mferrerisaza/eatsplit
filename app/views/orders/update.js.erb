@@ -1,0 +1,9 @@
+function updateQuantity() {
+  const order = document.querySelector('[data-order-id="<%= @order.id %>"]');
+  if (<%=@order.quantity%> === 0){
+    order.parentNode.parentNode.parentNode.remove();
+  }
+  order.innerHTML = '<%=@order.quantity%>'
+}
+
+updateQuantity();

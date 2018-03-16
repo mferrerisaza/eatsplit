@@ -37,6 +37,22 @@ module ApplicationHelper
     end
   end
 
+  def order_picture(dish)
+    if dish.photo.nil?
+      cl_image_tag "restaurant-placeholder.jpg",
+        crop: :fill,
+        height: 600,
+        width: 600,
+        class: "order-card-image"
+    else
+      cl_image_tag dish.photo,
+        crop: :fill,
+        height: 600,
+        width: 600,
+        class: "order-card-image"
+    end
+  end
+
   def card_photo_or_generic(user)
     if user == current_user && (user.profile.nil? || user.profile.photo.blank?)
       cl_image_tag "facebook-profile-picture-no-pic-avatar.jpg", class: "table-dashboard-user-avatar"
