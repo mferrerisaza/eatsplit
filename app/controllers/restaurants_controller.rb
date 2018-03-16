@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
   def index
     if !params[:query].present? && params[:query].nil?
       @restaurants = policy_scope(Restaurant).near("carrer d'en grassot 101", 100)
@@ -10,6 +11,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    raise
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
   end

@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :create, :checkout]
+
   def show
     @order = Order.where(status: 'paid').find(params[:id])
   end
