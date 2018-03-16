@@ -88,3 +88,13 @@
   padding: 0px 4px;
   font-size: 14px;
 }
+.orders-total-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 9vh;
+  width: 100%;
+  position: sticky;
+  bottom: 0px;
+  background-color: black
+}
