@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   get "dishes/checkout", to: 'orders#checkout', as: :checkout
   resources :restaurants, only: :show do
     resources :dishes, only: :index do
@@ -8,4 +9,6 @@ Rails.application.routes.draw do
   end
   root to: 'restaurants#index'
   resources :tables, only: :show
+  resources :bills, only: [:show]
+
 end
