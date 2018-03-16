@@ -65,6 +65,10 @@
   display: none;
 }
 
+.top_search:hover ~ .log {
+  display: none;
+}
+
 .top_search_input input {
     cursor: pointer;
     box-shadow: none;
