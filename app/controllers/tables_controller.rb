@@ -1,6 +1,7 @@
 class TablesController < ApplicationController
 
   def show
+
     @table = Table.find(params[:id])
     authorize @table
 
@@ -10,10 +11,14 @@ class TablesController < ApplicationController
     @mains = @dishes.select { |dish| dish.category == "Main"}
     @desserts = @dishes.select { |dish| dish.category == "Dessert"}
 
+#move this to bill controller create
+#al crear el bill:
     if @table.active_bill?
       @bill = @table.active_bill
+  #redireccionar a tabledashboard
     else
       @bill = Bill.create(table: @table)
+  #redireccionar al table dashboard
     end
   end
 
