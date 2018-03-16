@@ -87,3 +87,24 @@
   align-items: center;
   font-size: 14px;
 }
+.button2 {
+ border: 1px solid #E9585A;
+ cursor: pointer;
+ display: -webkit-box;
+ display: -ms-flexbox;
+ display: flex;
+ justify-content: center;
+ -webkit-box-pack: start;
+ -ms-flex-pack: start;
+ -webkit-box-align: center;
+ -ms-flex-align: center;
+ align-items: center;
+ border-radius: 20px;
+ background-color: white;
+ color: #E9585A;
+ // change the width and the height to your conveniance
+ width: 30%;
+ height: 34px;
+ font-size: 13px;
+ transition: width .7s,height .1s,border-radius .3s,margin .3s;
+}
