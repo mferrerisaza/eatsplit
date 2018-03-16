@@ -19,7 +19,26 @@
   bottom: 0px;
   width: 100%;
   background-color: white;
-  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1)
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+  height: 11vh;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+ p {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Quicksand", sans-serif;
+    color: black;
+   }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+
+
 }
 
 .user-info {
@@ -75,22 +94,6 @@
   border-right-color: whitesmoke;
 }
 
-.bill-info {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
- p {
-    margin: 0;
-    font-size: 16px;
-    font-family: "Quicksand", sans-serif;
-    color: black;
-   }
-
-  a:hover {
-    text-decoration: none;
-  }
-}
 .dashboard-controller-avatars {
   img {
     display: inline-block;
@@ -147,7 +150,6 @@
 .desserts-panel> .panel-heading {
   background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0)), url('dessert.jpg');
   background-size: cover;
-
 }
 
 
@@ -164,12 +166,10 @@
 .btn-bill {
   justify-content: center;
    width: 40%;
-   p {
     margin: 0;
     font-size: 16px;
     font-family: "Quicksand", sans-serif;
     color: black;
-   }
 }
 
 
