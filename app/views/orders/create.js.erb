@@ -1,0 +1,5 @@
+function generateCheckoutPage() {
+  const container = document.querySelector(".orders-card-container");
+  container.insertAdjacentHTML("beforeend",'<%=j render "shared/order-card", order: @order%>');
+}
+generateCheckoutPage();
