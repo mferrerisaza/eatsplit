@@ -21,7 +21,11 @@
         €<%= (locals[ :order ].dish.price) * (locals[ :order ].quantity) %>
       </div>
       <label class="check-container">
-        <input type="checkbox" checked="checked" class="checker" id="check">
+        <% if  locals[ :order ].user == current_user %>
+          <input type="checkbox" checked="checked" class="checker" id="check">
+        <% else %>
+          <input type="checkbox" class="checker" id="check">
+        <% end %>
         <span class="checkmark"></span>
       </label>
     </div>
