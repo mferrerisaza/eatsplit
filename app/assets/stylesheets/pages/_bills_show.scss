@@ -3,8 +3,12 @@
   font-size: 24px;
 }
 
+.bill-header {
+  margin-top: 10px;
+}
+
 .bill {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .payment-buttons {
@@ -20,3 +24,165 @@
 .modal-dialog-centered {
   margin-top: 150px;
 }
+
+.check-container {
+  display: block;
+  position: absolute;
+  padding-left: 5px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  top: 22px;
+  left: 32px;
+  margin-top: 2px;
+}
+
+.check-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+.check-container input:checked ~ .checkmark {
+  background-color: #E9585A;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.check-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.check-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.total-display {
+  display: flex;
+  justify-content: center;
+}
+
+
+.who-ordered {
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  text-shadow: 1px 1px #000000;
+  position: absolute;
+  top: 10px;
+  left: 11px;
+  border-radius: 3px;
+}
+
+.table-dashboard-user-avatar.billy2 {
+
+}
+
+.billy3 {
+  background-color: white;
+  margin: 0px 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: stretch;
+}
+
+.avatar-checkbox {
+  // display: flex;
+  // align-items: flex-start;
+  position: relative;
+}
+
+.billy {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  p{ margin: 0px;
+    padding: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: lighter;
+
+  }
+  h4{
+    margin: 0px;
+    padding: 1px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 16px;
+    // font-weight: bold;
+  }
+}
+
+.billy5 {
+  flex-shrink: 0;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  p{ margin: 0px;
+    padding: 0px;
+    padding-left: 8px;
+    font-size: 12px;
+    font-weight: lighter;
+
+  }
+  h4{
+    margin: 0px;
+    padding: 1px;
+    padding-left: 8px;
+    font-size: 16px;
+    // font-weight: bold;
+  }
+}
+
+.avatar-checkbox-container {
+  width: 70px;
+  padding: 10px;
+}
+
+.price-ordered-by {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-price {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-container {
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+
+
+
+

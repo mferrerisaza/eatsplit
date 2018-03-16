@@ -1,24 +1,39 @@
 <div class="container bill-header">
   <div class="bill-header">
-      Your table's Bill
+      Your table's Bill:
   </div>
+  <div class="bill-header">
+      Check items you wish to pay for.
+  </div>
+
 </div>
 
 <div class="container bill">
-  <div class="mock-box">
-    <p>Hello world</p>
-  </div>
+
+  <% @bill.orders.each.with_index do |order, i| %>
+    <%= render "shared/bill-card", locals: { order: order, i: i } %>
+  <% end %>
+
+</div>
+
+<div class="total-display">
+  <button type="button" class="button" style="background-color: white; color: #000000;">
+    Your Total: €
+    <span id='total'>
+      0
+    </span>
+  </button>
 </div>
 
 <div class="container payment-buttons">
   <div>
-    <button type="button" class="btn btn-primary payment-btn" data-toggle="modal" data-target=".bd-card-modal-sm">
+    <button type="button" class="button" data-toggle="modal" data-target=".bd-card-modal-sm">
       Pay by Card
     </button>
   </div>
 
   <div>
-    <button type="button" class="btn btn-primary payment-btn" data-toggle="modal" data-target=".bd-cash-modal-sm">
+    <button type="button" class="button" data-toggle="modal" data-target=".bd-cash-modal-sm">
       Pay by Cash
     </button>
   </div>
