@@ -4,7 +4,8 @@ class Bill < ApplicationRecord
   has_many :dishes, through: :orders
   has_many :users, through: :orders
   monetize :balance_cents
-  validate :check_if_unique_status
+  validate :check_if_unique_status, on: :create
+  accepts_nested_attributes_for :orders
 
 
   def check_if_unique_status
