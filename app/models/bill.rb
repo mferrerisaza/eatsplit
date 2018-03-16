@@ -18,7 +18,7 @@ class Bill < ApplicationRecord
 
   def update_balance
     sum = 0
-    self.orders.each do |oder|
+    self.orders.each do |order|
       sum += order.amount
     end
     self.balance = sum
