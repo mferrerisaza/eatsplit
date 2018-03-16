@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20180315163158) do
     t.integer "amount_cents", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "payment"
     t.index ["bill_id"], name: "index_orders_on_bill_id"
     t.index ["dish_id"], name: "index_orders_on_dish_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
