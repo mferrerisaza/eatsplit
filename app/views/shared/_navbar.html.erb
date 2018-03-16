@@ -1,5 +1,9 @@
 <div class="navbar-eatsplit">
-
+  <% if current_user.nil? %>
+  <div class="log_in">
+    <%= link_to "Log in", new_user_session_path, class: "log_in_link" %>
+  </div>
+  <% end %>
   <div class="top_search">
     <div class="top_search_input">
       <%= image_tag "loop.svg", height: 10, class: "loop-icon" %>
@@ -10,7 +14,7 @@
   </div>
   <div class="logo-nav-container">
   <%= link_to root_path, class: "navbar-eatsplit-brand" do %>
-    <%= image_tag "logo_eatsplit.svg", height: 50, class: "logo" %>
+    <%= image_tag "logo_eatsplit.svg", class: "logo" %>
   <% end %>
   </div>
 </div>

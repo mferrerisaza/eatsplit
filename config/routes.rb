@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "dishes/checkout", to: 'orders#checkout', as: :checkout
   resources :restaurants, only: :show do
     resources :dishes, only: :index do
-      resources :orders, only: [:show, :create, :update] do
+      resources :orders, only: [:create, :update] do
         resources :payments, only: [:new, :create]
       end
     end

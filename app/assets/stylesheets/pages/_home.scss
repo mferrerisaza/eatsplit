@@ -14,8 +14,8 @@
 }
 
 
-
 .top_search {
+    margin-left: 0px;
     transition: width .6s,height 4s,margin .6s;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -47,7 +47,7 @@
     border-radius: 20px;
     background-color: white;
     color: #E9585A;
-    width: 65%;
+    width: 80%;
     height: 50px;
     transition: width .7s,height .1s,border-radius .3s,margin .3s;
 }
@@ -94,3 +94,6 @@ input {
   text-align: center;
 }
 
+.logo-nav-container {
+  margin-left: -10px;
+}

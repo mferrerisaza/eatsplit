@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :create, :checkout]
+  skip_before_action :authenticate_user!, only: [:create, :update, :checkout]
 
-  def show
-    @order = Order.where(status: 'paid').find(params[:id])
-  end
+  # def show
+  #   @order = Order.where(status: 'paid').find(params[:id])
+  # end
 
   def create
     dish = Dish.find(params[:dish_id])
