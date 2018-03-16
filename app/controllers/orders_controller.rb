@@ -34,7 +34,6 @@ class OrdersController < ApplicationController
   end
 
 
-
   def checkout
     @orders = session[:order_ids].map do |order_id|
       Order.find(order_id)
