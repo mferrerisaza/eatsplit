@@ -1,5 +1,9 @@
 class PaymentsController < ApplicationController
   before_action :set_order
+  after_action :verify_authorized, except: :create
+
+
+  skip_before_action :authenticate_user!, only: [:create]
 
   def create
     customer = Stripe::Customer.create(
@@ -7,15 +11,16 @@ class PaymentsController < ApplicationController
         email:  params[:stripeEmail]
       )
 
-      charge = Stripe::Charge.create(
-        customer:     customer.id,   # You should store this customer id and re-use it.
-        amount:       @bill.balance_cents,
-        description:  "Payment for dinner #{@bill.teddy_sku} for order #{@order.id}",
-        currency:     EUR
-      )
+      # charge = Stripe::Charge.create(
+      #   customer:     customer.id,   # You should store this customer id and re-use it.
+      #   amount:       @bill.balance_cents,
+      #   description:  "Thank you for paying",
+      #   currency:     :eur
+      # )
 
-      @order.update(payment: charge.to_json, status: 'paid')
-      redirect_to order_path(@order)
+      # @order.update(payment: charge.to_json, status: 'paid')
+
+      redirect_to bill_path(@bill)
 
     rescue Stripe::CardError => e
       flash[:alert] = e.message
@@ -26,7 +31,7 @@ class PaymentsController < ApplicationController
 private
 
   def set_order
-    @bill = Bill.where(state: 'unpaid').find(params[:bill_id])
+    @bill = Bill.where(status: 'unpaid').find(params[:bill_id])
   end
 end
 
