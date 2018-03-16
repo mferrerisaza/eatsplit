@@ -47,7 +47,7 @@
   <div class="dashboard-container-footer">
     <div class="bill-info">
       <p class="balance"> Table total: <u><%="$#{@bill.balance}" %></u></p>
-      <a href="">Bill summary</a>
+      <%= link_to "Bill summary", bill_path(@bill) %>
     </div>
   </div>
 </div>
