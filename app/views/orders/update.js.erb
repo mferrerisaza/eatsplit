@@ -1,9 +1,27 @@
+function updateTotal(){
+  const total = document.getElementById("total-amount");
+  let newAmount = parseFloat(<%=@order.amount%>);
+  let oldAmount = parseFloat(<%=@old_amount%>);
+  let actualAmount = parseFloat(total.innerHTML);
+  if (total.innerHTML === "") {
+    total.innerHTML = parseFloat(newAmount).toFixed(2);
+  }else {
+    if (newAmount > oldAmount){
+      total.innerHTML =  parseFloat(actualAmount + newAmount - oldAmount).toFixed(2);
+  } else if(newAmount < oldAmount){
+      total.innerHTML = parseFloat(actualAmount - (oldAmount - newAmount)).toFixed(2);
+    }
+  }
+}
+
 function updateQuantity() {
   const order = document.querySelector('[data-order-id="<%= @order.id %>"]');
   if (<%=@order.quantity%> === 0){
     order.parentNode.parentNode.parentNode.remove();
   }
   order.innerHTML = '<%=@order.quantity%>'
+  updateTotal();
 }
 
 updateQuantity();
+
