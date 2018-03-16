@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     end
   end
   root to: 'restaurants#index'
-  resources :tables, only: :show
-  resources :bills, only: [:show, :update]
 
-end
+
+  resources :tables, only: [:show]
+    resources :bills, only: [:show] do
+      resources :payments, only: [:create]
+    end
+  end
