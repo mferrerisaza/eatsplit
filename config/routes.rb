@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   get "dishes/checkout", to: 'orders#checkout', as: :checkout
   resources :restaurants, only: :show do
     resources :dishes, only: :index do
-      resources :orders, only: [:create, :update] do
-        resources :payments, only: [:new, :create]
-      end
+      resources :orders, only: [:create, :update]
     end
   end
   root to: 'restaurants#index'
 
   resources :tables, only: [:show]
-    resources :bills, only: [:show]
+    resources :bills, only: [:show] do
+      resources :payments, only: [:create]
+    end
   end
