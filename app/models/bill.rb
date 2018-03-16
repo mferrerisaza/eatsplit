@@ -23,7 +23,7 @@ class Bill < ApplicationRecord
     end
     self.balance = sum
   end
-  #
+
 
 
 end
