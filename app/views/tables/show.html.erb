@@ -15,7 +15,6 @@
         <% @bill.users.uniq[0..2].each do |user| %>
           <%= card_photo_or_generic(user) %>
         <% end %>
-<<<<<<< HEAD
         <span>+<%= @bill.users.uniq.size - 3 %></span>
       <% end %>
     </div>
@@ -43,7 +42,7 @@
            </div>
            <div id="drinks-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
              <div class="panel-body">
-               <div class="drinks">
+               <div class="dish-card-category">
                  <% @drinks.each do |dish| %>
                    <%= render 'shared/dish-card', dish: dish %>
                  <% end %>
@@ -67,7 +66,7 @@
            </div>
            <div id="starters-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
              <div class="panel-body">
-               <div class="starters">
+               <div class="dish-card-category">
                  <% @starters.each do |dish| %>
                    <%= render 'shared/dish-card', dish: dish %>
                  <% end %>
@@ -91,7 +90,7 @@
            </div>
            <div id="main-dish-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
              <div class="panel-body">
-               <div class="mains">
+               <div class="dish-card-category">
                  <% @mains.each do |dish| %>
                    <%= render 'shared/dish-card', dish: dish %>
                  <% end %>
@@ -115,7 +114,7 @@
            </div>
            <div id="desserts-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
              <div class="panel-body">
-               <div class="desserts">
+               <div class="dish-card-category">
                  <% @desserts.each do |dish| %>
                    <%= render 'shared/dish-card', dish: dish %>
                  <% end %>
@@ -126,10 +125,31 @@
      <% end %>
     </div>
   </div>
+</div>
   <div class="dashboard-container-footer">
-    <div class="bill-info">
       <p class="balance"> Table total: <u><%="$#{@bill.balance}" %></u></p>
       <%= link_to "Bill summary", bill_path(@bill), class: "button btn-bill" %>
+  </div>
+   <div class="checkout-page-container hidden">
+    <%= link_to "#", id: "checkout-closing", class: "close-checkout" do%>
+      <i class="fas fa-times"></i>
+    <% end %>
+    <div class="checkout-page-list">
+      <h3> Your order</h3>
+      <div class="orders-card-container">
+      </div>
+    </div>
+
+  </div>
+  <%= link_to checkout_path, class: "hidden", id: "checkout-basket", remote: true do  %>
+    <div class="checkout-link">
+      <div class="checkout-notification-group">
+        <div class="checkout-basket-counter">0</div>
+        <i class="fas fa-shopping-basket"></i>
+      </div>
+    </div>
+  <% end %>
+
 
 
 
