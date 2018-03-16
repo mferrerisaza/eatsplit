@@ -3,4 +3,7 @@ class BillsController < ApplicationController
     @bill = Bill.find(params[:id])
     authorize @bill
   end
+
+  def create
+  end
 end

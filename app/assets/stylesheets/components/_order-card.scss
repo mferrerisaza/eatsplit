@@ -89,6 +89,7 @@
   font-size: 14px;
 }
 .orders-total-footer {
+  border-top: 1px solid lightgray;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -96,5 +97,36 @@
   width: 100%;
   position: sticky;
   bottom: 0px;
-  background-color: black
+  background-color: white;
+  h3 {
+    margin:0px;
+    margin-bottom: 3px;
+    margin-right: 3px;
+  }
+  p {
+    margin:0px;
+    font-size: 12px;
+    font-weight: bold;
+    color: limegreen;
+    margin-right: 3px;
+  }
 }
+.orders-form{
+  form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    select {
+      font-size: 12px;
+      padding: 2px;
+      height: 100%;
+    }
+    .orders-form-label {
+      font-size: 12px;
+      width: 50%;
+      margin-right: 8px;
+      font-weight: lighter;
+    }
+  }
+}
+
