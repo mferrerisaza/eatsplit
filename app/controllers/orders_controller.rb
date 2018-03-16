@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
       @order.quantity -= 1
     end
     if @order.quantity == 0
+      session[:order_ids].delete(@order.id)
       @order.destroy
     else
       @order.save
