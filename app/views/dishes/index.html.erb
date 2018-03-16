@@ -43,7 +43,7 @@
            <p id="total-amount"></p>
         </div>
         <div class="orders-form">
-          <%= form_tag bills_path, method: :post do %>
+          <%= form_tag new_bill_path, method: :get do %>
               <%= label_tag :table,"Table No:", class: "orders-form-label" %>
               <%= select_tag :table, options_for_select(@restaurant.tables.map {|table| table.number}), class: "form-control"  %>
             <%= submit_tag "Finish your order", class: "button3" %>
