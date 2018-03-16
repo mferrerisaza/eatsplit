@@ -16,10 +16,12 @@
 // outside of the loop, you have a counter
 // In the end, counter is the total
 
+
 function addListenerToCheckbox(){
   document.querySelectorAll(".checker").forEach(function(checkbox){
     checkbox.addEventListener("click", (event) => {
       updateBill();
+      sendData();
     })
   })
 }
@@ -38,6 +40,18 @@ function updateBill() {
   let total = document.getElementById("total");
   total.innerText = counter.toFixed(2);
 }
+
+// function updatePaid(){
+//   if (document.getElementById('check').checked) {
+
+//   } else {
+
+//   }
+// }
+
+
+
+
 
 document.addEventListener("DOMContentLoaded",()=>{
   updateBill();
