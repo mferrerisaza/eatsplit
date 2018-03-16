@@ -1,53 +1,156 @@
-<div class="maincontainer">
-      <div class="top-dashboard-container-top">
-        <div class="dashboard-controller-user">
-          <div class="user-info">
-            <%= card_photo_or_generic(current_user) %>
-            <p><%= user_name_or_generic(current_user) %></p>
-          </div>
-        </div>
-        <div class="party-container">
-          <div class="dashboard-controller-avatars">
-            <% if @bill.users.uniq.size < 3 %>
-              <% @bill.users.uniq.each do |user| %>
-              <%= card_photo_or_generic(user) %>
-              <% end %>
-            <% else %>
-              <% @bill.users.uniq[0..2].each do |user| %>
-                <%= card_photo_or_generic(user) %>
-              <% end %>
-              <span>+<%= @bill.users.uniq.size - 3 %></span>
-            <% end %>
-          </div>
-          <p>Your party</p>
-        </div>
-      </div>
-      <div class="dashboard-menu">
-        <h3 id="still-hungry">Still hungry?</h3>
-        <h3>Starters</h3>
-        <div class="starters">
-        <% @starters.each do |dish| %>
-          <%= render 'shared/dish-card', dish: dish %>
+<div class="top-dashboard-container-top">
+  <div class="dashboard-controller-user">
+    <div class="user-info">
+      <%= card_photo_or_generic(current_user) %>
+      <p><%= user_name_or_generic(current_user) %></p>
+    </div>
+  </div>
+  <div class="party-container">
+    <div class="dashboard-controller-avatars">
+      <% if @bill.users.uniq.size < 3 %>
+        <% @bill.users.uniq.each do |user| %>
+        <%= card_photo_or_generic(user) %>
         <% end %>
-        </div>
-        <h3>Mains</h3>
-        <div class="mains">
-        <% @mains.each do |dish| %>
-          <%= render 'shared/dish-card', dish: dish %>
+      <% else %>
+        <% @bill.users.uniq[0..2].each do |user| %>
+          <%= card_photo_or_generic(user) %>
         <% end %>
-        </div>
-        <h3>Desserts</h3>
-        <div class="desserts">
-          <% @desserts.each do |dish| %>
-            <%= render 'shared/dish-card', dish: dish %>
-          <% end %>
-        </div>
-      </div>
-      <div class="btn-pay"></div>
-  <div class="dashboard-container-footer">
-    <div class="bill-info">
-      <p class="balance"> Table total: <u><%="$#{@bill.balance}" %></u></p>
-      <a href="">Bill summary</a>
+        <span>+<%= @bill.users.uniq.size - 3 %></span>
+      <% end %>
+    </div>
+    <p>Your party</p>
+  </div>
+</div>
+<div class="dashboard-menu">
+  <div class="dashboard-banner">
+      <h3 id="still-hungry">Still hungry?</h3>
+  </div>
+  <div class="container">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+       <% if @drinks.blank? %>
+         <div class="panel panel-default drinks-panel" role="button" data-toggle="collapse" data-parent="#accordion" href="#drinks-container" aria-expanded="false" aria-controls="drinks-container">
+           <div class="panel-heading" role="tab" id="headingOne">
+           </div>
+           <div class="toggle-text-container">
+             <h4 class="panel-title">
+               Drinks
+             </h4>
+             <div class="toggle-switch">
+               <input class="tgl tgl-flat" id="cb1" type="checkbox"/>
+               <label class="tgl-btn" for="cb1"></label>
+             </div>
+           </div>
+           <div id="drinks-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+             <div class="panel-body">
+               <div class="dish-card-category">
+                 <% @drinks.each do |dish| %>
+                   <%= render 'shared/dish-card', dish: dish %>
+                 <% end %>
+               </div>
+             </div>
+           </div>
+       </div>
+     <% end %>
+     <% if !@starters.blank? %>
+       <div class="panel panel-default starters-panel" role="button" data-toggle="collapse" data-parent="#accordion" href="#starters-container" aria-expanded="false" aria-controls="starters-container">
+           <div class="panel-heading" role="tab" id="headingOne">
+           </div>
+           <div class="toggle-text-container">
+             <h4 class="panel-title">
+                 Starters
+               </h4>
+           <div class="toggle-switch">
+             <input class="tgl tgl-flat" id="cb2" type="checkbox"/>
+             <label class="tgl-btn" for="cb2"></label>
+           </div>
+           </div>
+           <div id="starters-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+             <div class="panel-body">
+               <div class="dish-card-category">
+                 <% @starters.each do |dish| %>
+                   <%= render 'shared/dish-card', dish: dish %>
+                 <% end %>
+               </div>
+             </div>
+           </div>
+       </div>
+     <% end %>
+     <% if !@mains.blank? %>
+       <div class="panel panel-default main-panel" role="button" data-toggle="collapse" data-parent="#accordion" href="#main-dish-container" aria-expanded="false" aria-controls="main-dish-container">
+           <div class="panel-heading" role="tab" id="headingOne">
+           </div>
+           <div class="toggle-text-container">
+             <h4 class="panel-title">
+                Main
+             </h4>
+             <div class="toggle-switch">
+               <input class="tgl tgl-flat" id="cb3" type="checkbox"/>
+               <label class="tgl-btn" for="cb3"></label>
+             </div>
+           </div>
+           <div id="main-dish-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+             <div class="panel-body">
+               <div class="dish-card-category">
+                 <% @mains.each do |dish| %>
+                   <%= render 'shared/dish-card', dish: dish %>
+                 <% end %>
+               </div>
+             </div>
+           </div>
+       </div>
+     <% end %>
+     <% if !@desserts.blank? %>
+       <div class="panel panel-default desserts-panel" role="button" data-toggle="collapse" data-parent="#accordion" href="#desserts-container" aria-expanded="false" aria-controls="desserts-container">
+           <div class="panel-heading" role="tab" id="headingOne">
+           </div>
+           <div class="toggle-text-container">
+             <h4 class="panel-title">
+                 Desserts
+             </h4>
+             <div class="toggle-switch">
+               <input class="tgl tgl-flat" id="cb4" type="checkbox"/>
+               <label class="tgl-btn" for="cb4"></label>
+             </div>
+           </div>
+           <div id="desserts-container" class="panel-collapse collapse out" role="tabpanel" aria-labelledby="headingOne">
+             <div class="panel-body">
+               <div class="dish-card-category">
+                 <% @desserts.each do |dish| %>
+                   <%= render 'shared/dish-card', dish: dish %>
+                 <% end %>
+               </div>
+             </div>
+           </div>
+       </div>
+     <% end %>
     </div>
   </div>
 </div>
+  <div class="dashboard-container-footer">
+      <p class="balance"> Table total: <u><%="$#{@bill.balance}" %></u></p>
+      <%= link_to "Bill summary", bill_path(@bill), class: "button btn-bill" %>
+  </div>
+   <div class="checkout-page-container hidden">
+    <%= link_to "#", id: "checkout-closing", class: "close-checkout" do%>
+      <i class="fas fa-times"></i>
+    <% end %>
+    <div class="checkout-page-list">
+      <h3> Your order</h3>
+      <div class="orders-card-container">
+      </div>
+    </div>
+
+  </div>
+  <%= link_to checkout_path, class: "hidden", id: "checkout-basket", remote: true do  %>
+    <div class="checkout-link">
+      <div class="checkout-notification-group">
+        <div class="checkout-basket-counter">0</div>
+        <i class="fas fa-shopping-basket"></i>
+      </div>
+    </div>
+  <% end %>
+
+
+
+
+

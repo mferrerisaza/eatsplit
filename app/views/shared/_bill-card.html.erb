@@ -1,7 +1,7 @@
 <div class="billy3">
   <div class="billy5">
     <div class="avatar-container">
-      <img class="table-dashboard-user-avatar billy2" src="http://res.cloudinary.com/dnf96fubu/image/upload/facebook-profile-picture-no-pic-avatar.jpg" alt="Facebook profile picture no pic avatar">
+      <%= card_photo_or_generic(locals[ :order ].user) %>
     </div>
     <div style>
       <p class="price"><%= locals[ :order ].user.email.split("@").first %></p>
