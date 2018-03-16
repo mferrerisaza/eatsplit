@@ -1,9 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_order
 
-  def new
-  end
-
   def create
     customer = Stripe::Customer.create(
         source: params[:stripeToken],
@@ -12,9 +9,9 @@ class PaymentsController < ApplicationController
 
       charge = Stripe::Charge.create(
         customer:     customer.id,   # You should store this customer id and re-use it.
-        amount:       @order.amount_cents,
-        description:  "Payment for order #{@order.dish} for order #{@order.id}",
-        currency:     @order.amount.currency
+        amount:       @bill.balance_cents,
+        description:  "Payment for dinner #{@bill.teddy_sku} for order #{@order.id}",
+        currency:     EUR
       )
 
       @order.update(payment: charge.to_json, status: 'paid')
@@ -22,13 +19,18 @@ class PaymentsController < ApplicationController
 
     rescue Stripe::CardError => e
       flash[:alert] = e.message
-      redirect_to new_restaurant_dish_order_payment_path(@order)
+      redirect_to bill_path(@bill)
+
   end
 
 private
 
   def set_order
-    @order = Order.where(state: 'pending').find(params[:order_id])
+    @bill = Bill.where(state: 'unpaid').find(params[:bill_id])
   end
 end
 
+
+#pmt create method
+# chnage stripe button design
+#get data for stripe
