@@ -9,33 +9,38 @@
 </div>
 
 <div class="container bill">
-
   <% @bill.orders.each.with_index do |order, i| %>
     <%= render "shared/bill-card", locals: { order: order, i: i } %>
   <% end %>
 
 </div>
 
-<div class="total-display">
-  <button type="button" class="button" style="background-color: white; color: #000000;">
-    Your Total: €
-    <span id='total'>
-      0
-    </span>
-  </button>
-</div>
-
-<div class="container payment-buttons">
-  <div>
-    <button type="button" class="button" data-toggle="modal" data-target=".bd-card-modal-sm">
-      Pay by Card
+<div>
+  <div class="total-display">
+    <button type="button" class="button fixy2" style="background-color: white; color: #000000;">
+      <div class="center">
+        Your Total: €
+        <span id='total'>
+          0
+        </span>
+      </div>
     </button>
   </div>
 
-  <div>
-    <button type="button" class="button" data-toggle="modal" data-target=".bd-cash-modal-sm">
-      Pay by Cash
-    </button>
+  <div class="container payment-buttons">
+    <div class="button-fix">
+    <!-- Link to a controller action where we update  -->
+    <!-- We want to send the data there  -->
+      <button type="button" class="button fixy" data-toggle="modal" data-target=".bd-card-modal-sm">
+        Pay by Card
+      </button>
+    </div>
+
+    <div class="button-fix">
+      <button type="button" class="button fixy" data-toggle="modal" data-target=".bd-cash-modal-sm">
+        Pay by Cash
+      </button>
+    </div>
   </div>
 </div>
 
