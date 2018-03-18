@@ -23,9 +23,11 @@ class TablesController < ApplicationController
       @bill = @table.active_bill
   #redireccionar a tabledashboard
       @bill.orders << @orders
+      @bill.update_balance
     else
       @bill = Bill.create(table: @table)
       @bill.orders << @orders
+      @bill.update_balance
   #redireccionar al table dashboard
     end
   end
