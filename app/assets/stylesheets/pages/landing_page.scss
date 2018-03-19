@@ -4,9 +4,10 @@
   width: 100vw;
   height: 100vh;
   background: #EB3349;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #E9585A, #EB3349);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #E9585A, #EB3349); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to bottom, #E9585A, #EB3349);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #E9585A, #EB3349); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
 
 .wrapper-landing-2 {
   padding-top: 20%;
@@ -16,20 +17,34 @@
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
+
+
+  h1, p, h2 {
+  text-align: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: white;
+  font-family: "Montserrat";
+  }
+  h1 {
+    font-weight: 500;
+    font-size: 25px;
+  }
+  h2 {
+    font-weight: 250;
+    font-size: 20px;
+  }
 }
 
 .no-top {
-  margin-top: 0px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  width: 50vw;
   input {
-    width: 40vw;
     font-size: 15px;
-  }
-  p {
-    opacity: 0.9;
   }
 }
 
@@ -39,14 +54,7 @@
   font-family: "Montserrat";
 }
 
-h1, p {
-  text-align: center;
-  background: none;
-  border: none;
-  box-shadow: none;
-  color: white;
-  font-family: "Montserrat";
-}
+
 
 .footer-links {
   position: absolute;
@@ -59,4 +67,10 @@ h1, p {
     font-size: 15px;
     padding: 0px 10px;
   }
+}
+
+.logo-landing  h1{
+  font-weight: 700;
+  font-size: 30px;
+
 }
