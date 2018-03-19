@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :orders, only: [:create, :update]
     end
   end
-  root to: 'pages#landing_page'
+  root to: 'pages#home'
   resources :tables, only: :show
     resources :bills, only: [:new, :show, :create, :update] do
       resources :payments, only: [:create]
