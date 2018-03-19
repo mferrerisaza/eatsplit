@@ -18,17 +18,17 @@
       <div class="menu-category-link"><p> <%= link_to category, "\##{category.downcase}", class: "no-style"%></p></div>
     <% end %>
   </div>
-    <div class="dishes-card-container">
-      <% Dish::CATEGORY.each do |category| %>
-          <h3 id= <%= category.downcase %>><%= category.capitalize %></h3>
-          <div class="dish-card-category">
-            <% selected_dishes = @dishes.select { |dish| dish.category == category} %>
-            <%  selected_dishes.each do |dish| %>
-              <%= render 'shared/dish-card', dish: dish %>
-            <% end %>
-          </div>
-      <% end %>
-    </div>
+  <div class="dishes-card-container">
+    <% Dish::CATEGORY.each do |category| %>
+        <h3 id= <%= category.downcase %>><%= category.capitalize %></h3>
+        <div class="dish-card-category">
+          <% selected_dishes = @dishes.select { |dish| dish.category == category} %>
+          <%  selected_dishes.each do |dish| %>
+            <%= render 'shared/dish-card', dish: dish %>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
   <div class="checkout-page-container hidden">
     <%= link_to "#", id: "checkout-closing", class: "close-checkout" do%>
       <i class="fas fa-times"></i>
@@ -43,7 +43,7 @@
            <p id="total-amount"></p>
         </div>
         <div class="orders-form">
-          <%= form_tag new_bill_path, method: :get do %>
+          <%= form_tag bills_path, method: :post do %>
               <%= label_tag :table,"Table No:", class: "orders-form-label" %>
               <%= select_tag :table, options_for_select(@restaurant.tables.map {|table| table.number}), class: "form-control"  %>
             <%= submit_tag "Finish your order", class: "button3" %>
@@ -51,10 +51,6 @@
         </div>
       </div>
     </div>
-  </div>
-      </div>
-    </div>
-
   </div>
   <%= link_to checkout_path, class: "hidden", id: "checkout-basket", remote: true do  %>
     <div class="checkout-link">
