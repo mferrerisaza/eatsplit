@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
       if @user_location.latitude == 0 && @user_location.longitude == 0
         @restaurants = policy_scope(Restaurant)
       else
-      @restaurants = policy_scope(Restaurant).near([@user_location.latitude, @user_location.longitude], 1)
+      @restaurants = policy_scope(Restaurant).near([@user_location.latitude, @user_location.longitude], 5)
       end
     elsif !params[:query].present? && params[:query].blank?
       @restaurants = policy_scope(Restaurant)
