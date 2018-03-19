@@ -20,7 +20,9 @@ class Bill < ApplicationRecord
   def update_balance
     sum = 0
     self.orders.each do |order|
-      sum += order.amount
+      if order.status == "pending"
+        sum += order.amount
+      end
     end
     self.balance = sum
     self.save
