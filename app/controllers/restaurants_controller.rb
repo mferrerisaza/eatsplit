@@ -1,11 +1,12 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   def index
+    user_location = request.location
     if !params[:query].present? && params[:query].nil?
-      if request.location.city == ""
+      if user_location.latitude == 0 && user_location.longitude == 0
         @restaurants = policy_scope(Restaurant)
       else
-      @restaurants = policy_scope(Restaurant).near(request.location.city, 5)
+      @restaurants = policy_scope(Restaurant).near(user_location, 5)
       end
     elsif !params[:query].present? && params[:query].blank?
       @restaurants = policy_scope(Restaurant)
