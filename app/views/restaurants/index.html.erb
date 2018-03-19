@@ -2,6 +2,8 @@
   <%= render 'shared/navbar' %>
   <div class="container">
     <h4>Hi there!</h4>
+    <%= @user_location.latitude %>
+    <%= @user_location.longitude %>
     <h6>Let's start by <span style="color: #E9585A">selecting</span> your restaurant</h6>
     <div class="row margin-top">
       <% @restaurants.each do |resto| %>
