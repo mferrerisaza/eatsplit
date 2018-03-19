@@ -1,12 +1,12 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  after_action :verify_authorized, except: [:index, :location]
   def index
-    @user_location = request.location
     if !params[:query].present? && params[:query].nil?
-      if @user_location.latitude == 0 && @user_location.longitude == 0
+      if session[:location].nil?
         @restaurants = policy_scope(Restaurant)
       else
-      @restaurants = policy_scope(Restaurant).near([@user_location.latitude, @user_location.longitude], 5)
+      @restaurants = policy_scope(Restaurant).near(session[:location], 1)
       end
     elsif !params[:query].present? && params[:query].blank?
       @restaurants = policy_scope(Restaurant)
@@ -18,6 +18,11 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
+  end
+
+  def location
+    session[:location] = params[:data]
+    redirect_to root_path
   end
 
   private
