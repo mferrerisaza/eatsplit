@@ -10,25 +10,26 @@ class TablesController < ApplicationController
     @mains = @dishes.select { |dish| dish.category == "Main"}
     @desserts = @dishes.select { |dish| dish.category == "Dessert"}
 
-#move this to bill controller create
-#al crear el bill:
+    # Set current user = to the orders store on the session
     session[:order_ids].each do |id|
       order= Order.find(id)
       order.user = current_user
       order.save
     end
+
+    # Create an instance variables of orders finding the orders by id
     @orders = session[:order_ids].map { |id| Order.find(id)}
     session[:order_ids] =[]
     if @table.active_bill?
+      # if the table already has a bill, add orders to the bill
       @bill = @table.active_bill
-  #redireccionar a tabledashboard
       @bill.orders << @orders
       @bill.update_balance
     else
+      # Else create a bill and add orders to the bill
       @bill = Bill.create(table: @table)
       @bill.orders << @orders
       @bill.update_balance
-  #redireccionar al table dashboard
     end
   end
 
