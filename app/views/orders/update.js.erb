@@ -37,6 +37,7 @@ function updateQuantity() {
     dish.dataset.addToCart = "false";
     const buttons = document.querySelectorAll(".dish-card-btn");
     dish.classList.toggle("dish-added-button");
+    dish.disabled = false
     dish.innerHTML = "+";
     dish.parentNode.parentNode.classList.remove("dish-added")
     checkBasket(buttons);
