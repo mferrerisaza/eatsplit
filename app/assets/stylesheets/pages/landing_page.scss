@@ -1,0 +1,76 @@
+
+.wrapper-landing {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #EB3349;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #E9585A, #EB3349);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #E9585A, #EB3349); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+.wrapper-landing-2 {
+  padding-top: 20%;
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+
+  h1, p, h2 {
+  text-align: center;
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: white;
+  font-family: "Montserrat";
+  }
+  h1 {
+    font-weight: 500;
+    font-size: 25px;
+  }
+  h2 {
+    font-weight: 250;
+    font-size: 20px;
+  }
+}
+
+.no-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  width: 50vw;
+  input {
+    font-size: 15px;
+  }
+}
+
+.tagline {
+  background-color: none;
+  color: white;
+  font-family: "Montserrat";
+}
+
+
+
+.footer-links {
+  position: absolute;
+  bottom: 5px;
+  text-decoration: none;
+  a {
+    color: white;
+    opacity: 0.9;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 0px 10px;
+  }
+}
+
+.logo-landing  h1{
+  font-weight: 700;
+  font-size: 30px;
+
+}
