@@ -130,7 +130,7 @@
       <p class="balance"> Table total: <u><%="$#{@bill.balance}" %></u></p>
       <%= link_to "Bill summary", bill_path(@bill), class: "button btn-bill" %>
   </div>
-   <div class="checkout-page-container hidden">
+  <div class="checkout-page-container hidden">
     <%= link_to "#", id: "checkout-closing", class: "close-checkout" do%>
       <i class="fas fa-times"></i>
     <% end %>
@@ -138,9 +138,21 @@
       <h3> Your order</h3>
       <div class="orders-card-container">
       </div>
+      <div class="orders-total-footer">
+        <div class="orders-total-box">
+          <h3>Total</h3>
+           <p id="total-amount"></p>
+        </div>
+        <div class="orders-form">
+          <%= form_tag table_path(@table), method: :get do %>
+              <%= label_tag :table,"Table No:", class: "orders-form-label" %>
+            <%= submit_tag "Finish your order", class: "button3" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-
   </div>
+
   <%= link_to checkout_path, class: "hidden", id: "checkout-basket", remote: true do  %>
     <div class="checkout-link">
       <div class="checkout-notification-group">
@@ -149,8 +161,4 @@
       </div>
     </div>
   <% end %>
-
-
-
-
 
