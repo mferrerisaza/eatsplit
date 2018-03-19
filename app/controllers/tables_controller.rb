@@ -11,6 +11,7 @@ class TablesController < ApplicationController
     @desserts = @dishes.select { |dish| dish.category == "Dessert"}
 
     # Set current user = to the orders store on the session
+    session[:order_ids] = [] if session[:order_ids].blank?
     session[:order_ids].each do |id|
       order= Order.find(id)
       order.user = current_user
