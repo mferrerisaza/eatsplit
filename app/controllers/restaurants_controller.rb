@@ -26,9 +26,7 @@ class RestaurantsController < ApplicationController
 
   def location
     session[:location] = params[:data]
-    session[:jemoeder] = "Ollie"
-    redirect_to root_path
-
+    redirect_to restaurants_path
   end
 
   private
