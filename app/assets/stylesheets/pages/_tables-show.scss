@@ -55,6 +55,9 @@
   align-items: center;
   padding: 5%;
   width: 50%;
+  border-left-style: solid;
+  border-left-width: 2px;
+  border-left-color: whitesmoke;
 }
 
 .dashboard-menu{
@@ -89,9 +92,6 @@
   justify-content: center;
   padding: 5%;
   width: 50%;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: whitesmoke;
 }
 
 .dashboard-controller-avatars {
