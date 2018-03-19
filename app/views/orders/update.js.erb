@@ -1,3 +1,18 @@
+function checkBasket(buttons) {
+  let numberOfDishes = 0;
+  buttons.forEach(function(button) {
+    if(button.dataset.addToCart == "true") {
+      numberOfDishes += 1;
+    }
+  })
+  const basket = document.getElementById("checkout-basket");
+  if(numberOfDishes>0) {
+    document.querySelector(".checkout-basket-counter").innerHTML = numberOfDishes
+  } else if(numberOfDishes === 0) {
+    basket.classList.add("hidden");
+  }
+}
+
 function updateTotal(){
   const total = document.getElementById("total-amount");
   let newAmount = parseFloat(<%=@order.amount%>);
@@ -16,8 +31,15 @@ function updateTotal(){
 
 function updateQuantity() {
   const order = document.querySelector('[data-order-id="<%= @order.id %>"]');
+  const dish = document.querySelector('[data-dish-id="<%= @order.dish.id %>"]');
   if (<%=@order.quantity%> === 0){
     order.parentNode.parentNode.parentNode.remove();
+    dish.dataset.addToCart = "false";
+    const buttons = document.querySelectorAll(".dish-card-btn");
+    dish.classList.toggle("dish-added-button");
+    dish.innerHTML = "+";
+    dish.parentNode.parentNode.classList.remove("dish-added")
+    checkBasket(buttons);
   }
   order.innerHTML = '<%=@order.quantity%>'
   updateTotal();

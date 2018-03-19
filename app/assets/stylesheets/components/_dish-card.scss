@@ -76,6 +76,7 @@
 }
 
 .dish-card-btn {
+  transition: width 5s ease;
   text-decoration: none;
   text-align: center;
   padding: 0;
@@ -85,7 +86,15 @@
   margin-right: 8px;
   margin-bottom: 8px;
   margin-top: -16px;
+  &:focus, &:hover {
+    text-decoration:none;
+  }
 }
 .dish-added {
   border: 0.5px solid $our-red;
+}
+.dish-added-button {
+  width: 62px !important;
+  color: limegreen !important;
+  border-color: limegreen !important;
 }
