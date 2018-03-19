@@ -12,7 +12,7 @@
   <div class="top_search">
     <div class="top_search_input">
       <%= image_tag "loop.svg", height: 10, class: "loop-icon" %>
-      <%= form_tag root_path, method: :get do %>
+      <%= form_tag restaurants_path, method: :get do %>
         <%= text_field_tag :query, params[:query], placeholder: "Not listed?", id: "searchInput", value: "" %>
       <% end %>
     </div>

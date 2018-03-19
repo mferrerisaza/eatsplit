@@ -5,21 +5,30 @@
       <p><%= user_name_or_generic(current_user) %></p>
     </div>
   </div>
+  <% if @bill.users.uniq.size > 1 %>
   <div class="party-container">
     <div class="dashboard-controller-avatars">
-      <% if @bill.users.uniq.size < 3 %>
+      <% if @bill.users.uniq.size == 1 %>
+      <% elsif @bill.users.uniq.size < 3 %>
         <% @bill.users.uniq.each do |user| %>
-        <%= card_photo_or_generic(user) %>
+          <% if user != current_user %>
+            <%= card_photo_or_generic(user) %>
+          <% end %>
         <% end %>
       <% else %>
         <% @bill.users.uniq[0..2].each do |user| %>
+          <% if user != current_user %>
           <%= card_photo_or_generic(user) %>
+          <% end %>
         <% end %>
-        <span>+<%= @bill.users.uniq.size - 3 %></span>
+        <% if @bill.users.uniq.size > 4 %>
+          <span>+<%= @bill.users.uniq.size - 4 %></span>
+        <% end %>
       <% end %>
     </div>
     <p>Your party</p>
   </div>
+  <% end %>
 </div>
 <div class="dashboard-menu">
   <div class="dashboard-banner">

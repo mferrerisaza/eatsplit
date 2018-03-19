@@ -9,7 +9,11 @@ class RestaurantsController < ApplicationController
       @restaurants = policy_scope(Restaurant).near(session[:location], 1)
       end
     elsif !params[:query].present? && params[:query].blank?
-      @restaurants = policy_scope(Restaurant)
+      if request.location.city == ""
+        @restaurants = policy_scope(Restaurant)
+      else
+        @restaurants = policy_scope(Restaurant).near(request.location.city, 5)
+      end
     else
       @restaurants = policy_scope(filter_by_name)
     end
