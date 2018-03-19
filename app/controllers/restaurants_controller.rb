@@ -1,6 +1,9 @@
+# require "pry"
+
 class RestaurantsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :location]
   after_action :verify_authorized, except: [:index, :location]
+
   def index
     if !params[:query].present? && params[:query].nil?
       if session[:location].nil?
@@ -22,11 +25,12 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
+
   end
 
   def location
     session[:location] = params[:data]
-    redirect_to root_path
+    redirect_to restaurants_path
   end
 
   private
