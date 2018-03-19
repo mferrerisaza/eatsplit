@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get "dishes/checkout", to: 'orders#checkout', as: :checkout
   # put "orders/bill_update", to: 'orders#bill_update', as: :bill_update
+  get "/location", to: 'restaurants#location', as: :location
   resources :restaurants, only: [:index, :show] do
     resources :dishes, only: :index do
       resources :orders, only: [:create, :update]
