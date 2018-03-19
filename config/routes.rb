@@ -13,5 +13,4 @@ Rails.application.routes.draw do
     resources :bills, only: [:new, :show, :create, :update] do
       resources :payments, only: [:create]
     end
-
 end

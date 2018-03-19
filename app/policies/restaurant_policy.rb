@@ -4,6 +4,10 @@ class RestaurantPolicy < ApplicationPolicy
     true
   end
 
+  def location?
+    true
+  end
+
 
 
 

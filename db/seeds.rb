@@ -47,7 +47,7 @@ puts "Seeding the Restaurants"
 restaurant_1 = Restaurant.new(
   name: "Mario's",
   category: "Italian",
-  address: "Carrer Mallorca 212"
+  address: "Carrer Grassot 101"
 )
 
 restaurant_1.remote_logo_url = "https://www.le-ratelier.com/upload/pages-dynamiques/pdmqjxrc-couverts_couleur.png"
@@ -59,7 +59,7 @@ restaurant_1.save!
 restaurant_2 = Restaurant.new(
   name: "Pizza barça",
   category: "Italian",
-  address: "Travessera de Gràcia 441"
+  address: "Carrer Grassot 101"
 )
 
 restaurant_2.remote_logo_url = "https://hillsboroughcheese.files.wordpress.com/2016/03/laplace_logowhite.png"
