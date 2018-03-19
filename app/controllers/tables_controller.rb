@@ -21,11 +21,13 @@ class TablesController < ApplicationController
     # Create an instance variables of orders finding the orders by id
     @orders = session[:order_ids].map { |id| Order.find(id)}
     session[:order_ids] =[]
+    flash[:notice]= "Orders successfully processed" unless @orders.size == 0
     if @table.active_bill?
       # if the table already has a bill, add orders to the bill
       @bill = @table.active_bill
       @bill.orders << @orders
       @bill.update_balance
+
     else
       # Else create a bill and add orders to the bill
       @bill = Bill.create(table: @table)
