@@ -71,7 +71,7 @@ restaurant_2.save!
 restaurant_3 = Restaurant.new(
   name: "Burger castellano",
   category: "Spanish",
-  address: "Carrer Lepant 277"
+  address: "Paseo de la Castellana, Madrid"
 )
 
 restaurant_3.remote_logo_url = "http://www.restaurant-la-croix-blanche.ch/images/sampledata/contact/logo-chef.png"
