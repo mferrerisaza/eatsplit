@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
 
   def index
     if !params[:query].present? && params[:query].nil?
-      if session[:location].nil?
+      if session[:location].nil? || session[:location].blank?
         @restaurants = policy_scope(Restaurant)
       else
       @restaurants = policy_scope(Restaurant).near(session[:location], 1)
