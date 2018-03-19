@@ -25,7 +25,6 @@ class PaymentsController < ApplicationController
     rescue Stripe::CardError => e
       flash[:alert] = e.message
       redirect_to bill_path(@bill)
-
   end
 
 private
@@ -35,7 +34,3 @@ private
   end
 end
 
-
-#pmt create method
-# chnage stripe button design
-#get data for stripe
