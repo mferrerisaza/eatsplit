@@ -17,29 +17,57 @@
 // In the end, counter is the total
 
 
-function addListenerToCheckbox(){
-  document.querySelectorAll(".checker").forEach(function(checkbox){
-    checkbox.addEventListener("click", (event) => {
-      updateBill();
-      sendData();
+function addListenerToBillies(){
+  const billies = document.querySelectorAll(".billy3:not(.paid)");
+  if (billies) {
+    billies.forEach(function(billy){
+      billy.addEventListener("click", (event) => {
+        setInterval(updateBill, 300);
+        // submit the form remotely with ajax
+      })
     })
-  })
+  }
 }
 
+function addListenerToCheckboxes(){
+  const checkboxes = document.querySelectorAll(".order-checkbox");
+  if (checkboxes) {
+    checkboxes.forEach(function(checkbox){
+      checkbox.addEventListener("change", (event) => {
+        Rails.fire(document.querySelector(".edit_bill"), 'submit');
+      })
+    })
+  }
+}
+
+let val = document.querySelectorAll(".avatar-checkbox");
 function updateBill() {
-  let val = document.querySelectorAll(".avatar-checkbox");
   let counter = 0;
   val.forEach(function(element) {
-    let priceVal = parseFloat(element.querySelector(".total-price").innerText.slice(1));
-    let checkedStatus = element.querySelector(".check-container").firstElementChild.checked;
-    if (checkedStatus == true) {
-      counter += priceVal;
+    const priceTotalElt = element.querySelector(".total-price");
+    if (priceTotalElt) {
+      let priceVal = parseFloat(priceTotalElt.innerText.slice(1));
+      // let checkedStatus = element.querySelector(".check-container").firstElementChild.checked;
+      let checkedStatus = element.parentElement.parentElement.parentElement.previousElementSibling.querySelector("label input").checked;
+      if (checkedStatus == true) {
+        counter += priceVal;
+        let border = element.parentElement.parentElement;
+        border.classList.add("borderstyle");
+      } else {
+        let border = element.parentElement.parentElement;
+        border.setAttribute("class", "billy3");
+      }
     }
   });
 
   let total = document.getElementById("total");
   total.innerText = counter.toFixed(2);
+  document.getElementById("stripe-amount").value = counter * 100;
 }
+
+
+
+// }
 
 // function updatePaid(){
 //   if (document.getElementById('check').checked) {
@@ -51,9 +79,13 @@ function updateBill() {
 
 
 
-
-
 document.addEventListener("DOMContentLoaded",()=>{
-  updateBill();
-  addListenerToCheckbox();
+  if (document.getElementById("bill-total-display")) {
+    updateBill();
+    addListenerToBillies();
+    addListenerToCheckboxes();
+  }
 })
+
+
+
