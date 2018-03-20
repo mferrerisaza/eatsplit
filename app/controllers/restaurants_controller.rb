@@ -1,15 +1,22 @@
+# require "pry"
+
 class RestaurantsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :location]
   after_action :verify_authorized, except: [:index, :location]
+
   def index
     if !params[:query].present? && params[:query].nil?
-      if session[:location].nil?
+      if session[:location].nil? || session[:location].blank?
         @restaurants = policy_scope(Restaurant)
       else
       @restaurants = policy_scope(Restaurant).near(session[:location], 1)
       end
     elsif !params[:query].present? && params[:query].blank?
-      @restaurants = policy_scope(Restaurant)
+      if request.location.city == ""
+        @restaurants = policy_scope(Restaurant)
+      else
+        @restaurants = policy_scope(Restaurant).near(request.location.city, 5)
+      end
     else
       @restaurants = policy_scope(filter_by_name)
     end
@@ -18,11 +25,12 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
+
   end
 
   def location
     session[:location] = params[:data]
-    redirect_to root_path
+    redirect_to restaurants_path
   end
 
   private
