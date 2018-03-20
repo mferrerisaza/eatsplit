@@ -53,6 +53,18 @@ module ApplicationHelper
     end
   end
 
+  def dish_emoji(order)
+    if order.dish.category == "Starter"
+      return  "<i class='em em-bowl_with_spoon'></i>".html_safe
+    elsif order.dish.category == "Main"
+      return "<i class='em em-shallow_pan_of_food'></i>".html_safe
+    elsif order.dish.category == "Dessert"
+      return "<i class='em em-cake'></i>".html_safe
+    elsif order.dish.category == "Drink"
+      return "<i class='em em-wine_glass'></i>".html_safe
+    end
+  end
+
   def card_photo_or_generic(user)
     if user == current_user && (user.profile.nil? || user.profile.photo.blank?)
       cl_image_tag "facebook-profile-picture-no-pic-avatar.jpg", class: "table-dashboard-user-avatar"

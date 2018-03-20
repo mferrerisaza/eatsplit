@@ -7,7 +7,7 @@ class Table < ApplicationRecord
 
 
   def active_bill
-   self.bills.where(status: "unpaid")[0]
+    self.bills.where(status: "unpaid")[0]
   end
 
   def active_bill?
