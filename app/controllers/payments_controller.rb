@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
   after_action :verify_authorized, except: [:new, :create]
 
 
-  skip_before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:create]
 
 
   def create
