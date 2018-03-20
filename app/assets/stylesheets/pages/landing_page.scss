@@ -48,6 +48,17 @@
   }
 }
 
+.button-go {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 550;
+  &:hover {
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
 .tagline {
   background-color: none;
   color: white;
@@ -66,6 +77,15 @@
     text-decoration: none;
     font-size: 15px;
     padding: 0px 10px;
+    &:hover {
+      font-size: 17px;
+      opacity: 1;
+       transition:.5s;
+    }
+    @media screen and (min-width: 900px) {
+      font-size: 24px;
+      transition: .5s;
+    }
   }
 }
 

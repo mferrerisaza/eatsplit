@@ -17,16 +17,6 @@ function getUserLocation(){
 }
 
 
-
-
-
-// fetch(`/location?data="hello`, {
-//   method: 'GET',
-//   credentials: 'same-origin'
-// }).then((response) => {
-//   console.log(response)
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   getUserLocation();
 })
