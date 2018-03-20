@@ -12,30 +12,37 @@ puts "Seeding the Users"
 
 u = User.new( email: "miguelf7@gmail.com", password:"123456", password_confirmation:"123456")
 u.profile = Profile.create(name: "Miguel Ferrer")
+u.profile.remote_photo_url = "https://kitt.lewagon.com/placeholder/users/random"
 u.save!
 
 u = User.new( email: "dan@gmail.com", password:"123456", password_confirmation:"123456")
 u.profile = Profile.create(name: "Dan")
+u.profile.remote_photo_url = "https://d1qb2nb5cznatu.cloudfront.net/users/5676816-large?1488403186"
 u.save!
 
 u = User.new( email: "ollie@test.com", password:"123456", password_confirmation:"123456")
 u.profile = Profile.create(name: "Ollie")
+u.profile.remote_photo_url = "http://kwartierenruimschoteloverakker.voorouders.net/thumb/37/o_ft_29038"
 u.save!
 
 u = User.new( email: "eduardo@test.com", password:"123456", password_confirmation:"123456")
 u.profile = Profile.create(name: "Eduardo")
+u.profile.remote_photo_url = "https://media.licdn.com/dms/image/C4E03AQFTs_3JKjFcFQ/profile-displayphoto-shrink_800_800/0?e=1526752800&v=alpha&t=jaZKq772q79DScllEkaRqtNeR3w47gQ1m9nSjB0Vr-E"
 u.save!
 
 u = User.new( email: "victor@test.com", password:"123456", password_confirmation:"123456")
 u.profile = Profile.create(name: "Victor")
+u.profile.remote_photo_url = "https://frontrow.ventures/images/team/team/victor-64b8b8b9.jpg"
 u.save!
 
-u = User.new( email: "johann@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Johann")
+u = User.new( email: "luke@skywalker.com", password:"123456", password_confirmation:"123456")
+u.profile = Profile.create(name: "Luke")
+u.profile.remote_photo_url = "https://vignette.wikia.nocookie.net/swfanon/images/d/d8/Luke-promopicture.jpg/revision/latest?cb=20100516123000"
 u.save!
 
-u = User.new( email: "tanja@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Tanja")
+u = User.new( email: "leia@princess.com", password:"123456", password_confirmation:"123456")
+u.profile = Profile.create(name: "Leia")
+u.profile.remote_photo_url = "https://i.ebayimg.com/images/g/oVMAAOSw9GhYbkwu/s-l300.jpg"
 u.save!
 
 u = User.new( email: "michael@test.com", password:"123456", password_confirmation:"123456")
