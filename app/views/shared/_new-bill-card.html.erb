@@ -20,7 +20,7 @@
       <% if order.status == "paid" %>
         PAID
       <% else %>
-        <div class='total-price'>
+        <div class='total-price' data-order-id="<%= order.id %>" data-checked=<%= order.user == current_user %>>
           <%= humanized_money_with_symbol(order.amount) %>
         </div>
       <% end %>
