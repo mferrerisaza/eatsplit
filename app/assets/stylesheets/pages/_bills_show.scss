@@ -106,6 +106,7 @@
 
 .billy3 {
   background-color: white;
+  width: 100%;
   margin: 0px 8px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
@@ -163,8 +164,13 @@
 }
 
 .avatar-checkbox-container {
-  width: 70px;
+  width: 80px;
   padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
 }
 
 .price-ordered-by {
@@ -199,7 +205,25 @@
   margin-bottom: 5px !important;
 }
 
+.billy3.borderstyle {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 2.5px 2.5px #EE5F5B;
+}
 
+.radio, .checkbox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+}
 
+label {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 0px;
+}
 
 
