@@ -48,17 +48,6 @@
   align-items: center;
 }
 
-.party-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 5%;
-  width: 50%;
-  border-left-style: solid;
-  border-left-width: 2px;
-  border-left-color: whitesmoke;
-}
 
 .dashboard-menu{
   h3{
@@ -94,16 +83,6 @@
   width: 50%;
 }
 
-.dashboard-controller-avatars {
-  img {
-    display: inline-block;
-  }
-
-  span {
-    margin-left: -10px;
-    color: gray;
-  }
-}
 
 #still-hungry {
   color: #E9585A;
