@@ -5,19 +5,24 @@
       <%= link_to :back do%>
         <i class="fas fa-arrow-left"></i>
       <% end %>
+      <%= link_to new_user_registration_path, id: "log-in-link" do %>
+        <p id="log-in-link">Log in</p>
+      <% end %>
     </div>
-  </div>
 
-  <div class="banner-logo-avatar" style="background-image: url('<%= logo_restaurant_photo(@restaurant) %>');">
-  </div>
+<!--   <div class="banner-logo-avatar" style="background-image: url('<%= logo_restaurant_photo(@restaurant) %>;');">
+  </div> -->
 
   <h1><%= @restaurant.name %></h1>
 
-  <div class="categories-list">
+  <div class="categories-list tabs">
     <% Dish::CATEGORY.each do |category| %>
-      <div class="menu-category-link"><p> <%= link_to category, "\##{category.downcase}", class: "no-style"%></p></div>
+      <div class="menu-category-link tab"><p> <%= link_to category, "\##{category.downcase}", class: "no-style"%></p></div>
     <% end %>
   </div>
+  </div>
+
+
   <div class="dishes-card-container">
     <% Dish::CATEGORY.each do |category| %>
         <h3 id= <%= category.downcase %>><%= category.capitalize %></h3>
@@ -61,4 +66,3 @@
     </div>
   <% end %>
 </div>
-
