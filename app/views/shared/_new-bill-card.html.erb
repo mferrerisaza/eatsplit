@@ -1,0 +1,29 @@
+<div class='billy3 <%= order.status %> '>
+  <div class='billy5'>
+    <div class='avatar-container'>
+      <%= card_photo_or_generic(order.user) %>
+    </div>
+    <div style>
+      <p class='price'><%= order.user.email.split('@').first %></p>
+    </div>
+  </div>
+  <div class='billy'>
+    <div class='within-billy'>
+      <h4><%= order.dish.name %></h4>
+      <div class='price-ordered-by'>
+        <p class='price'><%= humanized_money_with_symbol(order.dish.price) %> x <%= order.quantity %></p>
+      </div>
+    </div>
+  </div>
+  <div class='avatar-checkbox-container'>
+    <div class='avatar-checkbox'>
+      <% if order.status == "paid" %>
+        PAID
+      <% else %>
+        <div class='total-price'>
+          <%= humanized_money_with_symbol(order.amount) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
