@@ -1,26 +1,33 @@
 
 function addListenerToCheckboxes(){
-  const checkboxes = document.querySelectorAll(".order-checkbox");
-  if (checkboxes) {
-    checkboxes.forEach(function(checkbox){
-      checkbox.addEventListener("change", (event) => {
-        Rails.fire(document.querySelector(".edit_bill"), 'submit');
+  const orderItems = document.querySelectorAll(".order-checkbox:not(.paid)");
+  if (orderItems) {
+    orderItems.forEach(function(orderItem){
+      orderItem.addEventListener("click", (event) => {
+
+        const totalPriceElt = event.currentTarget.querySelector(".total-price");
+        toggleCheckedStatus(totalPriceElt);
         updateBill();
       })
     })
   }
 }
 
-let val = document.querySelectorAll(".avatar-checkbox");
+function toggleCheckedStatus(totalPriceElt){
+  totalPriceElt.dataset.checked = (totalPriceElt.dataset.checked == "false" ? "true" : "false");
+}
+
 function updateBill() {
+  let val = document.querySelectorAll(".avatar-checkbox");
   let counter = 0;
   val.forEach(function(element) {
     const priceTotalElt = element.querySelector(".total-price");
     if (priceTotalElt) {
       let priceVal = parseFloat(priceTotalElt.innerText.slice(1));
-      // let checkedStatus = element.querySelector(".check-container").firstElementChild.checked;
-      let checkedStatus = element.parentElement.parentElement.parentElement.previousElementSibling.querySelector("label input").checked;
-      if (checkedStatus == true) {
+      console.log(priceVal)
+      let checkedStatus = priceTotalElt.dataset.checked;
+      console.log(checkedStatus)
+      if (checkedStatus == "true") {
         counter += priceVal;
         let border = element.parentElement.parentElement;
         border.classList.add("borderstyle");
