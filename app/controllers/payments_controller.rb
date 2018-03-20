@@ -8,6 +8,7 @@ class PaymentsController < ApplicationController
 
   def create
     customer = Stripe::Customer.create(
+
       source: params[:payment][:stripe_token],
       email:  params[:payment][:stripe_email]
     )
@@ -40,7 +41,3 @@ private
   end
 end
 
-
-#pmt create method
-# chnage stripe button design
-#get data for stripe
