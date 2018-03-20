@@ -1,5 +1,11 @@
 class TablesController < ApplicationController
 
+  def index
+   @restaurant = Restaurant.find(params[:restaurant_id])
+   @tables = policy_scope(@restaurant.tables)
+
+  end
+
   def show
     @table = Table.find(params[:id])
     authorize @table
