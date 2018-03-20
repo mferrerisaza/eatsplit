@@ -53,18 +53,41 @@ module ApplicationHelper
     end
   end
 
+  def dish_emoji(order)
+    if order.dish.category == "Starter"
+      return  "<i class='em em-bowl_with_spoon'></i>".html_safe
+    elsif order.dish.category == "Main"
+      return "<i class='em em-shallow_pan_of_food'></i>".html_safe
+    elsif order.dish.category == "Dessert"
+      return "<i class='em em-cake'></i>".html_safe
+    elsif order.dish.category == "Drink"
+      return "<i class='em em-wine_glass'></i>".html_safe
+    end
+  end
+
   def card_photo_or_generic(user)
     if user == current_user && (user.profile.nil? || user.profile.photo.blank?)
       cl_image_tag "facebook-profile-picture-no-pic-avatar.jpg", class: "table-dashboard-user-avatar"
     elsif user == current_user
-      cl_image_tag user.profile.photo, height: 393, width: 300, crop: :fill,gravity: :face, class: "table-dashboard-user-avatar"
+      cl_image_tag user.profile.photo, height: 300, width: 300, crop: :fill,gravity: :face, class: "table-dashboard-user-avatar"
     elsif user.profile.nil? || user.profile.photo.blank?
       cl_image_tag "facebook-profile-picture-no-pic-avatar.jpg", class: "table-dashboard-avatar"
     else
-      cl_image_tag user.profile.photo, height: 393, width: 300, crop: :fill,gravity: :face, class: "table-dashboard-avatar"
+      cl_image_tag user.profile.photo, height: 300, width: 300, crop: :fill,gravity: :face, class: "table-dashboard-avatar"
     end
   end
 
+  def feed_photo_or_generic(user)
+    if user == current_user && (user.profile.nil? || user.profile.photo.blank?)
+      cl_image_tag "facebook-profile-picture-no-pic-avatar.jpg", class: "avatar-large"
+    elsif user == current_user
+      cl_image_tag user.profile.photo, height: 300, width: 300, crop: :fill,gravity: :face, class: "avatar-large"
+    elsif user.profile.nil? || user.profile.photo.blank?
+      cl_image_tag "facebook-profile-picture-no-pic-avatar.jpg", class: "avatar-large"
+    else
+      cl_image_tag user.profile.photo, height: 300, width: 300, crop: :fill,gravity: :face, class: "avatar-large"
+    end
+  end
 
   def user_name_or_generic(user)
     if user.profile.blank? == true
