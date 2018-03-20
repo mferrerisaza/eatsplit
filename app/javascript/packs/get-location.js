@@ -8,5 +8,5 @@ function getUserLocation(){
      });
 }
 document.addEventListener("DOMContentLoaded", () => {
-  getUserLocation();
+  // getUserLocation();
 })
