@@ -51,6 +51,11 @@ h3 {
   width: 0px;
   height: 0px;
 }
+.checkout-basket-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 .checkout-link {
   height: 11vh;
   background-color: white;
@@ -60,7 +65,6 @@ h3 {
   border-left: 1px solid $our-red;
   border-right: 1px solid $our-red;
   box-shadow: 0 0 1em lightgray;
-  position: sticky;
   bottom: 0px;
   z-index: 2;
   display: flex;
@@ -112,6 +116,7 @@ h3 {
   }
 }
 
+
 .tabs {
   position: absolute;
   bottom: 0px;
@@ -150,4 +155,8 @@ h3 {
 .tab.active {
   background: white;
   color: black;
+}
+.menu-container {
+  margin-bottom: 70px;
+
 }
