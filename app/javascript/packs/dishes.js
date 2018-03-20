@@ -20,10 +20,13 @@ function addButtonListener() {
   const buttons = document.querySelectorAll(".dish-card-btn");
   buttons.forEach(function(button) {
     button.addEventListener("click", (event) => {
-      event.currentTarget.classList.toggle("hidden")
-      event.currentTarget.parentNode.parentNode.classList.add("dish-added")
-      changeDishStatus(event.currentTarget);
-      checkBasket(buttons);
+        if( event.currentTarget.innerHTML === "+"){
+        event.currentTarget.classList.toggle("dish-added-button")
+        event.currentTarget.innerHTML = "Added!"
+        event.currentTarget.parentNode.parentNode.classList.add("dish-added")
+        changeDishStatus(event.currentTarget);
+        checkBasket(buttons);
+      }
     })
   })
 }

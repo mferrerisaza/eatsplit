@@ -16,6 +16,8 @@ function createTotal(){
 
 function generateCheckoutPage() {
   const container = document.querySelector(".orders-card-container");
+  const dish = document.querySelector('[data-dish-id="<%=@order.dish.id%>"]')
+  dish.disabled = true;
   container.insertAdjacentHTML("beforeend",'<%=j render "shared/order-card", order: @order%>');
   createTotal();
 }
