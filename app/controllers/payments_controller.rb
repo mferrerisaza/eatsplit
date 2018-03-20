@@ -37,7 +37,7 @@ class PaymentsController < ApplicationController
 private
 
   def set_bill
-    @bill = Bill.where(status: 'unpaid').find(params[:bill_id])
+    @bill = Bill.find(params[:bill_id])
   end
 end
 
