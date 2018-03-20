@@ -1,0 +1,73 @@
+#table-select-title {
+  padding-left: 16px;
+}
+
+#table-select-form {
+  input {
+    display: none;
+  }
+
+  input:last-child {
+    display: block;
+  }
+
+  label {
+    display: block;
+    max-width: 100%;
+    margin-bottom: 0px;
+    font-weight: normal;
+  }
+
+
+}
+
+.table-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 0.2em rgba(0,0,0,0.2);
+  margin: 8px 0px;
+}
+
+.table-card-selected {
+  box-shadow: 0 0 0.2em $green;
+}
+
+.table-card-box-left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-left: 24px;
+  justify-content: center;
+}
+
+.table-open-time {
+  font-size: 8px;
+}
+
+.table-card-box-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+  width: 50%;
+
+
+  > p {
+     font-size: 16px;
+  }
+}
+
+.dashboard-controller-avatars {
+  img {
+    display: inline-block;
+  }
+
+  span {
+    margin-left: -10px;
+    color: gray;
+  }
+}
+
+
