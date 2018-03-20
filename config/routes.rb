@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # put "orders/bill_update", to: 'orders#bill_update', as: :bill_update
   get "/location", to: 'restaurants#location', as: :location
   resources :restaurants, only: [:index, :show] do
+    resources :tables, only: [:index]
     resources :dishes, only: :index do
       resources :orders, only: [:create, :update]
     end
