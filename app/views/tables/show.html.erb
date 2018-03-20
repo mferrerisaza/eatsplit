@@ -9,7 +9,7 @@
 
       <% if counter.size == 0 %>
       <div class="welcome message">
-        <img class="avatar-large" src="<%= order.user.profile.photo %>">
+        <%= feed_photo_or_generic(order.user) %>
         <div class="message-name">
           <h3><%= order.user.profile.name %></h3>
           <p><%= order.user.profile.name %> joined the table. <i>Welcome!</i>  <i class="em em-fork_and_knife"></i></p>
@@ -18,7 +18,7 @@
       <% end %>
       <% order_counter << order %>
       <div class="order-news message">
-        <img class="avatar-large" src="<%= order.user.profile.photo %>">
+        <%= feed_photo_or_generic(order.user) %>
         <div class="message-name">
           <h3><%= order.user.profile.name %></h3>
           <p><%= order.user.profile.name %> ordered <strong><%= order.dish.name %></strong>.  <%= dish_emoji(order) %> </p>
