@@ -33,7 +33,7 @@
         key: '<%= Rails.configuration.stripe[:publishable_key] %>',
         locale: 'auto',
         name: 'Pay with card',
-        description: 'BLAH',
+        description: "Okey let's pay :)",
         currency: "EUR",
         email: "<%= current_user.email %>",
         token: function(token) {
