@@ -5,18 +5,54 @@
   <div class="bill-header">
       Check items you wish to pay for.
   </div>
-
 </div>
 
 <div class="container bill">
-  <% @bill.orders.each.with_index do |order, i| %>
-    <%= render "shared/bill-card", locals: { order: order, i: i } %>
+
+
+  <%= simple_form_for @bill, remote: true do |f| %>
+    <%= f.simple_fields_for :orders do |ff| %>
+      <%= render "shared/bill-card",ff: ff,  order: ff.object, id: ff.object.id  %>
+    <% end %>
+  <% end %>
+
+  <%= simple_form_for :payment, url: bill_payments_path(@bill), method: "POST", html: {id: "payment-form"} do |f| %>
+    <%= f.hidden_field "stripe_token", id: "stripe-token" %>
+    <%= f.hidden_field "amount", id: "stripe-amount" %>
+    <%= f.hidden_field "stripe_email", value: current_user.email %>
+    <%= f.submit "Pay with card", id: "trigger-stripe-checkout" %>
+
+    <script src="https://checkout.stripe.com/checkout.js">
+    </script>
+
+    <script>
+      var handler = StripeCheckout.configure({
+        key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+        locale: 'auto',
+        name: 'Pay with card',
+        description: 'BLAH',
+        currency: "EUR",
+        email: "<%= current_user.email %>",
+        token: function(token) {
+          document.getElementById('stripe-token').value = token.id;
+          document.getElementById('payment-form').submit();
+        }
+      });
+      document.getElementById('trigger-stripe-checkout').addEventListener('click', function(e) {
+        e.preventDefault();
+        amount = document.getElementById("stripe-amount").value;
+        handler.open({
+          amount: Math.round(amount)
+        })
+      });
+
+    </script>
   <% end %>
 
 </div>
 
 
-  <div class="total-display">
+  <div class="total-display" id="bill-total-display">
     <button type="button" class="button fixy2" style="background-color: white; color: #000000;">
       <div class="center">
         Your Total: €
@@ -30,19 +66,7 @@
 <div class="container payment-buttons">
 
   <div class="button-fix">
-    <%= form_tag bill_payments_path(@bill) do %>
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-email="<%= current_user.email %>"
-        data-description= "Time to pay :)"
-        data-amount= "2930"
-        data-currency="EUR">
-      </script>
-      <script>
-        document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
-      </script>
-      <button class="button fixy" >Pay by Card</button>
-    <% end %>
+
   </div>
   <div class="button-fix">
     <button type="button" class="button fixy" data-toggle="modal" data-target=".bd-cash-modal-sm">
