@@ -9,10 +9,13 @@
 
 <div class="container bill">
 
-
-  <%= simple_form_for @bill, remote: true do |f| %>
-    <%= f.simple_fields_for :orders do |ff| %>
-      <%= render "shared/bill-card",ff: ff,  order: ff.object, id: ff.object.id  %>
+  <% @bill.orders.each do |order| %>
+    <% if order.status == "paid" %>
+    <%= render "shared/new-bill-card",order: order  %>
+    <% else %>
+      <%= link_to order_path(order, params: {update: "toggle_check"}), method: :put, remote: true, class: "order-checkbox" do%>
+          <%= render "shared/new-bill-card",order: order  %>
+      <% end %>
     <% end %>
   <% end %>
 
