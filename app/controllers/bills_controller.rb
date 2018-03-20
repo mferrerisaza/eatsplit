@@ -23,12 +23,6 @@ class BillsController < ApplicationController
     render json: {success: true}
   end
 
-  # def new
-  #   # session[:table_number] = params[:table]
-  #   @table = Table.find(params[:table])
-  #   redirect_to table_path(@table)
-  # end
-
   def create
     @table = Table.find(params[:table])
     redirect_to table_path(@table)
