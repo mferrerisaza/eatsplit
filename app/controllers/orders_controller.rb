@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
     elsif params["update"] == "minus"
       @order.quantity -= 1
       @order.amount = @order.quantity * @order.dish.price
-    elsif params["update"] == "toggle_checked"
+    elsif params["update"] == "toggle_check"
       if @order.status == "1"
         @order.update(status: "0")
       elsif @order.status == "0"
