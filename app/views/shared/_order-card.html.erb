@@ -6,9 +6,9 @@
       <h4><%= order.dish.name %></h4>
     </div>
     <div class=order-card-buttons>
-      <a href= /restaurants/<%=order.dish.restaurant.id%>/dishes/<%=order.dish.id%>/orders/<%=order.id%>?update=minus data-method="put" class="small-button2" data-remote="true" rel="nofollow">-</a>
+      <%= link_to "-", order_path(@order, params: {update: "minus"}), method: :put, remote: true, class: "small-button2" %>
       <div class="order-quantity" data-order-id="<%= order.id %>"><%= order.quantity %></div>
-      <a href= /restaurants/<%=order.dish.restaurant.id%>/dishes/<%=order.dish.id%>/orders/<%=order.id%>?update=plus data-method="put" class="small-button2" data-remote="true" rel="nofollow">+</a>
+      <%= link_to "+", order_path(@order, params: {update: "plus"}), method: :put, remote: true, class: "small-button2" %>
     </div>
   </div>
 
