@@ -1,33 +1,35 @@
-<div class="billy3">
-  <div class="billy5">
-    <div class="avatar-container">
-      <%= card_photo_or_generic(locals[ :order ].user) %>
-    </div>
-    <div style>
-      <p class="price"><%= locals[ :order ].user.email.split("@").first %></p>
-    </div>
-  </div>
-  <div class="billy">
-    <div class="within-billy">
-      <h4><%= locals[ :order ].dish.name %></h4>
-      <div class="price-ordered-by">
-        <p class="price">€<%= locals[ :order ].dish.price %> x <%= locals[ :order ].quantity %></p>
+<% if ff.object.status != "paid" %>
+  <%= ff.input :status, as: :boolean, input_html: {id: ff.object.id, checked: ff.object.status == "1",  class: "order-checkbox"} %>
+<% end %>
+
+<label for="<%= ff.object.id %>">
+  <div class='billy3 <%= order.status %> '>
+    <div class='billy5'>
+      <div class='avatar-container'>
+        <%= card_photo_or_generic(order.user) %>
+      </div>
+      <div style>
+        <p class='price'><%= order.user.email.split('@').first %></p>
       </div>
     </div>
-  </div>
-  <div class="avatar-checkbox-container">
-    <div class="avatar-checkbox">
-      <div class="total-price" id="price-<%= locals[:i] %>">
-        €<%= (locals[ :order ].dish.price) * (locals[ :order ].quantity) %>
+    <div class='billy'>
+      <div class='within-billy'>
+        <h4><%= order.dish.name %></h4>
+        <div class='price-ordered-by'>
+          <p class='price'>€<%= order.dish.price %> x <%= order.quantity %></p>
+        </div>
       </div>
-      <label class="check-container">
-        <% if  locals[ :order ].user == current_user %>
-          <input type="checkbox" checked="checked" class="checker" id="check">
+    </div>
+    <div class='avatar-checkbox-container'>
+      <div class='avatar-checkbox'>
+        <% if order.status == "paid" %>
+          PAID
         <% else %>
-          <input type="checkbox" class="checker" id="check">
+          <div class='total-price'>
+            €<%= (order.dish.price) * (order.quantity) %>
+          </div>
         <% end %>
-        <span class="checkmark"></span>
-      </label>
+      </div>
     </div>
   </div>
-</div>
+</label>

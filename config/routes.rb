@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   root to: 'pages#landing_page'
   resources :tables, only: :show
     resources :bills, only: [:new, :show, :create, :update] do
-      resources :payments, only: [:create]
+      resources :payments, only: [:new, :create]
     end
 end
