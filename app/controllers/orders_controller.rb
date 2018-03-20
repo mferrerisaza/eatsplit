@@ -29,6 +29,12 @@ class OrdersController < ApplicationController
     elsif params["update"] == "minus"
       @order.quantity -= 1
       @order.amount = @order.quantity * @order.dish.price
+    elsif params["update"] == "toggle_checked"
+      if @order.status == "1"
+        @order.update(status: "0")
+      elsif @order.status == "0"
+        @order.update(status: "1")
+      end
     end
     if @order.quantity == 0
       session[:order_ids].delete(@order.id)
@@ -36,7 +42,6 @@ class OrdersController < ApplicationController
     else
       @order.save
     end
-
     respond_to do |format|
       format.html {}
       format.js
