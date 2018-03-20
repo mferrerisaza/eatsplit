@@ -94,7 +94,7 @@ restaurant_2.save!
 restaurant_3 = Restaurant.new(
   name: "Burger castellano",
   category: "Spanish",
-  address: "Pl Joanic, Barcelona"
+  address: "Moscow, Russia"
 )
 
 restaurant_3.remote_logo_url = "http://www.restaurant-la-croix-blanche.ch/images/sampledata/contact/logo-chef.png"
@@ -114,6 +114,18 @@ restaurant_4.remote_photo_url = "https://ugc.zenchef.com/3/4/8/6/5/8/1/5/0/0/4/8
 restaurant_4.user = User.find(1)
 
 restaurant_4.save!
+
+
+restaurant_5 = Restaurant.new(
+  name: "Spoonik",
+  category: "Experimental",
+  address: "Carrer de Bertran, 28, 08023 Barcelona"
+)
+restaurant_5.remote_logo_url = "http://logo-load.com/uploads/posts/2016-04/1459873183_texas-roadhouse-logo.png"
+restaurant_5.remote_photo_url = "https://ugc.zenchef.com/3/4/8/6/5/8/1/5/0/0/4/8/8/1500558718_293/b824a46e829f055b4ad94da613c66316.website.jpg"
+restaurant_5.user = User.find(1)
+
+restaurant_5.save!
 
 puts "Seeding Restaurants done"
 
