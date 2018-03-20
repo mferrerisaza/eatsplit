@@ -39,7 +39,6 @@ function updateBill() {
 document.addEventListener("DOMContentLoaded",()=>{
   if (document.getElementById("bill-total-display")) {
     updateBill();
-    // addListenerToBillies();
     addListenerToCheckboxes();
   }
 })
