@@ -1,4 +1,4 @@
-<div class='bill-card'>
+<div class='bill-card <%= order.status %>' >
   <div class="bill-card-user">
     <%=card_photo_or_generic(order.user)%>
   </div>
@@ -10,7 +10,7 @@
   </div>
   <div class='order-status-amount'>
     <% if order.status == "paid" %>
-      <div class="<%= order.status %>">PAID</div>
+      <div class="status-<%= order.status %>">PAID</div>
     <% else %>
       <div class='total-price' data-order-id="<%= order.id %>" data-checked=<%= order.user == current_user %>>
         <%= humanized_money_with_symbol(order.amount) %>
