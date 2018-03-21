@@ -8,23 +8,32 @@
       <% counter = order_counter.select{|test| test.user == order.user} %>
 
       <% if counter.size == 0 %>
-      <div class="welcome message">
-        <%= feed_photo_or_generic(order.user) %>
-        <div class="message-name">
-          <h3><%= order.user.profile.name %></h3>
-          <p><%= order.user.profile.name %> joined the table. <i>Welcome!</i>  <i class="em em-fork_and_knife"></i></p>
+        <div class="welcome message">
+          <%= feed_photo_or_generic(order.user) %>
+          <div class="message-name">
+            <h3><%= order.user.profile.name %></h3>
+            <p>joined the table. <i>Welcome!</i>  <i class="em em-fork_and_knife"></i></p>
+          </div>
+          <div class="message-status">
+            <p class="time_ago"><%= distance_of_time_in_words(Time.now, order.created_at) %> ago.</p>
+          </div>
         </div>
-      </div>
-      <% end %>
-      <% order_counter << order %>
-      <div class="order-news message">
-        <%= feed_photo_or_generic(order.user) %>
-        <div class="message-name">
-          <h3><%= order.user.profile.name %></h3>
-          <p><%= order.user.profile.name %> ordered <strong><%= order.dish.name %></strong>.  <%= dish_emoji(order) %> </p>
+        <% end %>
+        <% order_counter << order %>
+        <div class="order-news message">
+          <%= feed_photo_or_generic(order.user) %>
+          <div class="message-name">
+            <h3><%= order.user.profile.name %></h3>
+            <p>ordered <strong><%= order.dish.name %></strong>.  <%= dish_emoji(order) %> </p>
+          </div>
+          <% if order.quantity > 1 %>
+            <div class="message-status">
+              <p class="quantity"><%= order.quantity %></p>
+              <p class="time_ago"><%= distance_of_time_in_words(Time.now, order.created_at) %> ago.</p>
+            </div>
+          <% end %>
         </div>
-      </div>
-      <% end %>
+        <% end %>
     </div>
   </div>
   <div class="footer-dashboard">
