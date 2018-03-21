@@ -1,7 +1,7 @@
 <%= render "shared/simple-navbar" %>
 <h3 id="table-select-title">Almost there! Please select your table:</h3>
+<%= form_tag bills_path, id: "table-select-form" do %>
 <div class="container">
-  <%= form_tag bills_path, id: "table-select-form" do |f| %>
     <% @tables.each do |table| %>
       <%= radio_button_tag :table, table.id%>
       <%= label_tag "table_#{table.id}" do %>
@@ -34,9 +34,11 @@
         </div>
       <% end %>
     <% end %>
-     <%= submit_tag "Please select table", class: "button3 btn-is-disabled"%>
-   <% end %>
 </div>
+    <div class="table-select-footer">
+            <%= submit_tag "Please select table", class: "button3 btn-is-disabled"%>
+    </div>
+   <% end %>
 
 <%= javascript_pack_tag 'table-select' %>
 
