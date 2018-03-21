@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :tables, only: :show
   resources :bills, only: [:new, :show, :create, :update] do
     resources :payments, only: [:new, :create]
+    resources :orders, only: :index
   end
 
 end
