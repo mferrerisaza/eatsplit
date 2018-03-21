@@ -1,7 +1,7 @@
 <div class="wrapper">
   <%= render 'shared/simple-navbar' %>
   <div class="container main">
-    <h2>News feed: </h2>
+    <h3 style="text-align: center;">Your Table: </h3>
     <% order_counter = []%>
     <div class="flex-reverse">
       <% @bill.orders.order(:id).each do |order|  %>
@@ -42,7 +42,7 @@
           </div>
           <% if order.quantity > 1 %>
             <div class="message-status">
-              <p class="quantity"><%= order.quantity %></p>
+              <p class="quantity">x<%= order.quantity %></p>
             </div>
           <% end %>
         </div>
@@ -59,7 +59,7 @@
           class: "order-more-button"  %>
     </div>
     <div class="pay">
-      <%= link_to "Pay", bill_path(@bill), class: "btn-pay button " %>
+      <%= link_to "Pay", bill_path(@bill), class: "pay-button" %>
     </div>
   </div>
 </div>
