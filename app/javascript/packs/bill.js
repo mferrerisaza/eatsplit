@@ -1,6 +1,6 @@
 
 function addListenerToCheckboxes(){
-  const orderItems = document.querySelectorAll(".order-checkbox:not(.paid)");
+  const orderItems = document.querySelectorAll(".bill-order-card:not(.paid)");
   if (orderItems) {
     orderItems.forEach(function(orderItem){
       orderItem.addEventListener("click", (event) => {
@@ -18,7 +18,7 @@ function toggleCheckedStatus(totalPriceElt){
 }
 
 function updateBill() {
-  let val = document.querySelectorAll(".avatar-checkbox");
+  let val = document.querySelectorAll(".order-status-amount");
   let counter = 0;
   val.forEach(function(element) {
     const priceTotalElt = element.querySelector(".total-price");
@@ -29,11 +29,11 @@ function updateBill() {
       console.log(checkedStatus)
       if (checkedStatus == "true") {
         counter += priceVal;
-        let border = element.parentElement.parentElement;
+        let border = element.parentElement;
         border.classList.add("borderstyle");
       } else {
-        let border = element.parentElement.parentElement;
-        border.setAttribute("class", "billy3");
+        let border = element.parentElement;
+        border.classList.remove("borderstyle");
       }
     }
   });
