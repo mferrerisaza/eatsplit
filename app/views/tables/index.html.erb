@@ -2,7 +2,7 @@
 <h3 id="table-select-title">Almost there! Please select your table:</h3>
 <div class="container">
     <% @tables.each do |table| %>
-      <%=  link_to table_path(table), data:{ confirm: "You're about to join table ##{table.number}. Is it ok?" }, class: "table-links" do %>
+      <%=  link_to table_path(table), data:{ confirm: "You're about to join table #{table.number}. Is it ok?" }, class: "table-links" do %>
         <div class="table-card" data-table-id= <%= table.id %>>
           <div class="table-card-box-left">
             <div class="table-card-title">
