@@ -54,7 +54,8 @@ h3 {
   border-left: 1px solid $our-red;
   border-right: 1px solid $our-red;
   box-shadow: 0 0 1em lightgray;
-  position: sticky;
+  position: fixed;
+  width: 100vw;
   bottom: 0px;
   z-index: 2;
   display: flex;
@@ -104,4 +105,8 @@ h3 {
   .fa-times{
     color:white;
   }
+}
+
+.menu-container {
+  margin-bottom: 70px;
 }
