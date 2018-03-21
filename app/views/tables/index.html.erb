@@ -1,4 +1,5 @@
-<h3 id="table-select-title">Almost there! Please select your table!</h3>
+<%= render "shared/simple-navbar" %>
+<h3 id="table-select-title">Almost there! Please select your table:</h3>
 <div class="container">
   <%= form_tag bills_path, id: "table-select-form" do |f| %>
     <% @tables.each do |table| %>
@@ -25,8 +26,8 @@
                     <%= card_photo_or_generic(user) %>
                   <% end %>
               <% end %>
-              <% if table.active_bill.users.uniq.size > 3 %>
-                <span>+<%= table.active_bill.users.uniq.size - 3 %></span>
+              <% if table.active_bill.users.uniq.size > 4 %>
+                <span>+<%= table.active_bill.users.uniq.size - 4 %></span>
               <% end %>
             </div>
           </div>
