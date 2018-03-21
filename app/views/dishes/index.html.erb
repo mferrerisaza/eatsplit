@@ -1,65 +1,60 @@
-<div class="menu-container">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= banner_restaurant_photo(@restaurant) %>');">
+<%= render 'shared/dish-navbar' %>
+<div class="main-dishes">
+  <div class="menu-container">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= banner_restaurant_photo(@restaurant) %>');">
 
-    <div class="mobile-headers">
-      <%= link_to :back do%>
-        <i class="fas fa-arrow-left"></i>
+    <h1><%= @restaurant.name %></h1>
+
+    <div class="categories-list tabs">
+      <% Dish::CATEGORY.each do |category| %>
+        <div class="menu-category-link tab"><p> <%= link_to category, "\##{category.downcase}", class: "no-style"%></p></div>
       <% end %>
-      <%= link_to new_user_registration_path, id: "log-in-link" do %>
-        <p id="log-in-link">Log in</p>
+    </div>
+    </div>
+
+
+    <div class="dishes-card-container">
+      <% Dish::CATEGORY.each do |category| %>
+          <h3 id= <%= category.downcase %>><%= category.capitalize %></h3>
+          <div class="dish-card-category">
+            <% selected_dishes = @dishes.select { |dish| dish.category == category} %>
+            <%  selected_dishes.each do |dish| %>
+              <%= render 'shared/dish-card', dish: dish %>
+            <% end %>
+          </div>
       <% end %>
     </div>
-
-<!--   <div class="banner-logo-avatar" style="background-image: url('<%= logo_restaurant_photo(@restaurant) %>;');">
-  </div> -->
-
-  <h1><%= @restaurant.name %></h1>
-
-  <div class="categories-list tabs">
-    <% Dish::CATEGORY.each do |category| %>
-      <div class="menu-category-link tab"><p> <%= link_to category, "\##{category.downcase}", class: "no-style"%></p></div>
-    <% end %>
-  </div>
-  </div>
-
-
-  <div class="dishes-card-container">
-    <% Dish::CATEGORY.each do |category| %>
-        <h3 id= <%= category.downcase %>><%= category.capitalize %></h3>
-        <div class="dish-card-category">
-          <% selected_dishes = @dishes.select { |dish| dish.category == category} %>
-          <%  selected_dishes.each do |dish| %>
-            <%= render 'shared/dish-card', dish: dish %>
-          <% end %>
+    <div class="checkout-page-container hidden">
+      <%= link_to "#", id: "checkout-closing", class: "close-checkout" do%>
+        <i class="fas fa-times"></i>
+      <% end %>
+      <div class="checkout-page-list">
+        <h3> Your order</h3>
+        <div class="orders-card-container">
         </div>
-    <% end %>
-  </div>
-  <div class="checkout-page-container hidden">
-    <%= link_to "#", id: "checkout-closing", class: "close-checkout" do%>
-      <i class="fas fa-times"></i>
-    <% end %>
-    <div class="checkout-page-list">
-      <h3> Your order</h3>
-      <div class="orders-card-container">
-      </div>
-      <div class="orders-total-footer">
-        <div class="orders-total-box">
-          <h3>Total</h3>
-          <p id="total-amount"></p>
-        </div>
-        <div class="orders-form">
-            <%= link_to "Finish your order", restaurant_tables_path(@restaurant), class: "button3" %>
+        <div class="orders-total-footer">
+          <div class="orders-total-box">
+            <h3>Total</h3>
+            <p id="total-amount"></p>
+          </div>
+          <div class="orders-form">
+            <% if @table.nil? %>
+              <%= link_to "Finish your order", restaurant_tables_path(@restaurant), class: "button3" %>
+            <% else %>
+              <%= link_to "Finish your order", table_path(@table), class: "button3" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <%= link_to checkout_path, class: "checkout-basket-container hidden", id: "checkout-basket", remote: true do  %>
-    <div class="checkout-link">
-      <div class="checkout-notification-group">
-        <div class="checkout-basket-counter">0</div>
-        <i class="fas fa-shopping-basket"></i>
+    <%= link_to checkout_path, class: "checkout-basket-container hidden", id: "checkout-basket", remote: true do  %>
+      <div class="checkout-link">
+        <div class="checkout-notification-group">
+          <div class="checkout-basket-counter">0</div>
+          <i class="fas fa-shopping-basket"></i>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

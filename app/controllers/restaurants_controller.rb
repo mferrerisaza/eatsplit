@@ -26,7 +26,7 @@ class RestaurantsController < ApplicationController
 
   def location
     session[:location] = params[:data]
-    redirect_to restaurants_path
+
   end
 
   private

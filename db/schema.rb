@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315163158) do
+ActiveRecord::Schema.define(version: 20180321153359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20180315163158) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.jsonb "payment"
+    t.bigint "picking_user_id"
     t.index ["bill_id"], name: "index_orders_on_bill_id"
     t.index ["dish_id"], name: "index_orders_on_dish_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -106,6 +107,7 @@ ActiveRecord::Schema.define(version: 20180315163158) do
   add_foreign_key "orders", "bills"
   add_foreign_key "orders", "dishes"
   add_foreign_key "orders", "users"
+  add_foreign_key "orders", "users", column: "picking_user_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "restaurants", "users"
   add_foreign_key "tables", "restaurants"
