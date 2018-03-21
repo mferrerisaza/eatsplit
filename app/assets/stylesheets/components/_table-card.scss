@@ -25,9 +25,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 0.2em rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 4px 1px #e8e8e8;
   margin: 8px 0px;
   border-radius: 3px;
+  transition: 1s ease;
 }
 
 label:last-child {
@@ -37,8 +38,10 @@ label:last-child {
 }
 
 .table-card-selected {
-  box-shadow: 0 0 0.2em $green;
-}
+  background-color: #e7e7e7;
+  border: 2px transparent whitesmoke;
+  }
+
 
 .table-card-box-left {
     display: flex;
@@ -54,8 +57,14 @@ label:last-child {
   justify-content: flex-start;
   align-items: center;
 
+    i {
+      font-size: 15px;
+    }
+
     p {
       margin-top: 12.5px;
+      font-size: 15px;
+      margin-left: 12.5px;
     }
 }
 
