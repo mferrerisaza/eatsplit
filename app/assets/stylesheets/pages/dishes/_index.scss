@@ -62,6 +62,8 @@ h3 {
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
   box-shadow: 0 0 1em lightgray;
+  position: fixed;
+  width: 100vw;
   bottom: 0px;
   z-index: 2;
   display: flex;
@@ -117,7 +119,6 @@ h3 {
   }
 }
 
-
 .tabs {
   position: absolute;
   bottom: 0px;
@@ -159,5 +160,4 @@ h3 {
 }
 .menu-container {
   margin-bottom: 70px;
-
 }

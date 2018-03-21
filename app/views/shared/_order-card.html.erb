@@ -1,6 +1,6 @@
 <div class="order-card">
   <div class="order-card-top">
-    <p class="price"><%= money_without_cents_and_with_symbol(order.dish.price) %></p>
+    <p class="price checkout-final"><%= humanized_money_with_symbol(order.dish.price) %></p>
     <div class="order-card-image-container"><%= order_picture(order.dish)%></div>
     <div class="order-card-details">
       <h4><%= order.dish.name %></h4>

@@ -27,7 +27,17 @@ function updateTotal(){
       total.innerHTML = parseFloat(actualAmount - (oldAmount - newAmount)).toFixed(2);
     }
   }
+
+  collapseCheckout(total.innerHTML);
 }
+
+function collapseCheckout(total) {
+  const checkoutPage = document.querySelector(".checkout-page-container");
+  if (total == 0.00) {
+    checkoutPage.classList.add("hidden");
+  }
+}
+
 
 function updateQuantity() {
   const order = document.querySelector('[data-order-id="<%= @order.id %>"]');
