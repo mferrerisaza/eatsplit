@@ -10,9 +10,16 @@
   font-weight: normal;
   margin: 0px;
   padding: 4px;
+  padding-left: 0px;
   font-size: 13px;
   font-weight: lighter;
 }
+
+.price.checkout-final {
+  min-width: 44px;
+  text-align: center;
+}
+
 .order-card-category{
   box-shadow: 0 0 .3em lightgray;
   margin: 0px 8px;
