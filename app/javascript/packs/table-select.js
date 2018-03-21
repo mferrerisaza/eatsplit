@@ -3,18 +3,18 @@ const button = document.querySelector(".button3")
 
 
 document.addEventListener("DOMContentLoaded",(event) => {
-  button.disabled = true
+  // button.disabled = true
 })
 
 
 
-function removeTableSelectedClass() {
-  tableCards.forEach( (card) => {
-          if (card.classList.contains("table-card-selected")) {
-            card.classList.remove("table-card-selected")
-          };
-        });
-};
+// function removeTableSelectedClass() {
+//   tableCards.forEach( (card) => {
+//           if (card.classList.contains("table-card-selected")) {
+//             card.classList.remove("table-card-selected")
+//           };
+//         });
+// };
 
 
 
