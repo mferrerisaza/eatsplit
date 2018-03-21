@@ -1,4 +1,10 @@
 class TablesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
+  def index
+   @restaurant = Restaurant.find(params[:restaurant_id])
+   @tables = policy_scope(@restaurant.tables)
+  end
 
   def show
     @table = Table.find(params[:id])

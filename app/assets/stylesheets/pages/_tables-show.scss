@@ -21,9 +21,11 @@ body {
   z-index: 1;
 }
 
+
 .pay {
   p {
     font-size: 13px;
+
   }
 }
 
@@ -46,6 +48,7 @@ body {
   flex-direction: column-reverse;
 }
 
+
 .message {
   display: flex;
   align-items: center;
@@ -55,6 +58,7 @@ body {
 }
 .message:first-child {
   border-bottom: none;
+
 }
 .message-body {
   flex-grow: 1;

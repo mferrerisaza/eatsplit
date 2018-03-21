@@ -1,0 +1,17 @@
+.table-select-footer {
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 9vh;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  background-color: white;
+
+  .button3 {
+    margin: 0;
+    width: 50%;
+    margin-right: 24px;
+  }
+}
