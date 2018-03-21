@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:create, :update, :checkout]
+  skip_before_action :authenticate_user!, only: [:index, :create, :update, :checkout]
 
   def index
     @bill = Bill.find(params[:bill_id])
