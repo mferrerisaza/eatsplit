@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show] do
     resources :tables, only: [:index]
     resources :dishes, only: :index do
-      resources :orders, only: [:create, :update]
+      resources :orders, only: [:create, :update],shallow: true
     end
   end
   root to: 'pages#home'
+  get '/goodbye', to: "pages#goodbye", as: "goodbye"
   resources :tables, only: :show
-    resources :bills, only: [:new, :show, :create, :update] do
-      resources :payments, only: [:new, :create]
-    end
+  resources :bills, only: [:new, :show, :create, :update] do
+    resources :payments, only: [:new, :create]
+  end
+
 end
