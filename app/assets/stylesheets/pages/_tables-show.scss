@@ -14,7 +14,7 @@ body {
   padding: 0px 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
   position: sticky !important;
   bottom: 0 !important;
@@ -34,8 +34,8 @@ body {
 }
 
 .btn-pay {
-  width: 70px;
-  padding-left: 16px
+  width: 136px;
+  padding-left: 50px;
 }
 .btn-order-more {
   width: 90px;
