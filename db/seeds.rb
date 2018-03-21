@@ -37,7 +37,7 @@ u.save!
 
 u = User.new( email: "luke@skywalker.com", password:"123456", password_confirmation:"123456")
 u.profile = Profile.create(name: "Luke")
-u.profile.remote_photo_url = "https://vignette.wikia.nocookie.net/swfanon/images/d/d8/Luke-promopicture.jpg/revision/latest?cb=20100516123000"
+u.profile.remote_photo_url = "https://i.ytimg.com/vi/GIVaFxZkAPs/maxresdefault.jpg"
 u.save!
 
 u = User.new( email: "leia@princess.com", password:"123456", password_confirmation:"123456")
@@ -45,12 +45,14 @@ u.profile = Profile.create(name: "Leia")
 u.profile.remote_photo_url = "https://i.ebayimg.com/images/g/oVMAAOSw9GhYbkwu/s-l300.jpg"
 u.save!
 
-u = User.new( email: "michael@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Victor")
+u = User.new( email: "darth@vader.com", password:"123456", password_confirmation:"123456")
+u.profile = Profile.create(name: "Darth Vader")
+u.profile.remote_photo_url = "http://clipart-library.com/images/6cr5d9qLi.jpg"
 u.save!
 
-u = User.new( email: "archie@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Johann")
+u = User.new( email: "jarjar@binks.com", password:"123456", password_confirmation:"123456")
+u.profile = Profile.create(name: "Jar Jar")
+u.profile.remote_photo_url = "http://sethspopcorn.com/wp-content/uploads/2010/10/jar-jar-binks1.jpg"
 u.save!
 
 u = User.new( email: "juan@test.com", password:"123456", password_confirmation:"123456")
