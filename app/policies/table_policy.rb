@@ -10,3 +10,5 @@ class TablePolicy < ApplicationPolicy
     end
   end
 end
+
+
