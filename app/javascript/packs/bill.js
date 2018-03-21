@@ -24,9 +24,7 @@ function updateBill() {
     const priceTotalElt = element.querySelector(".total-price");
     if (priceTotalElt) {
       let priceVal = parseFloat(priceTotalElt.innerText.slice(1));
-      console.log(priceVal)
       let checkedStatus = priceTotalElt.dataset.checked;
-      console.log(checkedStatus)
       if (checkedStatus == "true") {
         counter += priceVal;
         let border = element.parentElement;
