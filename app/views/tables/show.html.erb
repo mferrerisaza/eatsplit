@@ -51,7 +51,12 @@
   </div>
   <div class="footer-dashboard">
     <div class="order-more">
-      <%= link_to "Order more", restaurant_dishes_path(Restaurant.find(@table.restaurant_id)), class: "order-more-button"  %>
+      <%= link_to "Order more",
+          restaurant_dishes_path(
+            Restaurant.find(@table.restaurant_id),
+            params: {table_id: @table.id}
+          ),
+          class: "order-more-button"  %>
     </div>
     <div class="pay">
       <%= link_to "Pay", bill_path(@bill), class: "pay-button" %>
