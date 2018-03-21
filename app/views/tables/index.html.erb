@@ -23,7 +23,7 @@
             <div class="dashboard-controller-avatars">
               <% if table.active_bill? %>
                   <% table.active_bill.users.uniq[0..3].each do |user| %>
-                    <%= card_photo_or_generic(user) %>
+                    <%= table_card_photo_or_generic(user) %>
                   <% end %>
               <% end %>
               <% if table.active_bill.users.uniq.size > 4 %>
