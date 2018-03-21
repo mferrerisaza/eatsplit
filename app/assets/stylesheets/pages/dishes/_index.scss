@@ -61,9 +61,6 @@ h3 {
   background-color: white;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
-  border-top: 1px solid $our-red;
-  border-left: 1px solid $our-red;
-  border-right: 1px solid $our-red;
   box-shadow: 0 0 1em lightgray;
   position: fixed;
   width: 100vw;
@@ -78,9 +75,9 @@ h3 {
   z-index: 1;
   position: absolute;
   padding: 8px;
-  right: 51%;
-  width: 12px;
-  height: 12px;
+  right: 70%;
+  width: 10px;
+  height: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,6 +88,10 @@ h3 {
   }
 .checkout-notification-group{
   position: relative;
+  .fa-shopping-basket{
+    color: gray;
+    font-size: 30px;
+  }
 }
 .checkout-page-container{
   height: 100vh;

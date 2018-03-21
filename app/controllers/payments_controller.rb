@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
   after_action :verify_authorized, except: [:new, :create]
 
 
-  skip_before_action :authenticate_user!, only: [:new, :create]
+  skip_before_action :authenticate_user!, only: [:create]
 
 
   def create
@@ -26,8 +26,13 @@ class PaymentsController < ApplicationController
         order.save!
       end
     end
-
-    redirect_to bill_path(@bill)
+    @bill.update_balance
+    if @bill.balance == 0
+      @bill.update(status: "paid")
+      redirect_to goodbye_path
+    else
+      redirect_to bill_path(@bill)
+    end
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
@@ -37,7 +42,7 @@ class PaymentsController < ApplicationController
 private
 
   def set_bill
-    @bill = Bill.where(status: 'unpaid').find(params[:bill_id])
+    @bill = Bill.find(params[:bill_id])
   end
 end
 
