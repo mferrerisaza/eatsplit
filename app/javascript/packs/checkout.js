@@ -15,7 +15,6 @@ function addCloseCheckoutListener() {
     times.addEventListener("click", (event) => {
       basket.classList.remove("hidden");
       document.querySelector(".checkout-page-container").classList.add("hidden");
-      checkBasket(buttons);
     })
   }
 }
