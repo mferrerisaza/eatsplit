@@ -26,8 +26,13 @@ class PaymentsController < ApplicationController
         order.save!
       end
     end
-
-    redirect_to bill_path(@bill)
+    @bill.update_balance
+    if @bill.balance == 0
+      @bill.update(status: "paid")
+      redirect_to goodbye_path
+    else
+      redirect_to bill_path(@bill)
+    end
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
