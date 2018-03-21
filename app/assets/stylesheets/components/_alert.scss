@@ -9,7 +9,7 @@
   padding: 25px;
 }
 .alert-info {
-  background: $green;
+  background: black;
 }
 .alert-warning {
   background: $red;
@@ -18,7 +18,7 @@
 .alert-fullscreen {
   height: 100vh;
   position: fixed;
-  opacity: 0.9;
+  background-color: rgba(0,0,0,0.75);
   z-index: 2;
   overflow: scroll;
   top: 0px;
@@ -26,6 +26,7 @@
 .alert-message {
   height: 90vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -40,6 +41,6 @@
 }
 
 .mult {
-  color: black;
+  color: white;
   font-size: 50px;
 }
