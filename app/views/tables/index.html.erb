@@ -1,8 +1,6 @@
 <%= render "shared/simple-navbar" %>
-
 <div class="main-tables">
-
-  <h3 id="table-select-title">Almost there! Please select your table:</h3>
+  <h3 id="table-select-title">Almost there!<br> Please select your table:</h3>
   <div class="container">
       <% @tables.each do |table| %>
         <%=  link_to table_path(table), data:{ confirm: "You're about to join table ##{table.number}. Is it ok?" }, class: "table-links" do %>
@@ -22,40 +20,19 @@
             </div>
             <div class="table-card-box-right">
               <div class="dashboard-controller-avatars">
-
                 <% if table.active_bill? %>
-                  <p class="table-status">
-                    <%= "Table open #{distance_of_time_in_words(Time.now, table.active_bill.created_at)} ago" %>
-                  </p>
-                <% else %>
-                  <p class="table-status">Be the first to join table!</p>
+                    <% table.active_bill.users.uniq[0..3].each do |user| %>
+                      <%= table_card_photo_or_generic(user) %>
+                    <% end %>
+                <% end %>
+                <% if table.active_bill.users.uniq.size > 4 %>
+                  <span>+<%= table.active_bill.users.uniq.size - 4 %></span>
                 <% end %>
               </div>
-              <div class="table-card-box-right">
-                <div class="dashboard-controller-avatars">
-                  <% if table.active_bill? %>
-                      <% table.active_bill.users.uniq[0..3].each do |user| %>
-                        <%= table_card_photo_or_generic(user) %>
-                      <% end %>
-                  <% end %>
-                  <% if table.active_bill? && table.active_bill.users.uniq.size > 4 %>
-                    <span>+<%= table.active_bill.users.uniq.size - 4 %></span>
-                  <% end %>
-                </div>
-              </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
-    </div>
-        <div class="table-select-footer">
-          <%= submit_tag "Please select table", class: "button3 btn-is-disabled"%>
-        </div>
-       <% end %>
+      <% end %>
   </div>
 </div>
-
-
 <%= javascript_pack_tag 'table-select' %>
-
-
-
