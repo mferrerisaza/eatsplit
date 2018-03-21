@@ -32,9 +32,9 @@ class OrdersController < ApplicationController
       @order.amount = @order.quantity * @order.dish.price
     elsif params["update"] == "toggle_check"
       if @order.status == "1"
-        @order.update(status: "0")
+        @order.update(status: "0", picking_user: nil)
       elsif @order.status == "0"
-        @order.update(status: "1")
+        @order.update(status: "1", picking_user: current_user)
       end
     end
     if @order.quantity == 0
