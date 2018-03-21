@@ -27,6 +27,7 @@
   align-items: center;
   box-shadow: 0 0 0.2em rgba(0,0,0,0.2);
   margin: 8px 0px;
+  border-radius: 3px;
 }
 
 .table-card-selected {
@@ -54,6 +55,7 @@
 
 .table-status {
   font-size: 12px;
+  font-weight: lighter;
 }
 
 .table-card-box-right {
