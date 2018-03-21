@@ -1,45 +1,43 @@
 <h3 id="table-select-title">Almost there! Please select your table!</h3>
 <div class="container">
   <%= form_tag bills_path, id: "table-select-form" do |f| %>
-  <% @tables.each do |table| %>
-  <%= radio_button_tag :table, table.id%>
-   <%= label_tag "table_#{table.id}" do %>
-  <div class="table-card" data-table-id= <%= table.id %>>
-    <div class="table-card-box-left">
-      <p><%= "Table ##{table.number}" %></p>
-      <% if table.active_bill? %>
-        <p class="table-open-time"><%= "Table active #{distance_of_time_in_words(Time.now, table.active_bill.created_at)} ago" %></p>
-      <% end %>
-    </div>
-    <div class="table-card-box-right">
-      <% if table.active_bill.users.uniq.size > 1 %>
-      <div class="dashboard-controller-avatars">
-        <% if table.active_bill.users.uniq.size == 1 %>
-        <% elsif table.active_bill.users.uniq.size < 3 %>
-          <% table.active_bill.users.uniq.each do |user| %>
-            <% if user != current_user %>
-              <%= card_photo_or_generic(user) %>
+    <% @tables.each do |table| %>
+      <%= radio_button_tag :table, table.id%>
+      <%= label_tag "table_#{table.id}" do %>
+        <div class="table-card" data-table-id= <%= table.id %>>
+          <div class="table-card-box-left">
+            <div class="table-card-title">
+              <i class="em em-fork_and_knife"></i>
+              <p><%= "Table ##{table.number}" %></p>
+            </div>
+            <% if table.active_bill? %>
+              <p class="table-status">
+                <%= "Table open #{distance_of_time_in_words(Time.now, table.active_bill.created_at)} ago" %>
+              </p>
+            <% else %>
+              <p class="table-status">Be the first to join table!</p>
             <% end %>
-          <% end %>
-        <% else %>
-          <% table.active_bill.users.uniq[0..2].each do |user| %>
-            <% if user != current_user %>
-            <%= card_photo_or_generic(user) %>
-            <% end %>
-          <% end %>
-          <% if table.active_bill.users.uniq.size > 4 %>
-            <span>+<%= table.active_bill.users.uniq.size - 4 %></span>
-          <% end %>
-        <% end %>
-      </div>
+          </div>
+          <div class="table-card-box-right">
+            <div class="dashboard-controller-avatars">
+              <% if table.active_bill? %>
+                  <% table.active_bill.users.uniq[0..3].each do |user| %>
+                    <%= card_photo_or_generic(user) %>
+                  <% end %>
+              <% end %>
+              <% if table.active_bill.users.uniq.size > 3 %>
+                <span>+<%= table.active_bill.users.uniq.size - 3 %></span>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </div>
-  </div>
+    <% end %>
+     <%= submit_tag "Please select table", class: "button3 btn-is-disabled"%>
    <% end %>
-  <% end %>
-   <%= submit_tag "Join table", class: "button3"%>
- <% end %>
 </div>
+
+<%= javascript_pack_tag 'table-select' %>
 
 
 
