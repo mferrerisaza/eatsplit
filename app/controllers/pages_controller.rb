@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def goodbye
+    session[:location] = []
   end
 end
