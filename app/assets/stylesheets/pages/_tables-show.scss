@@ -35,6 +35,7 @@ body {
 
 .btn-pay {
   width: 70px;
+  padding-left: 16px
 }
 .btn-order-more {
   width: 90px;
@@ -50,6 +51,7 @@ body {
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
+  position: relative;
 }
 .message:first-child {
   border-bottom: none;
@@ -60,6 +62,7 @@ body {
 .message-name {
   padding-left: 10px;
   min-width: 100px;
+  max-width: 60vw;
 }
 .message-name h3 {
   font-size: 13px;
@@ -77,11 +80,63 @@ body {
     border-radius: 50%;
 }
 
+.message-body {
+  padding-left: 10px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.message-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.message-name strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.message-name p {
+  margin: 6px 0;
+}
 
+.quantity {
+  font-size: 12px;
+  color: #E9585A;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  box-shadow: 2px 1px #E9585A;
 
+}
 
+.time_ago {
+  font-size: 12px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
 
+.table-name-and-date {
+  display: flex;
+  flex-direction: row;
+  p {
+    margin-top: 25px;
+    margin-bottom: 0px;
+    font-size: 10px;
+    margin-left: 5px;
+    padding-top: 2px;
+  }
+}
 
+.message-status {
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translate(0, -39%);
+
+}
 // .top-dashboard-container-top {
 //   display: flex;
 //   justify-content: center;
