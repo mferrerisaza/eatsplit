@@ -4,7 +4,7 @@
       <%= link_to "Log in", new_user_session_path, class: "log_in_link" %>
     </div>
   <% else %>
-    <div class="log_out">
+    <div class="log_out-simple-navbar">
       <%= link_to "Log out", destroy_user_session_path, :method => 'delete', class: "log_in_link"
        %>
     </div>
