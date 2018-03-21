@@ -1,5 +1,5 @@
 const links = document.querySelectorAll("a");
-const tableCards = link.querySelectorAll(".table-card");
+const tableCards = document.querySelectorAll(".table-card");
 const button = document.querySelector(".button3")
 
 
@@ -19,7 +19,7 @@ function removeTableSelectedClass() {
 
 
 
-links.forEach( (link) => {
+links.forEach((link)=>{
 
   link.addEventListener("click", (event) => {
     removeTableSelectedClass()
@@ -28,8 +28,7 @@ links.forEach( (link) => {
         // button.disabled = false
     // button.classList.remove("btn-is-disabled")
     // button.value = "Join table"
-
-  });
+    });
   });
 
 
