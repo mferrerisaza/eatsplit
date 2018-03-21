@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
   root to: 'pages#home'
+  get '/goodbye', to: "pages#goodbye", as: "goodbye"
   resources :tables, only: :show
   resources :bills, only: [:new, :show, :create, :update] do
     resources :payments, only: [:new, :create]
