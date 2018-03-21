@@ -1,21 +1,33 @@
 const tableCards = document.querySelectorAll(".table-card");
+const button = document.querySelector(".button3")
 
-tableCards.forEach( (card) => {
-  card.addEventListener("click", (event) => {
-    removeSelectedClass()
-    card.classList.add("table-card-selected")
-  });
+
+document.addEventListener("DOMContentLoaded",(event) => {
+  button.disabled = true
 })
 
 
 
-function removeSelectedClass() {
+function removeTableSelectedClass() {
   tableCards.forEach( (card) => {
           if (card.classList.contains("table-card-selected")) {
             card.classList.remove("table-card-selected")
           };
         });
 };
-// Listen to the click
-// Remove the active class whereever present
-// Add it to where is clicked
+
+
+
+tableCards.forEach( (card) => {
+  card.addEventListener("click", (event) => {
+    removeTableSelectedClass()
+    card.classList.add("table-card-selected")
+    button.disabled = false
+    button.classList.remove("btn-is-disabled")
+    button.value = "Join table"
+
+  });
+})
+
+
+
