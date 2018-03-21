@@ -48,7 +48,11 @@
           <p id="total-amount"></p>
         </div>
         <div class="orders-form">
+          <% if @table.nil? %>
             <%= link_to "Finish your order", restaurant_tables_path(@restaurant), class: "button3" %>
+          <% else %>
+            <%= link_to "Finish your order", table_path(@table), class: "button3" %>
+          <% end %>
         </div>
       </div>
     </div>
