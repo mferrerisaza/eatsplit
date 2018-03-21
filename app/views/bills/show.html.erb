@@ -2,101 +2,72 @@
   <div class="bill-header">
       Your table's Bill:
   </div>
-  <div class="bill-header">
-      Check items you wish to pay for.
+  <div class="bill-subheader">
+      Select the items you wish to pay for.
   </div>
 </div>
 
-<div class="container bill">
+<div class="container-bill">
 
-
-  <%= simple_form_for @bill, remote: true do |f| %>
-    <%= f.simple_fields_for :orders do |ff| %>
-      <%= render "shared/bill-card",ff: ff,  order: ff.object, id: ff.object.id  %>
+<div>
+  <h4 class="bill-category">
+    <i class="fas fa-user"></i>
+    Your Orders
+  </h4>
+  <% @your_orders.each do |order| %>
+    <%= link_to order_path(order, params: {update: "toggle_check"}), method: :put, remote: true, class: "bill-order-card" do%>
+        <%= render "shared/new-bill-card",order: order  %>
     <% end %>
   <% end %>
+</div>
+<div>
+  <h4 class="bill-category">
+    <i class="fas fa-users"></i>
+    Other others
+  </h4>
+  <% @other_orders.each do |order| %>
+    <%= link_to order_path(order, params: {update: "toggle_check"}), method: :put, remote: true, class: "bill-order-card" do%>
+        <%= render "shared/new-bill-card",order: order  %>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <h4 class="bill-category">
+    <i class="fas fa-check-square"></i>
+    Already paid
+  </h4>
+  <% @paid_orders.each do |order| %>
+    <%= render "shared/new-bill-card",order: order  %>
+  <% end %>
+</div>
 
   <%= simple_form_for :payment, url: bill_payments_path(@bill), method: "POST", html: {id: "payment-form"} do |f| %>
     <%= f.hidden_field "stripe_token", id: "stripe-token" %>
     <%= f.hidden_field "amount", id: "stripe-amount" %>
     <%= f.hidden_field "stripe_email", value: current_user.email %>
-    <%= f.submit "Pay with card", id: "trigger-stripe-checkout" %>
-
-    <script src="https://checkout.stripe.com/checkout.js">
-    </script>
-
-    <script>
-      var handler = StripeCheckout.configure({
-        key: '<%= Rails.configuration.stripe[:publishable_key] %>',
-        locale: 'auto',
-        name: 'Pay with card',
-        description: 'BLAH',
-        currency: "EUR",
-        email: "<%= current_user.email %>",
-        token: function(token) {
-          document.getElementById('stripe-token').value = token.id;
-          document.getElementById('payment-form').submit();
-        }
-      });
-      document.getElementById('trigger-stripe-checkout').addEventListener('click', function(e) {
-        e.preventDefault();
-        amount = document.getElementById("stripe-amount").value;
-        handler.open({
-          amount: Math.round(amount)
-        })
-      });
-
-    </script>
-  <% end %>
-
-</div>
-
-
-  <div class="total-display" id="bill-total-display">
-    <button type="button" class="button fixy2" style="background-color: white; color: #000000;">
-      <div class="center">
-        Your Total: €
-        <span id='total'>
-          0
-        </span>
+    <div class="bill-footer">
+      <div class="total-display" id="bill-total-display">
+        Selected amount to pay:
+        <div class="total-display-amount">
+          €
+          <span id='total'>
+            0
+          </span>
+        </div>
       </div>
-    </button>
-  </div>
-
-<div class="container payment-buttons">
-
-  <div class="button-fix">
-
-  </div>
-  <div class="button-fix">
-    <button type="button" class="button fixy" data-toggle="modal" data-target=".bd-cash-modal-sm">
-      Pay by Cash
-    </button>
-  </div>
-</div>
-
-
-
-<div class="modal fade bd-card-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="payment-modal">
-  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Pay by Card</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+      <div class="payment-buttons">
+        <button type="button" class="bill-button" data-toggle="modal" data-target=".bd-cash-modal-sm">
+          On register
         </button>
-      </div>
-      <div class="modal-body">
-        <p>Please enter your card details</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Secure Checkout</button>
+        <%= f.submit "Credit card", id: "trigger-stripe-checkout", class: "bill-button-inverse" do%>
+          <i class="fas fa-money-bill-alt"></i>
+        <% end %>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
 
+<!-- Boostrap modal for paying with cash -->
 <div class="modal fade bd-cash-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="payment-modal">
   <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -116,3 +87,28 @@
     </div>
   </div>
 </div>
+
+<!-- Stripe form pops up on form pay with cash click button -->
+<script src="https://checkout.stripe.com/checkout.js">
+</script>
+<script>
+  var handler = StripeCheckout.configure({
+    key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+    locale: 'auto',
+    name: 'Pay with card',
+    description: "Okey let's pay :)",
+    currency: "EUR",
+    email: "<%= current_user.email %>",
+    token: function(token) {
+      document.getElementById('stripe-token').value = token.id;
+      document.getElementById('payment-form').submit();
+    }
+  });
+  document.getElementById('trigger-stripe-checkout').addEventListener('click', function(e) {
+    e.preventDefault();
+    amount = document.getElementById("stripe-amount").value;
+    handler.open({
+      amount: Math.round(amount)
+    })
+  });
+</script>

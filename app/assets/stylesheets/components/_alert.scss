@@ -6,10 +6,40 @@
   margin: 0;
   text-align: center;
   color: white;
+  padding: 25px;
 }
 .alert-info {
   background: $green;
 }
 .alert-warning {
   background: $red;
+}
+
+.alert-fullscreen {
+  height: 100vh;
+  position: fixed;
+  opacity: 0.9;
+  z-index: 2;
+  overflow: scroll;
+  top: 0px;
+}
+.alert-message {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.alert-dismissible {
+  padding-right: 0px;
+}
+.alert-dismissible .close {
+  position: relative;
+  top: 0px;
+  right: 30px;
+  color: inherit;
+}
+
+.mult {
+  color: black;
+  font-size: 50px;
 }

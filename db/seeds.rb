@@ -12,7 +12,7 @@ puts "Seeding the Users"
 
 u = User.new( email: "miguelf7@gmail.com", password:"123456", password_confirmation:"123456")
 u.profile = Profile.create(name: "Miguel Ferrer")
-u.profile.remote_photo_url = "https://kitt.lewagon.com/placeholder/users/random"
+u.profile.remote_photo_url = "https://kitt.lewagon.com/placeholder/users/mferreri7"
 u.save!
 
 u = User.new( email: "dan@gmail.com", password:"123456", password_confirmation:"123456")
