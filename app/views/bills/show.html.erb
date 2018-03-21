@@ -2,22 +2,44 @@
   <div class="bill-header">
       Your table's Bill:
   </div>
-  <div class="bill-header">
-      Check items you wish to pay for.
+  <div class="bill-subheader">
+      Select the items you wish to pay for.
   </div>
 </div>
 
 <div class="container-bill">
 
-  <% @bill.orders.each do |order| %>
-    <% if order.status == "paid" %>
-      <%= render "shared/new-bill-card",order: order  %>
-    <% else %>
-      <%= link_to order_path(order, params: {update: "toggle_check"}), method: :put, remote: true, class: "bill-order-card" do%>
-          <%= render "shared/new-bill-card",order: order  %>
-      <% end %>
+<div>
+  <h4 class="bill-category">
+    <i class="fas fa-user"></i>
+    Your Orders
+  </h4>
+  <% @your_orders.each do |order| %>
+    <%= link_to order_path(order, params: {update: "toggle_check"}), method: :put, remote: true, class: "bill-order-card" do%>
+        <%= render "shared/new-bill-card",order: order  %>
     <% end %>
   <% end %>
+</div>
+<div>
+  <h4 class="bill-category">
+    <i class="fas fa-users"></i>
+    Other others
+  </h4>
+  <% @other_orders.each do |order| %>
+    <%= link_to order_path(order, params: {update: "toggle_check"}), method: :put, remote: true, class: "bill-order-card" do%>
+        <%= render "shared/new-bill-card",order: order  %>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <h4 class="bill-category">
+    <i class="fas fa-check-square"></i>
+    Already paid
+  </h4>
+  <% @paid_orders.each do |order| %>
+    <%= render "shared/new-bill-card",order: order  %>
+  <% end %>
+</div>
 
   <%= simple_form_for :payment, url: bill_payments_path(@bill), method: "POST", html: {id: "payment-form"} do |f| %>
     <%= f.hidden_field "stripe_token", id: "stripe-token" %>
@@ -37,7 +59,9 @@
         <button type="button" class="bill-button" data-toggle="modal" data-target=".bd-cash-modal-sm">
           On register
         </button>
-        <%= f.submit "Credit card", id: "trigger-stripe-checkout", class: "bill-button" %>
+        <%= f.submit "Credit card", id: "trigger-stripe-checkout", class: "bill-button-inverse" do%>
+          <i class="fas fa-money-bill-alt"></i>
+        <% end %>
       </div>
     </div>
   <% end %>
