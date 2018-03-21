@@ -1,29 +1,21 @@
-<div class='billy3 <%= order.status %> '>
-  <div class='billy5'>
-    <div class='avatar-container'>
-      <%= card_photo_or_generic(order.user) %>
-    </div>
-    <div style>
-      <p class='price'><%= order.user.email.split('@').first %></p>
+<div class='bill-card'>
+  <div class="bill-card-user">
+    <%=card_photo_or_generic(order.user)%>
+  </div>
+  <div class="bill-card-details">
+    <div class="center-text-align-left">
+      <p class="bill-card-details-dish"><%= order.dish.name %></p>
+      <p class="bill-card-order-user">Ordered by: <%= order.user.profile.name %></p>
     </div>
   </div>
-  <div class='billy'>
-    <div class='within-billy'>
-      <h4><%= order.dish.name %></h4>
-      <div class='price-ordered-by'>
-        <p class='price'><%= humanized_money_with_symbol(order.dish.price) %> x <%= order.quantity %></p>
+  <div class='order-status-amount'>
+    <% if order.status == "paid" %>
+      <div class="<%= order.status %>">PAID</div>
+    <% else %>
+      <div class='total-price' data-order-id="<%= order.id %>" data-checked=<%= order.user == current_user %>>
+        <%= humanized_money_with_symbol(order.amount) %>
       </div>
-    </div>
-  </div>
-  <div class='avatar-checkbox-container'>
-    <div class='avatar-checkbox'>
-      <% if order.status == "paid" %>
-        PAID
-      <% else %>
-        <div class='total-price' data-order-id="<%= order.id %>" data-checked=<%= order.user == current_user %>>
-          <%= humanized_money_with_symbol(order.amount) %>
-        </div>
-      <% end %>
-    </div>
+    <% end %>
+    <p class='total-price-details'>(<%= humanized_money_with_symbol(order.dish.price) %> x <%= order.quantity %>)</p>
   </div>
 </div>
