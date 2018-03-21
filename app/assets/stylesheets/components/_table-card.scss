@@ -2,24 +2,23 @@
   padding-left: 16px;
 }
 
-#table-select-form {
-  input {
-    display: none;
-  }
-
-  input:last-child {
-    display: block;
-  }
-
-  label {
-    display: block;
-    max-width: 100%;
-    margin-bottom: 0px;
-    font-weight: normal;
-  }
-
+.table-links {
+  color: #333333;
 
 }
+
+.table-links:active {
+  color: #333333;
+  text-decoration: none
+
+}
+
+.table-links:hover {
+  color: #333333;
+  text-decoration: none
+
+}
+
 
 .table-card {
   display: flex;
@@ -31,7 +30,7 @@
   transition: 1s ease;
 }
 
-label:last-child {
+a:last-child {
   .table-card{
   margin-bottom: 12vh;
   }
