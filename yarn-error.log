@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js check --integrity
+  /usr/bin/node /usr/share/yarn/bin/yarn.js install cloudinary
 
 PATH: 
-  /home/mferreri/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/home/mferreri/.rbenv/versions/2.4.3/bin:/home/mferreri/.rbenv/libexec:/home/mferreri/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/mferreri/.rbenv/shims:/home/mferreri/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+  /home/mferreri/.rbenv/versions/2.4.3/bin:/home/mferreri/.rbenv/libexec:/home/mferreri/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/mferreri/.rbenv/shims:/home/mferreri/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/sbin
 
 Yarn version: 
   1.5.1
@@ -7349,9 +7349,9 @@ Lockfile:
       yeoman-environment "^2.0.5"
 
 Trace: 
-  Error: Found 1 errors.
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add cloudinary" instead.
       at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
-      at /usr/share/yarn/lib/cli.js:59470:13
+      at Object.<anonymous> (/usr/share/yarn/lib/cli.js:21987:13)
       at Generator.next (<anonymous>)
       at step (/usr/share/yarn/lib/cli.js:98:30)
       at /usr/share/yarn/lib/cli.js:109:13
