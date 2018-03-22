@@ -43,9 +43,9 @@
             </div>
           </div>
             <% if @table.nil? %>
-              <%= link_to "Checkout", restaurant_tables_path(@restaurant), class: "checkout-button" %>
+              <%= link_to "Place Order", restaurant_tables_path(@restaurant), class: "checkout-button" %>
             <% else %>
-              <%= link_to "Checkout", table_path(@table), class: "checkout-button" %>
+              <%= link_to "Place Order", table_path(@table), class: "checkout-button" %>
             <% end %>
         </div>
       </div>
