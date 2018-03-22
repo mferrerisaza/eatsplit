@@ -1,5 +1,5 @@
 
-
+var cloudinary = require('cloudinary');
 document.addEventListener("DOMContentLoaded", () => {
 
   let billId;
@@ -57,6 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
     paidOrdersContainer.innerHTML = "";
   }
 
+  function cardPhotoOrGeneric(profile){
+    if (profile.photo.url){
+      return cloudinary.image(profile.photo.url, {height: 300, width: 300, crop: "fill", gravity: "face", class: "bill-card-user-avatar"})
+    } else{
+      return cloudinary.image("http://res.cloudinary.com/dnf96fubu/image/upload/v1520418809/facebook-profile-picture-no-pic-avatar.jpg",
+       {height: 300, width: 300, crop: "fill", gravity: "face", class: "bill-card-user-avatar"})
+    }
+  }
+
   function buildPaidOrders(order){
     if (paidOrdersContainer.childNodes.length === 0){
       paidOrdersContainer.insertAdjacentHTML("afterbegin",
@@ -69,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     paidOrdersContainer.insertAdjacentHTML("beforeend",
       `<div class='bill-card ${order.status} %>'>
         <div class="bill-card-user">
-          <img src="${order.user_profile.photo.url}" alt="user-profile-pic" class="bill-card-user-avatar">
+          ${cardPhotoOrGeneric(order.user_profile)}
         </div>
         <div class="bill-card-details">
           <div class="center-text-align-left">
@@ -98,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `<a class="bill-order-card" data-remote="true" rel="nofollow" data-method="put" href="/orders/${order.id}?update=toggle_check">
       <div class='bill-card ${order.status}'>
         <div class="bill-card-user">
-          <img src="${order.user_profile.photo.url}" alt="user-profile-pic" class="bill-card-user-avatar">
+          ${cardPhotoOrGeneric(order.user_profile)}
         </div>
         <div class="bill-card-details">
           <div class="center-text-align-left">
@@ -129,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `<a class="bill-order-card" data-remote="true" rel="nofollow" data-method="put" href="/orders/${order.id}?update=toggle_check">
       <div class='bill-card ${order.status}'>
         <div class="bill-card-user">
-          <img src="${order.user_profile.photo.url}" alt="user-profile-pic" class="bill-card-user-avatar">
+          ${cardPhotoOrGeneric(order.user_profile)}
         </div>
         <div class="bill-card-details">
           <div class="center-text-align-left">
