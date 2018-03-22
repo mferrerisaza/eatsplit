@@ -11,12 +11,12 @@
   color: white;
   position: relative;
   margin-bottom: 10px;
-  border-radius: 3px;
   transition: transform .3s ease-out;
   transition: transform .3s ease-out;
   &:hover{
     transform: scale3d(1.03, 1.03, 1.1);
     opacity: 0.9;
+
     }
 }
 
@@ -67,4 +67,57 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+
+
+.card-container:hover {
+  text-decoration: none;
+}
+
+.card-details {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+    padding: 0px 8px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.card-location-info {
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: 12px;
+    color: $our-red;
+    margin-top: 12.5px;
+    margin-right: 8px;
+  }
+   p {
+      color: white;
+      font-weight: lighter;
+      font-size: 12px;
+      margin-top: 12.5px;
+      margin-bottom: 0px;
+      text-align: right;
+    }
+}
+
+.restaurant-address {
+    font-size: 12.5px;
+    color: white;
+  }
+
+.card-info {
+  p {
+      color: white;
+      font-size: 16px;
+      margin: 0;
+  }
+  >p {
+    font-size: 24px;
+  }
 }
