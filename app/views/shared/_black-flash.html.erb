@@ -3,15 +3,23 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="mult" aria-hidden="true">&times;</span></button>
     <div class="alert-message">
       <!-- Your food should be with you shortly. In the meantime you can order more food, pay the bill or simply relax! -->
-      <div class="internal-message">
-        Thank you for ordering!
+      <div class="logo-landing">
+        <%= image_tag "logo_landing.svg", height: 70, class: "center" %>
+        <h1>eatsplit</h1>
+        <br>
+        <div class="internal-message internal-message-1">
+          Thank you for ordering!
+        </div>
       </div>
       <div class="internal-message internal-message-2">
-        Your food should be with you shortly
-      </div>
-      <div class="internal-message internal-message-3">
-        In the meantime you can order more food, pay the bill or simply relax!
+       <p>
+          Your food should be with you shortly <i class='em em-stopwatch'></i>
+       </p>
+        <p>
+          In the meantime you can order more food, pay the bill or simply relax! <i class='em em-beach_with_umbrella'></i>
+        </p>
       </div>
     </div>
   </div>
 <% end %>
+s
