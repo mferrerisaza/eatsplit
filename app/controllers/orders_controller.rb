@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def index
     @bill = Bill.find(params[:bill_id])
-    render json: { orders: policy_scope(@bill.orders)}
+    render json: { orders: policy_scope(@bill.orders)}, include: ["user","user_profile","picking_user","picking_user_profile","dish"]
   end
 
   def create
