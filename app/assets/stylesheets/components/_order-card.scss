@@ -1,6 +1,6 @@
 .orders-card-container{
   margin-top: 0px;
-  margin-bottom: 59px;
+  margin-bottom: 70px;
   width: 100%;
   border-top: 1px solid rgba(0,0,0,0.2);
   box-shadow: 0 0 0.1em lightgray;
@@ -100,22 +100,22 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 9vh;
+  height: 11vh;
   width: 100%;
   position: fixed;
   bottom: 0px;
   background-color: white;
   h3 {
     margin:0px;
-    margin-bottom: 3px;
-    margin-right: 3px;
+    // margin-bottom: 3px;
+    margin-right: 10px;
   }
   p {
     margin:0px;
     font-size: 12px;
-    font-weight: bold;
-    color: limegreen;
-    margin-right: 3px;
+    // font-weight: bold;
+    // color: limegreen;
+    // margin-right: 3px;
   }
 }
 .orders-form{
@@ -136,4 +136,9 @@
     }
   }
 }
+ .orders-total-box {
+  display: flex;
+  padding-right: 10px;
+  font-weight: lighter;
+ }
 

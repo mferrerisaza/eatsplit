@@ -10,7 +10,7 @@
   border: none;
 }
 .alert-info {
-  background: black;
+background: $green;
 }
 .alert-warning {
   background: $red;
@@ -19,7 +19,7 @@
 .alert-fullscreen {
   height: 100vh;
   position: fixed;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.85);
   z-index: 2;
   overflow: scroll;
   top: 0px;
@@ -29,8 +29,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
+.internal-message-1 {
+  font-size: 25px;
+}
+
+.internal-message-2 {
+  font-size: 15px;
+}
+
+.internal-message-3 {
+  font-size: 13px;
+}
+
 .alert-dismissible {
   padding-right: 0px;
 }
@@ -44,4 +56,8 @@
 .mult {
   color: white;
   font-size: 50px;
+}
+
+.internal-message {
+
 }

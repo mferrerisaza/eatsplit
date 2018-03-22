@@ -31,6 +31,7 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
   </head>
   <body>
+    <%= render 'shared/black-flash' %>
     <% unless current_user %>
       <%= render 'shared/flashes' %>
     <% end %>

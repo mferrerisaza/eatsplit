@@ -1,11 +1,14 @@
 <div class="navbar-eatsplit">
   <div class="table-already">
-    <%= link_to "Have a table already?", restaurant_tables_path(@restaurant), class: "log-in-link" %>
+    <%= link_to "Skip Order", restaurant_tables_path(@restaurant), class: "log-in-link" %>
   </div>
   <div class="logo-nav-container">
   <%= link_to root_path, class: "navbar-eatsplit-brand" do %>
     <%= image_tag "logo_eatsplit.svg", class: "logo" %>
   <% end %>
+  </div>
+  <div class="back-sign">
+    <%= link_to "Back", :back, class: "log_in_link" %>
   </div>
 </div>
 

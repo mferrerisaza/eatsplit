@@ -1,3 +1,4 @@
+<%= render 'shared/simple-navbar' %>
 <div class="container bill-header" data-current-user-id='<%=current_user.id%>'>
   <div class="bill-header">
       Your table's Bill:
@@ -51,7 +52,7 @@
     <%= f.hidden_field "stripe_email", value: current_user.email %>
     <div class="bill-footer">
       <div class="total-display" id="bill-total-display">
-        Selected amount to pay:
+        Your Bill:
         <div class="total-display-amount">
           €
           <span id='total'>

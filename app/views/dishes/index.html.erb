@@ -35,7 +35,7 @@
         <div class="checkout-footer">
           <div class="orders-total-box">
         Total:
-            <div class="total-order-display-amount">
+            <div>
             €
               <span id='total-amount'>
             0
@@ -43,9 +43,9 @@
             </div>
           </div>
             <% if @table.nil? %>
-              <%= link_to "Finish your order", restaurant_tables_path(@restaurant), class: "button3" %>
+              <%= link_to "Checkout", restaurant_tables_path(@restaurant), class: "checkout-button" %>
             <% else %>
-              <%= link_to "Finish your order", table_path(@table), class: "button3" %>
+              <%= link_to "Checkout", table_path(@table), class: "checkout-button" %>
             <% end %>
         </div>
       </div>

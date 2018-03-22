@@ -77,13 +77,13 @@ puts "Seeding users done"
 puts "Seeding the Restaurants"
 
 restaurant_1 = Restaurant.new(
-  name: "Mario's",
+  name: "Le Wagon",
   category: "Italian",
   address: "Carrer Grassot 101"
 )
 
 restaurant_1.remote_logo_url = "https://www.le-ratelier.com/upload/pages-dynamiques/pdmqjxrc-couverts_couleur.png"
-restaurant_1.remote_photo_url = "https://media-cdn.tripadvisor.com/media/photo-s/0b/50/62/2c/the-restaurant-at-the.jpg"
+restaurant_1.remote_photo_url = "https://kintamaniid-a903.kxcdn.com/wp-content/uploads/Hotel-The-One-Legian-4-1024x683.jpg"
 restaurant_1.user = User.find(1)
 
 restaurant_1.save!
@@ -91,11 +91,11 @@ restaurant_1.save!
 restaurant_2 = Restaurant.new(
   name: "Pizza barça",
   category: "Italian",
-  address: "Carrer Grassot 101"
+  address: "Carrer de la Indústria, 38, 08025 Barcelona"
 )
 
 restaurant_2.remote_logo_url = "https://hillsboroughcheese.files.wordpress.com/2016/03/laplace_logowhite.png"
-restaurant_2.remote_photo_url = "https://kintamaniid-a903.kxcdn.com/wp-content/uploads/Hotel-The-One-Legian-4-1024x683.jpg"
+restaurant_2.remote_photo_url = "https://media-cdn.tripadvisor.com/media/photo-s/0b/50/62/2c/the-restaurant-at-the.jpg"
 restaurant_2.user = User.find(1)
 
 restaurant_2.save!
@@ -103,7 +103,8 @@ restaurant_2.save!
 restaurant_3 = Restaurant.new(
   name: "Burger castellano",
   category: "Spanish",
-  address: "Moscow, Russia"
+  address: "Passeig Marítim, 34, 08003 Barcelona
+"
 )
 
 restaurant_3.remote_logo_url = "http://www.restaurant-la-croix-blanche.ch/images/sampledata/contact/logo-chef.png"
@@ -131,10 +132,32 @@ restaurant_5 = Restaurant.new(
   address: "Carrer de Bertran, 28, 08023 Barcelona"
 )
 restaurant_5.remote_logo_url = "http://logo-load.com/uploads/posts/2016-04/1459873183_texas-roadhouse-logo.png"
-restaurant_5.remote_photo_url = "https://ugc.zenchef.com/3/4/8/6/5/8/1/5/0/0/4/8/8/1500558718_293/b824a46e829f055b4ad94da613c66316.website.jpg"
+restaurant_5.remote_photo_url = "https://images.unsplash.com/photo-1474898856510-884a2c0be546?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c273248fe3fdc5d05883723a21f176c1&auto=format&fit=crop&w=1867&q=80"
 restaurant_5.user = User.find(1)
 
 restaurant_5.save!
+
+restaurant_6 = Restaurant.new(
+  name: "Le Grand",
+  category: "French",
+  address: "Calle Grassot, 84, 08398 Barcelona"
+)
+restaurant_6.remote_logo_url = "http://logo-load.com/uploads/posts/2016-04/1459873183_texas-roadhouse-logo.png"
+restaurant_6.remote_photo_url = "https://images.unsplash.com/photo-1483648969698-5e7dcaa3444f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b984f9f71649300b61dc95407345458c&auto=format&fit=crop&w=1867&q=80"
+restaurant_6.user = User.find(1)
+
+restaurant_6.save!
+
+restaurant_7 = Restaurant.new(
+  name: "El Rey",
+  category: "Local",
+  address: "Carrer de Còrsega, 476, 08025 Barcelona"
+)
+restaurant_7.remote_logo_url = "http://logo-load.com/uploads/posts/2016-04/1459873183_texas-roadhouse-logo.png"
+restaurant_7.remote_photo_url = "https://images.unsplash.com/photo-1416453072034-c8dbfa2856b5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=697e11b28dc962b068e3ea85d2a6538c&auto=format&fit=crop&w=2258&q=80"
+restaurant_7.user = User.find(1)
+
+restaurant_7.save!
 
 puts "Seeding Restaurants done"
 
@@ -144,7 +167,7 @@ puts "Seeding Restaurants done"
 puts "Seeding the Dishes for Restaurant_id = 1"
 
 dish_1 = Dish.new(
-  category: "Starter",
+  category: "Main",
   name: "Pizza Margherita",
   description: "Tomato, Mozzarella fior di latte, Fresh basil",
   price: 12
@@ -154,7 +177,7 @@ dish_1.remote_photo_url = "https://static01.nyt.com/images/2014/04/09/dining/09J
 dish_1.save!
 
 dish_2 = Dish.new(
-  category: "Starter",
+  category: "Main",
   name: "Pizza Quattro Stagioni",
   description: "San Marzanoo Tomato, Artichokes, Ham, Olives, Anchovies, Mushrooms",
   price: 14
@@ -192,6 +215,68 @@ dish_5 = Dish.new(
 dish_5.restaurant = restaurant_1
 dish_5.remote_photo_url = "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/2/4/2/RX-FNM_030111-Sugar-Fix-005_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371597326801.jpeg"
 dish_5.save!
+
+dish_6 = Dish.new(
+  category: "Drink",
+  name: "Mojito",
+  description: "Rum, lime, mint and sugar mixed with soda water.",
+  price: 9
+)
+dish_6.restaurant = restaurant_1
+dish_6.remote_photo_url = "https://cdn.liquor.com/wp-content/uploads/2017/03/07152909/mojito-720x720-recipe.jpg"
+dish_6.save!
+
+dish_7 = Dish.new(
+  category: "Drink",
+  name: "Beer",
+  description: "Italian beer you'll love.",
+  price: 4
+)
+dish_7.restaurant = restaurant_1
+dish_7.remote_photo_url = "https://drizly-products3.imgix.net/ci-modelo-especial-4e18bc9a164b764e.png?auto=format%2Ccompress&dpr=2&fm=jpeg&h=240&q=20"
+dish_7.save!
+
+dish_8 = Dish.new(
+  category: "Drink",
+  name: "Red dragon",
+  description: "Spicy Rhum Cocktail.",
+  price: 9
+)
+dish_8.restaurant = restaurant_1
+dish_8.remote_photo_url = "https://images.unsplash.com/photo-1472245088132-ccd50746725c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fa7ad7a324cc9efb65fe1a3abf6c287d&auto=format&fit=crop&w=2249&q=80
+"
+dish_8.save!
+
+dish_9 = Dish.new(
+  category: "Starter",
+  name: "Tomato Mozzarella",
+  description: "Delicious salad composed of fresh tomatoes and mozzarella.",
+  price: 5
+)
+dish_9.restaurant = restaurant_1
+dish_9.remote_photo_url = "https://images.unsplash.com/photo-1477921510058-85812315a3c4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=befa1deb3514834ed30ebd6fb9613093&auto=format&fit=crop&w=2250&q=80
+"
+dish_9.save!
+
+dish_10 = Dish.new(
+  category: "Dessert",
+  name: "Rasberry Bowl",
+  description: "Fresh rasberries picked from the chef's garden.",
+  price: 6
+)
+dish_10.restaurant = restaurant_1
+dish_10.remote_photo_url = "https://images.unsplash.com/44/Y51aFguqRcGTgsYRYBXV_20140104_085932.jpg?ixlib=rb-0.3.5&s=fb32189a0f9ee4105efc6b852ba18fcb&auto=format&fit=crop&w=2378&q=80"
+dish_10.save!
+
+dish_11 = Dish.new(
+  category: "Starter",
+  name: "Empañadas",
+  description: "4 beef empañadas to share with friends.",
+  price: 8
+)
+dish_11.restaurant = restaurant_1
+dish_11.remote_photo_url = "https://assets.epicurious.com/photos/5761d20e42e4a5ed66d1df48/master/pass/empanada-dough.jpg"
+dish_11.save!
 
 puts "finished seeding dishes for Restaurant_id = 1"
 

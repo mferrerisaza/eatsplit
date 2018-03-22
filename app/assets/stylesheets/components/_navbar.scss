@@ -5,8 +5,9 @@
   background: white;
   transition: all 0.3s ease;
   height: 70px;
-  padding-left: 30px;
-  padding-right: 0px;
+  padding: 0px 10px;
+  // padding-left: 30px;
+  // padding-right: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,6 +33,9 @@
 .log_in_link {
   font-size: 13px;
   color: #E9585A;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .navbar-eatsplit-brand img {
@@ -45,10 +49,15 @@
 
 .table-already {
   font-size: 12px;
-  margin-right: 10px;
+  min-width: 64px;
+  // margin-right: 10px;
   a {
     &:hover {
       text-decoration: none;
     }
   }
+}
+
+.back-sign {
+  min-width: 64px;
 }
