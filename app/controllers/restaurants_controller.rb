@@ -10,7 +10,6 @@ class RestaurantsController < ApplicationController
         @restaurants = policy_scope(Restaurant)
       else
         @restaurants = policy_scope(Restaurant).near(session[:location], 1)
-        # r.distance_from(session[:location], :km).round
       end
     elsif !params[:query].present? && params[:query].blank?
         @restaurants = policy_scope(Restaurant)
