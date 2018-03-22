@@ -19,7 +19,7 @@ background: $green;
 .alert-fullscreen {
   height: 100vh;
   position: fixed;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.85);
   z-index: 2;
   overflow: scroll;
   top: 0px;
@@ -29,14 +29,18 @@ background: $green;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
-.alert-message-2 {
-
+.internal-message-1 {
+  font-size: 25px;
 }
 
-.alert-message-3 {
+.internal-message-2 {
+  font-size: 15px;
+}
 
+.internal-message-3 {
+  font-size: 13px;
 }
 
 .alert-dismissible {
