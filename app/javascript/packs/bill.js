@@ -38,7 +38,7 @@ function updateBill() {
     }
   });
 
-  let total = document.getElementById("bill-total-number");
+  let total = document.getElementById("total");
   total.innerText = counter.toFixed(2);
   document.getElementById("stripe-amount").value = counter * 100;
 }
