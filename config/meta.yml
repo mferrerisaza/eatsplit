@@ -1,5 +1,5 @@
 meta_product_name: "eatsplit"
 meta_title: "eatsplit - Order. We take care of the rest."
 meta_description: "Restaurant ordering app"
-meta_image: "logo_eatsplit.png"                       # should exist in `app/assets/images/`
+meta_image: "logo_eatsplit_meta.png"                       # should exist in `app/assets/images/`
 twitter_account: "@eatsplitfood"   # required for Twitter Cards
