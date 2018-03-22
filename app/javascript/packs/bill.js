@@ -154,11 +154,11 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`/bills/${billId}/orders`).then(response => response.json()).then((data) => {
       data.orders.forEach((order) => {
           if (order.status === "paid"){
-            // buildPaidOrders(order);
+            buildPaidOrders(order);
           } else if (order.user_id === currentUserId){
-            // buildYourOrders(order);
+            buildYourOrders(order);
           } else {
-            // buildOtherOrders(order);
+            buildOtherOrders(order);
           }
         });
         updateBill();
