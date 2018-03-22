@@ -59,10 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function cardPhotoOrGeneric(profile){
     if (profile.photo.url){
-      return cloudinary.image(profile.photo.url, {height: 300, width: 300, crop: "fill", gravity: "face", class: "bill-card-user-avatar"})
+      return cloudinary.image(profile.photo.url, {type: "fetch", height: 300, width: 300, crop: "fill", gravity: "face", class: "avatar-medium"})
     } else{
       return cloudinary.image("http://res.cloudinary.com/dnf96fubu/image/upload/v1520418809/facebook-profile-picture-no-pic-avatar.jpg",
-       {height: 300, width: 300, crop: "fill", gravity: "face", class: "bill-card-user-avatar"})
+       {type: "fetch", height: 300, width: 300, crop: "fill", gravity: "face", class: "avatar-medium"})
     }
   }
 
