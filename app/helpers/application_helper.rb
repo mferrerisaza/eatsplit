@@ -108,4 +108,13 @@ module ApplicationHelper
       return user.profile.name
     end
   end
+
+    def m_or_km(float)
+    if float < 1
+      return "#{(float * 1000).round} m"
+    else
+      return "#{float.round} km"
+    end
+  end
+
 end
