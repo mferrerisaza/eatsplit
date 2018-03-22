@@ -102,3 +102,11 @@ input {
 .logo-nav-container {
   margin-left: -10px;
 }
+
+.no-results {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
