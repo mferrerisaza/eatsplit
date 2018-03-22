@@ -1,5 +1,5 @@
 function createTotal(){
-  const total = document.getElementById("ordered-dishes-total");
+  const total = document.getElementById("total-amount");
   let newAmount = parseFloat(<%=@order.amount%>);
   let oldAmount = parseFloat(<%=@old_amount%>);
   let actualAmount = parseFloat(total.innerHTML);
