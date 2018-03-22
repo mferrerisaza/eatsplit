@@ -188,6 +188,9 @@
  height: 34px;
  font-size: 13px;
  transition: width .7s,height .1s,border-radius .3s,margin .3s;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 
@@ -197,7 +200,7 @@
 }
 
 .bill-button {
-  font-weight: bold;
+  // font-weight: bold;
   font-size: 14px;
   border: 1px solid #E9585A;
   cursor: pointer;
@@ -207,12 +210,15 @@
   border-radius: 20px;
   background-color: white;
   color: #E9585A;
-  width: 43%;
-  height: 33px;
+  width: 34%;
+  height: 43px;
   transition: width .7s,height .1s,border-radius .3s,margin .3s;
+    &:hover {
+      text-decoration: none;
+    }
 }
 .bill-button-inverse{
-  font-weight: bold;
+  // font-weight: bold;
   font-size: 14px;
   border: 1px solid #E9585A;
   cursor: pointer;
@@ -222,8 +228,10 @@
   border-radius: 20px;
   background-color: #E9585A;
   color: white;
-  width: 43%;
-  height: 33px;
+  width: 34%;
+  height: 43px;
   transition: width .7s,height .1s,border-radius .3s,margin .3s;
-
+    &:hover {
+      text-decoration: none;
+    }
 }
