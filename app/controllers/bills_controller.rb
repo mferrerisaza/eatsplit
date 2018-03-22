@@ -3,7 +3,6 @@ class BillsController < ApplicationController
   after_action :verify_authorized, except: :create
 
   def show
-    flash[:just_ordered]= false
     @bill = Bill.find(params[:id])
     @your_orders = @bill.orders.where(user: current_user).where.not(status: "paid")
     @other_orders = @bill.orders.where.not(user: current_user).where.not(status: "paid")

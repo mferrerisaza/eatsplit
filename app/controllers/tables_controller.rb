@@ -7,6 +7,8 @@ class TablesController < ApplicationController
   end
 
   def show
+
+    puts "---------- session order_ids is #{session[:order_ids]} ----------"
     @table = Table.find(params[:id])
     authorize @table
 
@@ -24,10 +26,15 @@ class TablesController < ApplicationController
       order.save
     end
 
+    # The different writes to the DB should actually be moved to a
+    # custom Devise::SessionsController#create method for cleaner code
+
     # Create an instance variables of orders finding the orders by id
     @orders = session[:order_ids].map { |id| Order.find(id)}
     session[:order_ids] =[]
-    flash[:just_ordered]= true unless @orders.size == 0
+    unless @orders.size == 0
+      @just_ordered = true
+    end
     if @table.active_bill?
       # if the table already has a bill, add orders to the bill
       @bill = @table.active_bill
