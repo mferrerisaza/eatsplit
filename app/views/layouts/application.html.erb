@@ -31,7 +31,9 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
   </head>
   <body>
-    <%= render 'shared/flashes' %>
+    <% unless current_user %>
+      <%= render 'shared/flashes' %>
+    <% end %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

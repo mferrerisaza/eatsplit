@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:create, :update, :checkout]
+  skip_before_action :authenticate_user!, only: [:index, :create, :update, :checkout]
 
   def index
     @bill = Bill.find(params[:bill_id])
-    render json: { orders: policy_scope(@bill.orders)}
+    render json: { orders: policy_scope(@bill.orders)}, include: ["user","user_profile","picking_user","picking_user_profile","dish"]
   end
 
   def create
@@ -32,9 +32,9 @@ class OrdersController < ApplicationController
       @order.amount = @order.quantity * @order.dish.price
     elsif params["update"] == "toggle_check"
       if @order.status == "1"
-        @order.update(status: "0")
+        @order.update(status: "0", picking_user: nil)
       elsif @order.status == "0"
-        @order.update(status: "1")
+        @order.update(status: "1", picking_user: current_user)
       end
     end
     if @order.quantity == 0
