@@ -26,7 +26,9 @@
                     <% end %>
                 <% end %>
                 <% if table.active_bill.users.uniq.size > 4 %>
-                  <span>+<%= table.active_bill.users.uniq.size - 4 %></span>
+                  <div class="rest-of-table-users">
+                    <span>+<%= table.active_bill.users.uniq.size - 4 %></span>
+                  </div>
                 <% end %>
               </div>
             </div>

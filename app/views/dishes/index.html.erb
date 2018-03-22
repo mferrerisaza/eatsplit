@@ -32,18 +32,21 @@
         <h3> Your order</h3>
         <div class="orders-card-container">
         </div>
-        <div class="orders-total-footer">
-          <div class="orders-total-box">
-            <h3>Total</h3>
-            <p id="total-amount"></p>
+        <div class="checkout-footer">
+          <div class="total-display" id="bill-total-display">
+        Total:
+            <div class="total-display-amount">
+            €
+              <span id='ordered-dishes-total'>
+            0
+              </span>
+            </div>
           </div>
-          <div class="orders-form">
             <% if @table.nil? %>
               <%= link_to "Finish your order", restaurant_tables_path(@restaurant), class: "button3" %>
             <% else %>
               <%= link_to "Finish your order", table_path(@table), class: "button3" %>
             <% end %>
-          </div>
         </div>
       </div>
     </div>
