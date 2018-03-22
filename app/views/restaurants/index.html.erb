@@ -1,15 +1,24 @@
 <div class="wrapper">
   <%= render 'shared/navbar' %>
   <div class="container container-index-restaurants">
-    <h4>Hi there!</h4>
-    <h6>Let's start by <strong>selecting</strong> your restaurant</h6>
+    <% unless @restaurants.length == 0 %>
+      <h4>Hi there!</h4>
+      <h6>Let's start by <strong>selecting</strong> your restaurant</h6>
+    <% end %>
     <div class="row margin-top">
-      <% @restaurants.each do |resto| %>
-        <div class="col-xs-12 col-sm-4">
-          <%= link_to restaurant_dishes_path(resto) do %>
-            <%= render 'shared/restaurant-card', resto: resto %>
-          <% end %>
+      <% if @restaurants.length == 0 %>
+        <div class="no-results">
+          <h2>Sorry no restaurants match your search.</h2>
+          <p>Please try again.</p>
         </div>
+      <% else %>
+        <% @restaurants.each do |resto| %>
+          <div class="col-xs-12 col-sm-4">
+            <%= link_to restaurant_dishes_path(resto) do %>
+              <%= render 'shared/restaurant-card', resto: resto %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
