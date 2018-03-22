@@ -21,11 +21,12 @@
 
 
 .table-card {
+  padding: 16px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 4px 1px #e8e8e8;
-  margin: 8px 0px;
+  margin: 16px 0px;
   border-radius: 3px;
   transition: 1s ease;
 }
@@ -45,7 +46,7 @@ a:last-child {
 .table-card-box-left {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 45%;
     padding-left: 16px;
     justify-content: center;
 }
@@ -77,7 +78,7 @@ a:last-child {
   justify-content: flex-end;
   align-items: center;
   padding-right: 5%;
-  width: 40%;
+  width: 55%;
 
 
   > p {
@@ -86,14 +87,28 @@ a:last-child {
 }
 
 .dashboard-controller-avatars {
+  display: flex;
   img {
     display: inline-block;
   }
 
   span {
-    margin-left: -8px;
     color: gray;
   }
+}
+
+.rest-of-table-users {
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -12px;
 }
 
 
