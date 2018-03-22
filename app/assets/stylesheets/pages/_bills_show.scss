@@ -108,6 +108,13 @@
   align-items: center;
   padding: 15px 0px;
 }
+
+@media screen and (max-height: 500px) {
+  .payment-buttons {
+    padding: 0px 0px;
+  }
+}
+
 .bill-footer{
   box-shadow: 0 0 0.5em rgba(0,0,0,0.2);
   background-color: white;
@@ -134,4 +141,10 @@
   font-size: 15px;
   color: gray;
   margin-top: 25px;
+}
+
+.avatar-medium {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
