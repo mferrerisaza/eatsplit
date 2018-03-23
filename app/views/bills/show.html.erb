@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="container-bill" id="bill-container" data-bill-id = "<%= @bill.id %>" data-current-user-id = "<%= current_user.id %>">
+<div class="container-bill" id="bill-container" data-bill-id = "<%= @bill.id %>" data-current-user-name = "<%= current_user.profile.name %>" data-current-user-id = "<%= current_user.id %>">
   <div class="your-orders-container">
     <% if @your_orders.size > 0 %>
       <h4 class="bill-category">

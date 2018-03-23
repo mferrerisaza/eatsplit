@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
     )
 
     @bill.orders.each do |order|
-      if order.status == "1"
+      if order.status == "ticked"
         order.status = "paid"
         order.save!
       end

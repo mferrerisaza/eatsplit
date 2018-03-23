@@ -31,7 +31,7 @@ class Bill < ApplicationRecord
   def check_orders
     amount=0
     self.orders.each do |order|
-      if order.status == "1"
+      if order.status == "ticked"
         amount += order.amount
       end
     end

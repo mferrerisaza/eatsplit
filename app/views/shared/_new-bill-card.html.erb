@@ -1,4 +1,7 @@
-<div class='bill-card <%= order.status %>'>
+<div class='bill-card <%= order.status %> <%= order.picking_user == current_user ? 'ticked-by-current-user' : '' %>'
+  data-picking-user="<%= order.picking_user.profile.name unless order.picking_user.nil? %>"
+  data-picking-user-id="<%= order.picking_user.id unless order.picking_user.nil? %>"
+  >
   <div class="bill-card-user">
     <%=card_photo_or_generic(order.user)%>
   </div>
@@ -12,7 +15,7 @@
     <% if order.status == "paid" %>
       <div class="status-<%= order.status %>">PAID</div>
     <% else %>
-      <div class='total-price' data-order-id="<%= order.id %>" data-checked=<%= order.user == current_user %>>
+      <div class='total-price' data-order-id="<%= order.id %>" data-is-current-user="<%= order.picking_user == current_user %>">
         <%= humanized_money_with_symbol(order.amount) %>
       </div>
     <% end %>

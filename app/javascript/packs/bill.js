@@ -13,17 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (orderItems) {
       orderItems.forEach(function(orderItem){
         orderItem.addEventListener("click", (event) => {
-
+          event.preventDefault();
+          const pickingUserId = parseInt(orderItem.childNodes[1].dataset.pickingUserId, 10);
           const totalPriceElt = event.currentTarget.querySelector(".total-price");
           toggleCheckedStatus(totalPriceElt);
+          toggleTicked(orderItem);
           updateBill();
         })
       })
     }
   }
 
+  function toggleTicked(orderItem){
+    orderItem.childNodes[1].classList.toggle("ticked")
+    orderItem.childNodes[1].dataset.pickingUser = currentUserName;
+    orderItem.childNodes[1].dataset.pickingUserId = currentUserId;
+  }
+
   function toggleCheckedStatus(totalPriceElt){
-    totalPriceElt.dataset.checked = (totalPriceElt.dataset.checked == "false" ? "true" : "false");
+    totalPriceElt.dataset.isCurrentUser = (totalPriceElt.dataset.isCurrentUser == "false" ? "true" : "false");
   }
 
   function updateBill() {
@@ -33,14 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const priceTotalElt = element.querySelector(".total-price");
       if (priceTotalElt) {
         let priceVal = parseFloat(priceTotalElt.innerText.slice(1));
-        let checkedStatus = priceTotalElt.dataset.checked;
-        if (checkedStatus == "true") {
+        let isCurrentUser = priceTotalElt.dataset.isCurrentUser;
+        if (isCurrentUser == "true") {
           counter += priceVal;
           let border = element.parentElement;
-          border.classList.add("borderstyle");
+          border.classList.add("ticked-by-current-user");
         } else {
           let border = element.parentElement;
-          border.classList.remove("borderstyle");
+          border.classList.remove("ticked-by-current-user");
         }
       }
     });
@@ -76,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
       )
     }
     paidOrdersContainer.insertAdjacentHTML("beforeend",
-      `<div class='bill-card ${order.status} %>'>
+      `<div class='bill-card ${order.status}' data-picking-user="${(order.picking_user_profile || {}).name}" data-picking-user-id="${order.picking_user_id}">
         <div class="bill-card-user">
           ${cardPhotoOrGeneric(order.user_profile)}
         </div>
@@ -105,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     yourOrdersContainer.insertAdjacentHTML("beforeend",
     `<a class="bill-order-card" data-remote="true" rel="nofollow" data-method="put" href="/orders/${order.id}?update=toggle_check">
-      <div class='bill-card ${order.status}'>
+      <div class='bill-card ${order.status}' data-picking-user="${(order.picking_user_profile || {}).name}" data-picking-user-id="${order.picking_user_id}">
         <div class="bill-card-user">
           ${cardPhotoOrGeneric(order.user_profile)}
         </div>
@@ -116,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
         <div class='order-status-amount'>
-          <div class='total-price' data-order-id="${order.id}" data-checked=${order.user_id === currentUserId}>
+          <div class='total-price' data-order-id="${order.id}" data-is-current-user=${order.picking_user_id === currentUserId}>
             €${parseFloat((order.amount_cents)/100).toFixed(0)}
           </div>
           <p class='total-price-details'> (€${parseFloat((order.dish.price_cents)/100).toFixed(0)} x ${order.quantity})</p>
@@ -136,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     otherOrdersContainer.insertAdjacentHTML("beforeend",
     `<a class="bill-order-card" data-remote="true" rel="nofollow" data-method="put" href="/orders/${order.id}?update=toggle_check">
-      <div class='bill-card ${order.status}'>
+      <div class='bill-card ${order.status}' data-picking-user="${(order.picking_user_profile || {}).name}"  data-picking-user-id="${order.picking_user_id}">
         <div class="bill-card-user">
           ${cardPhotoOrGeneric(order.user_profile)}
         </div>
@@ -147,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
         <div class='order-status-amount'>
-          <div class='total-price' data-order-id="${order.id}" data-checked=${order.user_id === currentUserId}>
+          <div class='total-price' data-order-id="${order.id}" data-is-current-user=${order.picking_user_id === currentUserId}>
             €${parseFloat((order.amount_cents)/100).toFixed(0)}
           </div>
           <p class='total-price-details'> (€${parseFloat((order.dish.price_cents)/100).toFixed(0)} x ${order.quantity})</p>
@@ -159,8 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function getOrders(){
-    clearTheDom();
     fetch(`/bills/${billId}/orders`).then(response => response.json()).then((data) => {
+      clearTheDom();
       data.orders.forEach((order) => {
           if (order.status === "paid"){
             buildPaidOrders(order);
@@ -179,10 +187,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
      billId = document.getElementById("bill-container").dataset.billId;
      currentUserId = parseInt(document.getElementById("bill-container").dataset.currentUserId,10);
+     currentUserName = document.getElementById("bill-container").dataset.currentUserName;
+
      yourOrdersContainer = document.querySelector(".your-orders-container");
      otherOrdersContainer = document.querySelector(".other-orders-container");
      paidOrdersContainer = document.querySelector(".paid-orders-container");
-    getOrders();
+     setInterval(getOrders, 2000);
+     //setTimeout(getOrders, 3000);
   }
 })
 
