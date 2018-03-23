@@ -13,13 +13,13 @@
 .paid {
   background-color: #e7e7e7 !important;
   .status-paid{
-    color: limegreen;
+    color: $green;
   }
 }
 
 .bill-card {
   margin-top: 22px;
-  transition: 1s ease;
+  // transition: 1s ease;
   font-size: 13px;
   background-color: white;
   width: 100%;
@@ -65,7 +65,7 @@
   }
 }
 
-.borderstyle {
+.ticked-by-current-user {
   background-color: #cdffcd;
   border: 2px transparent whitesmoke;
 }
@@ -147,4 +147,23 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+
+.ticked:not(.ticked-by-current-user){
+   position: relative;
+   border: 1px solid rgba($our-red,0.5);
+ }
+
+.ticked:not(.ticked-by-current-user):after {
+  content: attr(data-picking-user);
+  text-align: center;
+  font-size: 9px;
+  color: white;
+  position: absolute;
+  right: 0;
+  z-index: 0;
+  top: 0px;
+  width: 50%;
+  height: 13px;
+  background: rgba($our-red,0.5);
 }

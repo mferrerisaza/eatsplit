@@ -7,8 +7,6 @@ class TablesController < ApplicationController
   end
 
   def show
-
-    puts "---------- session order_ids is #{session[:order_ids]} ----------"
     @table = Table.find(params[:id])
     authorize @table
 

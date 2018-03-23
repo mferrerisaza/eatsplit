@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js install cloudinary
+  /usr/bin/node /usr/share/yarn/bin/yarn.js check --integrity
 
 PATH: 
-  /home/mferreri/.rbenv/versions/2.4.3/bin:/home/mferreri/.rbenv/libexec:/home/mferreri/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/mferreri/.rbenv/shims:/home/mferreri/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/sbin
+  /home/mferreri/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/home/mferreri/.rbenv/versions/2.4.3/bin:/home/mferreri/.rbenv/libexec:/home/mferreri/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/home/mferreri/.rbenv/shims:/home/mferreri/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
 Yarn version: 
   1.5.1
@@ -20,6 +20,7 @@ npm manifest:
     "dependencies": {
       "@rails/webpacker": "^3.3.0",
       "bootstrap": "3",
+      "cloudinary": "^1.11.0",
       "jquery": "^3.3.1",
       "rails-ujs": "^5.1.5"
     },
@@ -1528,6 +1529,13 @@ Lockfile:
       inherits "^2.0.1"
       process-nextick-args "^2.0.0"
       readable-stream "^2.3.5"
+  
+  cloudinary@^1.11.0:
+    version "1.11.0"
+    resolved "https://registry.yarnpkg.com/cloudinary/-/cloudinary-1.11.0.tgz#3f6b21961d17859f271738f452427d9899591ff1"
+    dependencies:
+      lodash "^4.17.4"
+      q "^1.5.1"
   
   co@^4.6.0:
     version "4.6.0"
@@ -5473,7 +5481,7 @@ Lockfile:
     version "1.4.1"
     resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
   
-  q@^1.1.2:
+  q@^1.1.2, q@^1.5.1:
     version "1.5.1"
     resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   
@@ -7349,9 +7357,9 @@ Lockfile:
       yeoman-environment "^2.0.5"
 
 Trace: 
-  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add cloudinary" instead.
+  Error: Found 1 errors.
       at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
-      at Object.<anonymous> (/usr/share/yarn/lib/cli.js:21987:13)
+      at /usr/share/yarn/lib/cli.js:59470:13
       at Generator.next (<anonymous>)
       at step (/usr/share/yarn/lib/cli.js:98:30)
       at /usr/share/yarn/lib/cli.js:109:13
