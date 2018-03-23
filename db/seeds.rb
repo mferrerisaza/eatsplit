@@ -300,12 +300,12 @@ table_1 = Table.new(
 table_1.restaurant = restaurant_1
 
 table_2 = Table.new(
-  number: 2
+  number: 1
 )
 table_2.restaurant = restaurant_1
 
 table_3 = Table.new(
-  number: 3
+  number: 2
 )
 table_3.restaurant = restaurant_1
 
