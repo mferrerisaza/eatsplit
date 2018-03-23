@@ -295,7 +295,7 @@ puts "finished seeding dishes for Restaurant_id = 1"
 puts "seeding your tables"
 
 table_1 = Table.new(
-  number: 1
+  number: 129
 )
 table_1.restaurant = restaurant_1
 
