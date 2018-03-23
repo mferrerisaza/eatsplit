@@ -25,7 +25,7 @@
                       <%= table_card_photo_or_generic(user) %>
                     <% end %>
                 <% end %>
-                <% if table.active_bill.users.uniq.size > 4 %>
+                <% if table.active_bill? && table.active_bill.users.uniq.size > 4 %>
                   <div class="rest-of-table-users">
                     <span>+<%= table.active_bill.users.uniq.size - 4 %></span>
                   </div>

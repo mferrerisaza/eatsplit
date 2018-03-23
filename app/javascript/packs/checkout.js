@@ -4,8 +4,6 @@ function addCheckoutListener() {
     basket.addEventListener("click", (event) => {
       event.currentTarget.classList.add("hidden");
       document.querySelector(".checkout-page-container").classList.remove("hidden");
-      document.querySelector(".navbar-eatsplit").setAttribute("style", "z-index: auto;");
-      console.log("HIIII");
     });
   }
 }
@@ -17,8 +15,6 @@ function addCloseCheckoutListener() {
     times.addEventListener("click", (event) => {
       basket.classList.remove("hidden");
       document.querySelector(".checkout-page-container").classList.add("hidden");
-      document.querySelector("navbar-eatsplit").setAttribute("style", "z-index: 1;");
-      console.log("BYYYE");
     })
   }
 }
