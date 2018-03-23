@@ -11,65 +11,74 @@
 puts "Seeding the Users"
 
 u = User.new( email: "miguelf7@gmail.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Miguel Ferrer")
-u.profile.remote_photo_url = "https://kitt.lewagon.com/placeholder/users/mferreri7"
+u.save!
+u.profile.update(name: "Miguel Ferrer")
+u.profile.update(remote_photo_url: "https://kitt.lewagon.com/placeholder/users/mferreri7")
 u.save!
 
 u = User.new( email: "dan@gmail.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Dan")
-u.profile.remote_photo_url = "https://d1qb2nb5cznatu.cloudfront.net/users/5676816-large?1488403186"
+u.save!
+u.profile.update(name: "Dan")
+u.profile.update(remote_photo_url: "https://d1qb2nb5cznatu.cloudfront.net/users/5676816-large?1488403186")
 u.save!
 
-u = User.new( email: "ollie@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Ollie")
-u.profile.remote_photo_url = "http://kwartierenruimschoteloverakker.voorouders.net/thumb/37/o_ft_29038"
+u = User.new( email: "ollie@gmail.com", password:"123456", password_confirmation:"123456")
+u.save!
+u.profile.update(name: "Ollie")
+u.profile.update(remote_photo_url: "http://kwartierenruimschoteloverakker.voorouders.net/thumb/37/o_ft_29038")
 u.save!
 
-u = User.new( email: "eduardo@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Eduardo")
-u.profile.remote_photo_url = "https://media.licdn.com/dms/image/C4E03AQFTs_3JKjFcFQ/profile-displayphoto-shrink_800_800/0?e=1526752800&v=alpha&t=jaZKq772q79DScllEkaRqtNeR3w47gQ1m9nSjB0Vr-E"
+u = User.new( email: "eduardo@gmail.com", password:"123456", password_confirmation:"123456")
+u.save!
+u.profile.update(name: "Eduardo")
+u.profile.update(remote_photo_url: "https://media.licdn.com/dms/image/C4E03AQFTs_3JKjFcFQ/profile-displayphoto-shrink_800_800/0?e=1526752800&v=alpha&t=jaZKq772q79DScllEkaRqtNeR3w47gQ1m9nSjB0Vr-E")
 u.save!
 
-u = User.new( email: "victor@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Victor")
-u.profile.remote_photo_url = "https://frontrow.ventures/images/team/team/victor-64b8b8b9.jpg"
+u = User.new( email: "victor@gmail.com", password:"123456", password_confirmation:"123456")
+u.save!
+u.profile.update(name: "Victor")
+u.profile.update(remote_photo_url: "https://frontrow.ventures/images/team/team/victor-64b8b8b9.jpg")
 u.save!
 
 u = User.new( email: "luke@skywalker.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Luke")
-u.profile.remote_photo_url = "https://i.ytimg.com/vi/GIVaFxZkAPs/maxresdefault.jpg"
+u.save!
+u.profile.update(name: "Luke")
+u.profile.update(remote_photo_url: "https://i.ytimg.com/vi/GIVaFxZkAPs/maxresdefault.jpg")
 u.save!
 
 u = User.new( email: "leia@princess.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Leia")
-u.profile.remote_photo_url = "https://i.ebayimg.com/images/g/oVMAAOSw9GhYbkwu/s-l300.jpg"
+u.save!
+u.profile.update(name: "Leia")
+u.profile.update(remote_photo_url: "https://i.ebayimg.com/images/g/oVMAAOSw9GhYbkwu/s-l300.jpg")
 u.save!
 
 u = User.new( email: "darth@vader.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Darth Vader")
-u.profile.remote_photo_url = "http://clipart-library.com/images/6cr5d9qLi.jpg"
+u.save!
+u.profile.update(name: "Darth Vader")
+u.profile.update(remote_photo_url: "http://clipart-library.com/images/6cr5d9qLi.jpg")
 u.save!
 
 u = User.new( email: "jarjar@binks.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Jar Jar")
-u.profile.remote_photo_url = "http://sethspopcorn.com/wp-content/uploads/2010/10/jar-jar-binks1.jpg"
+u.save!
+u.profile.update(name: "Jar Jar")
+u.profile.update(remote_photo_url: "http://sethspopcorn.com/wp-content/uploads/2010/10/jar-jar-binks1.jpg")
 u.save!
 
-u = User.new( email: "juan@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Tanja")
+u = User.new( email: "juan@gmail.com", password:"123456", password_confirmation:"123456")
 u.save!
+u.profile.update(name: "Tanja")
 
-u = User.new( email: "avalon@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Victor")
+u = User.new( email: "avalon@gmail.com", password:"123456", password_confirmation:"123456")
 u.save!
+u.profile.update(name: "Victor")
 
-u = User.new( email: "eric@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Johann")
+u = User.new( email: "eric@gmail.com", password:"123456", password_confirmation:"123456")
 u.save!
+u.profile.update(name: "Johann")
 
-u = User.new( email: "joe@test.com", password:"123456", password_confirmation:"123456")
-u.profile = Profile.create(name: "Tanja")
+u = User.new( email: "joe@gmail.com", password:"123456", password_confirmation:"123456")
 u.save!
+u.profile.update(name: "Tanja")
 puts "Seeding users done"
 
 #Restaurants
@@ -78,7 +87,7 @@ puts "Seeding the Restaurants"
 
 restaurant_1 = Restaurant.new(
   name: "Le Wagon",
-  category: "Italian",
+  category: "French",
   address: "Carrer Grassot 101"
 )
 
