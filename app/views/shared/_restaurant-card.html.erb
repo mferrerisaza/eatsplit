@@ -5,7 +5,7 @@
       <div class="restaurant-address">      <%= resto.address %>
 </div>
     </div>
-    <% if !session[:location].nil? || !session[:location].blank?  %>
+    <% if !session[:location].blank?  %>
       <div class="card-location-info">
         <i class="fas fa-map-marker-alt"></i>
         <p><%="#{m_or_km(resto.distance_from(session[:location], :km))} away" %></p>
