@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
      yourOrdersContainer = document.querySelector(".your-orders-container");
      otherOrdersContainer = document.querySelector(".other-orders-container");
      paidOrdersContainer = document.querySelector(".paid-orders-container");
-     setInterval(getOrders, 2000);
+     setInterval(getOrders, 1000);
      //setTimeout(getOrders, 3000);
   }
 })
