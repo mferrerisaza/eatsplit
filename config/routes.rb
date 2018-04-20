@@ -17,5 +17,4 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
     resources :orders, only: :index
   end
-
 end
