@@ -168,6 +168,17 @@ restaurant_7.user = User.find(1)
 
 restaurant_7.save!
 
+restaurant_8 = Restaurant.new(
+  name: "Chef Burger",
+  category: "Burgers",
+  address: "Calle 11a 41 18, Medellin Colombia"
+)
+restaurant_8.remote_logo_url = "https://eltesoro.com.co/wp-content/uploads/2016/10/chef-burger-logo-el-tesoro.png"
+restaurant_8.remote_photo_url = "http://static.iris.net.co/dinero/upload/images/2017/7/14/247533_1.jpg"
+restaurant_8.user = User.find(1)
+
+restaurant_8.save!
+
 puts "Seeding Restaurants done"
 
 
