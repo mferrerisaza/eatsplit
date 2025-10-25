@@ -5,14 +5,8 @@ class RestaurantsController < ApplicationController
   after_action :verify_authorized, except: [:index, :location]
 
   def index
-    if !params[:query].present? && params[:query].nil?
-      if session[:location].nil? || session[:location].blank?
-        @restaurants = policy_scope(Restaurant)
-      else
-        @restaurants = policy_scope(Restaurant).near(session[:location], 1)
-      end
-    elsif !params[:query].present? && params[:query].blank?
-        @restaurants = policy_scope(Restaurant)
+    if params[:query].blank?
+      @restaurants = policy_scope(Restaurant)
     else
       @restaurants = policy_scope(filter_by_name)
     end
@@ -21,11 +15,10 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     authorize @restaurant
-
   end
 
   def location
-    session[:location] = params[:data]
+    session[:location] = nil #params[:data]
 
   end
 
